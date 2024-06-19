@@ -1,0 +1,14 @@
+/Users/tyzykhian/Documents/Otus/C# Basic/4(4).Методы, их перегрузка и расширения/Otus_Methods/Otus_Methods/bin/Debug/net7.0/Otus_Methods
+/Users/tyzykhian/Documents/Otus/C# Basic/4(4).Методы, их перегрузка и расширения/Otus_Methods/Otus_Methods/bin/Debug/net7.0/Otus_Methods.deps.json
+/Users/tyzykhian/Documents/Otus/C# Basic/4(4).Методы, их перегрузка и расширения/Otus_Methods/Otus_Methods/bin/Debug/net7.0/Otus_Methods.runtimeconfig.json
+/Users/tyzykhian/Documents/Otus/C# Basic/4(4).Методы, их перегрузка и расширения/Otus_Methods/Otus_Methods/bin/Debug/net7.0/Otus_Methods.dll
+/Users/tyzykhian/Documents/Otus/C# Basic/4(4).Методы, их перегрузка и расширения/Otus_Methods/Otus_Methods/bin/Debug/net7.0/Otus_Methods.pdb
+/Users/tyzykhian/Documents/Otus/C# Basic/4(4).Методы, их перегрузка и расширения/Otus_Methods/Otus_Methods/obj/Debug/net7.0/Otus_Methods.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tyzykhian/Documents/Otus/C# Basic/4(4).Методы, их перегрузка и расширения/Otus_Methods/Otus_Methods/obj/Debug/net7.0/Otus_Methods.AssemblyInfoInputs.cache
+/Users/tyzykhian/Documents/Otus/C# Basic/4(4).Методы, их перегрузка и расширения/Otus_Methods/Otus_Methods/obj/Debug/net7.0/Otus_Methods.AssemblyInfo.cs
+/Users/tyzykhian/Documents/Otus/C# Basic/4(4).Методы, их перегрузка и расширения/Otus_Methods/Otus_Methods/obj/Debug/net7.0/Otus_Methods.csproj.CoreCompileInputs.cache
+/Users/tyzykhian/Documents/Otus/C# Basic/4(4).Методы, их перегрузка и расширения/Otus_Methods/Otus_Methods/obj/Debug/net7.0/Otus_Methods.dll
+/Users/tyzykhian/Documents/Otus/C# Basic/4(4).Методы, их перегрузка и расширения/Otus_Methods/Otus_Methods/obj/Debug/net7.0/refint/Otus_Methods.dll
+/Users/tyzykhian/Documents/Otus/C# Basic/4(4).Методы, их перегрузка и расширения/Otus_Methods/Otus_Methods/obj/Debug/net7.0/Otus_Methods.pdb
+/Users/tyzykhian/Documents/Otus/C# Basic/4(4).Методы, их перегрузка и расширения/Otus_Methods/Otus_Methods/obj/Debug/net7.0/Otus_Methods.genruntimeconfig.cache
+/Users/tyzykhian/Documents/Otus/C# Basic/4(4).Методы, их перегрузка и расширения/Otus_Methods/Otus_Methods/obj/Debug/net7.0/ref/Otus_Methods.dll

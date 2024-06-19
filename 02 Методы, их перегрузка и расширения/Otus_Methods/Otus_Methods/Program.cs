@@ -1,5 +1,4 @@
-```c#
-using System;
+﻿using System;
 
 namespace Otus_Methods
 {
@@ -98,7 +97,7 @@ namespace Otus_Methods
             }
 
         }
-        ///пример с out
+
         static bool TryParse(string s, out bool res)
         {
             if (s == "false" || s == "true")
@@ -243,4 +242,3 @@ namespace Otus_Methods
     }
 }
 
-```
