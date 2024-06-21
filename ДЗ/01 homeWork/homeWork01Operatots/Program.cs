@@ -86,7 +86,7 @@
                         #endregion
                 }
                 Console.WriteLine($"\n{answed}введите новую команду:");
-                comand = Console.ReadLine(); // считываение новой команды
+                comand = Console.ReadLine(); // считывание  новой команды
             }
         }
     }
