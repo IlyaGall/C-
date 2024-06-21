@@ -55,7 +55,7 @@
 
                     #region /info
                     case "/info":
-                        Console.WriteLine($"{answed} версия ПО: 1.0.0.0 release; Дата создания : 20.06.2024 н.э.\n");
+                        Console.WriteLine($"{answed} версия ПО: 1.0.0.1 release; Дата создания : 21.06.2024 н.э.\n");
                         break;
                     #endregion
 
@@ -86,6 +86,7 @@
                         #endregion
                 }
                 Console.WriteLine($"\n{answed}введите новую команду:");
+                comand = Console.ReadLine(); // считываение новой команды
             }
         }
     }
