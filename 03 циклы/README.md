@@ -299,7 +299,9 @@ voidPrintColorv1(intcolor)
 ```
 
 
-## Циклы while, for foreach
+# Циклы while, for foreach
+
+## while 
 
 ![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/12.PNG)
 
@@ -319,6 +321,8 @@ voidPrintColorv1(intcolor)
 ![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/14.PNG)
 
 ![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/15.PNG)
+
+## for
 
 ```c#
 
