@@ -30,9 +30,8 @@
 * [while](https://github.com/IlyaGall/C-/tree/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B#while)
 * [for](https://github.com/IlyaGall/C-/tree/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B#for)
 * [foreach](https://github.com/IlyaGall/C-/tree/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B#foreach)
-* while
-* do
-* jump statements
+* [do while](https://github.com/IlyaGall/C-/tree/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B#do-while)
 * [break (выход из цикла)](https://github.com/IlyaGall/C-/tree/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B#break-%D0%B8-continue)
 * [continue (Продолжить ввывод)](https://github.com/IlyaGall/C-/tree/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B#break-%D0%B8-continue)
 * граничные условия циклов"
+* jump statements
