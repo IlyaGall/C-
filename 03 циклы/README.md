@@ -100,7 +100,13 @@ elseif(DividableBy10(bbb))
 }
 ```
 
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/4.PNG)
+
 ## ternar Знак вопроса
+
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/5.PNG)
+
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/6.PNG)
 
 ```c#
 string epoch;
@@ -148,6 +154,17 @@ Console.WriteLine($"'{year}'is{epoch1}");
 ```
 
 ## switch (простой пример)
+
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/7.PNG)
+
+реализация через if
+
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/8.PNG)
+
+сравнение
+
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/9.PNG)
+
 
 ```c#
 Console.WriteLine("Number1");
@@ -228,6 +245,9 @@ voidPrintColorv1(intcolor)
 ```
 
 ## switch с условием в case (<>. >=, <=, ==)
+
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/10.PNG)
+
 ```c#
  void PrintLength(string s)
  {
@@ -253,6 +273,9 @@ voidPrintColorv1(intcolor)
 ```
 
 ## swithc с еще более ложным условием (when &&)
+
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/11.PNG)
+
 ```c#
   void PrintCentury(int year)
   {
@@ -276,7 +299,11 @@ voidPrintColorv1(intcolor)
 ```
 
 
-##  while, for
+## Циклы while, for foreach
+
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/12.PNG)
+
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/13.PNG)
 
 ```c#
 
@@ -288,7 +315,12 @@ voidPrintColorv1(intcolor)
 
                 i++;
             }
+```
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/14.PNG)
 
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/15.PNG)
+
+```c#
 
             int[] ar = [1, 2, 3, 4, 2225, 6, 7];
 
@@ -319,7 +351,14 @@ voidPrintColorv1(intcolor)
             {
                 Console.WriteLine("Kakoy-to code1");
             }
+```
+## foreach
 
+! через foreach нельзя изменять коллекцию в отличии от for
+
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/16.PNG)
+
+```c#
 
             foreach (var a in ar)
             {
