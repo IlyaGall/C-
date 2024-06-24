@@ -20,7 +20,11 @@ Console.WriteLine("End of program");
 ```
 
 
+
 ## if else
+
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/2.PNG)
+
 ```c#
 var aa = 17;
 
@@ -76,6 +80,9 @@ Console.WriteLine(8 | 4);
 
 
 ## ELSE IF
+
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/3.PNG)
+
 ```c#
 var bbb=17*17*3;
 if(DividableBy3(bbb))
