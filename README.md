@@ -27,11 +27,12 @@
 * [switch реализация через ф-ю и возврат значений](https://github.com/IlyaGall/C-/tree/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B#switch-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4-%D1%81-%D0%B2%D0%BE%D0%B7%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B9)
 * [switch с условием в case (<>. >=, <=, ==)](https://github.com/IlyaGall/C-/tree/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B#switch-%D1%81-%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D0%B5%D0%BC-%D0%B2-case----)
 * [swithc с еще более ложным условием (when &&)](https://github.com/IlyaGall/C-/tree/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B#swithc-%D1%81-%D0%B5%D1%89%D0%B5-%D0%B1%D0%BE%D0%BB%D0%B5%D0%B5-%D0%BB%D0%BE%D0%B6%D0%BD%D1%8B%D0%BC-%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D0%B5%D0%BC-when-)
-* [for](https://github.com/IlyaGall/C-/tree/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B#%D1%86%D0%B8%D0%BA%D0%BB%D1%8B-while-for-foreach)
-* foreach
+* [while](https://github.com/IlyaGall/C-/tree/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B#while)
+* [for](https://github.com/IlyaGall/C-/tree/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B#for)
+* [foreach](https://github.com/IlyaGall/C-/tree/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B#foreach)
 * while
 * do
 * jump statements
-* break (выход из цикла)
-* continue (Продолжить ввывод)
+* [break (выход из цикла)](https://github.com/IlyaGall/C-/tree/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B#break-%D0%B8-continue)
+* [continue (Продолжить ввывод)](https://github.com/IlyaGall/C-/tree/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B#break-%D0%B8-continue)
 * граничные условия циклов"

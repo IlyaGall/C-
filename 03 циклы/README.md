@@ -345,7 +345,9 @@ voidPrintColorv1(intcolor)
 
 
             var jj = 0;
-
+```
+## do while
+```c#
             do
             {
                 Console.WriteLine("Kakoy-to code");
