@@ -358,6 +358,11 @@ voidPrintColorv1(intcolor)
 
 ![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/16.PNG)
 
+реализация перебора 
+
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/17.PNG)
+
+
 ```c#
 
             foreach (var a in ar)
@@ -379,7 +384,13 @@ voidPrintColorv1(intcolor)
                 Console.WriteLine(d.Count);
             }
 
+```
 
+![Image alt](https://github.com/IlyaGall/C-/blob/main/03%20%D1%86%D0%B8%D0%BA%D0%BB%D1%8B/img/18.PNG)
+
+* break выйти только из одного цикла 
+* continue пропустить ход цикла
+```c#
 
             for (var i = 0; i < 20; i++)
             {
