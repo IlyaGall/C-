@@ -164,8 +164,6 @@ Console.WriteLine($"5. 🤖 = {FormatBytes(emAr1)}");
 ```
 
 
-## base-64
-
 ```c#
 
 #region base-64
@@ -222,16 +220,14 @@ Console.WriteLine(char.IsPunctuation('.'));
 
 
 
-## C# кодирование
+### C# кодирование
 
 ```c#
 var privet = "Привет";
-var bytes = 
-Encoding.UTF8.GetBytes(privet); var b64 = 
-Convert.ToBase64String(bytes);
-var checkBytes = 
-Convert.FromBase64String(b64); var s = 
-Encoding.UTF8.GetString(checkBytes);
+var bytes = Encoding.UTF8.GetBytes(privet); 
+var b64 = Convert.ToBase64String(bytes);
+var checkBytes = Convert.FromBase64String(b64);
+var s = Encoding.UTF8.GetString(checkBytes);
 Console.WriteLine(s);
 ```
 
