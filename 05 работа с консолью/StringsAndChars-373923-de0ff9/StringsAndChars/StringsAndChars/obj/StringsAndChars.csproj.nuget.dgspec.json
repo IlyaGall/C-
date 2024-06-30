@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/tyzykhian/Documents/Otus/C# Basic/5.Символы и Строки/StringsAndChars/StringsAndChars/StringsAndChars.csproj": {}
+  },
+  "projects": {
+    "/Users/tyzykhian/Documents/Otus/C# Basic/5.Символы и Строки/StringsAndChars/StringsAndChars/StringsAndChars.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/tyzykhian/Documents/Otus/C# Basic/5.Символы и Строки/StringsAndChars/StringsAndChars/StringsAndChars.csproj",
+        "projectName": "StringsAndChars",
+        "projectPath": "/Users/tyzykhian/Documents/Otus/C# Basic/5.Символы и Строки/StringsAndChars/StringsAndChars/StringsAndChars.csproj",
+        "packagesPath": "/Users/tyzykhian/.nuget/packages/",
+        "outputPath": "/Users/tyzykhian/Documents/Otus/C# Basic/5.Символы и Строки/StringsAndChars/StringsAndChars/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/tyzykhian/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "/Users/tyzykhian/Documents/GitHub/mindbox-local": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/mindbox-cloud/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
