@@ -245,21 +245,84 @@ static string FormatBytes(byte[] b)
 
 
 
+## char
+
+char – тип символа
+* 2 байта
+* UTF-16
+Можно указывать значения
+* Явно
+char c = 'j’;
+* Escape-последовательность \x с шестнадцатиричном представлении
+char c = '\x6A’; // После \x от 1 до 4 символов
+* Escape-последовательность \u с шестнадцатиричном 
+представлении Unicode
+char c = '\u006A';
 
 
 
 
 
+## string
+String – последовательность UTF-16 символов
+var s = "Привет"; 
+var em = "🤖";
 
 
+```c#
 
+#region string
 
+Console.WriteLine("C:\\Windows \" ");
 
+Console.WriteLine(@"C:\\Windows""");
+Console.WriteLine("""
+    {  
+    }
+    """);
 
+var pr = 12414.61264;
 
+Console.WriteLine(pr + " Otus");
+var s = "fancy";
+Console.WriteLine($"Todays is a lesson, and i {s} say {pr} otus");
+Console.WriteLine(string.Format("1. Todays is a lesson, and i say {0} otus {1} {0} {2}", pr, 2142, true));
+Console.WriteLine($"Today is a {DateTime.Now:dd'/'MM'/'yyyy}, and i say |{pr,20:C}| |{s,-10}| otus");
 
+#endregion
 
+#region StringBuilder
 
+var name = "Lusparon";
+var sb = new StringBuilder("Start ");
+sb.Append("Privet");
+sb.Append(" Otus, ");
+sb.AppendFormat("My name is {0}", name);
+sb.AppendFormat($"My interpolation name is {name}");
+sb.AppendLine("With newline");
+sb.Append("KAVYCHKI");
+sb.AppendJoin(",", "raz", "dva", "tri", "chetyre");
+sb.Append("\r\n");
+sb.Append("Finish");
+sb.Replace()
+
+//var finalString = sb.ToString();
+Console.WriteLine(sb);
+
+//ShowStringBuilder();
+
+#endregion
+```
+
+## @вербатим
+
+@”Строка” – выводит строку «буквально»
+
+```c#
+var s1 = "c:\\Windows\\System32";
+var s2 = @"c:\Windows\System32";
+var s3 = @"Текст с ""двойной кавычкой""";
+```
 
 
 
@@ -337,47 +400,6 @@ static void ShowStringBuilder()
 
 
 
-#region string
-
-Console.WriteLine("C:\\Windows \" ");
-
-Console.WriteLine(@"C:\\Windows""");
-Console.WriteLine("""
-    {  
-    }
-    """);
-
-var pr = 12414.61264;
-
-Console.WriteLine(pr + " Otus");
-var s = "fancy";
-Console.WriteLine($"Todays is a lesson, and i {s} say {pr} otus");
-Console.WriteLine(string.Format("1. Todays is a lesson, and i say {0} otus {1} {0} {2}", pr, 2142, true));
-Console.WriteLine($"Today is a {DateTime.Now:dd'/'MM'/'yyyy}, and i say |{pr,20:C}| |{s,-10}| otus");
-
-#endregion
-
-#region StringBuilder
-
-var name = "Lusparon";
-var sb = new StringBuilder("Start ");
-sb.Append("Privet");
-sb.Append(" Otus, ");
-sb.AppendFormat("My name is {0}", name);
-sb.AppendFormat($"My interpolation name is {name}");
-sb.AppendLine("With newline");
-sb.Append("KAVYCHKI");
-sb.AppendJoin(",", "raz", "dva", "tri", "chetyre");
-sb.Append("\r\n");
-sb.Append("Finish");
-sb.Replace()
-
-//var finalString = sb.ToString();
-Console.WriteLine(sb);
-
-//ShowStringBuilder();
-
-#endregion
 
 var plus = "plus";
 
