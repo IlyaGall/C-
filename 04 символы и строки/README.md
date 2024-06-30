@@ -602,3 +602,7 @@ var poka = privetStable.Replace("rivet", "poka");
 
 Console.Write($"{privetStable} {poka}");
 ```
+
+<a name="твоё_название1"></a> 
+<a name="твоё_название2"></a> 
+<a name="твоё_название3"></a> 
