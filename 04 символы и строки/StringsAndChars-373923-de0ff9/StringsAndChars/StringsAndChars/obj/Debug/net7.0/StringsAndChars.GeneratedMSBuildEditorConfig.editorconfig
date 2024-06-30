@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = StringsAndChars
-build_property.ProjectDir = /Users/tyzykhian/Documents/Otus/C# Basic/5.Символы и Строки/StringsAndChars/StringsAndChars/
+build_property.ProjectDir = C:\gitHub\C-\04 символы и строки\StringsAndChars-373923-de0ff9\StringsAndChars\StringsAndChars\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

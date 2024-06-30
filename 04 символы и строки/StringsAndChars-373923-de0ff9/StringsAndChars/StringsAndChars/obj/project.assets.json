@@ -8,27 +8,27 @@
     "net7.0": []
   },
   "packageFolders": {
-    "/Users/tyzykhian/.nuget/packages/": {}
+    "C:\\Users\\Ilya\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/tyzykhian/Documents/Otus/C# Basic/5.Символы и Строки/StringsAndChars/StringsAndChars/StringsAndChars.csproj",
+      "projectUniqueName": "C:\\gitHub\\C-\\04 символы и строки\\StringsAndChars-373923-de0ff9\\StringsAndChars\\StringsAndChars\\StringsAndChars.csproj",
       "projectName": "StringsAndChars",
-      "projectPath": "/Users/tyzykhian/Documents/Otus/C# Basic/5.Символы и Строки/StringsAndChars/StringsAndChars/StringsAndChars.csproj",
-      "packagesPath": "/Users/tyzykhian/.nuget/packages/",
-      "outputPath": "/Users/tyzykhian/Documents/Otus/C# Basic/5.Символы и Строки/StringsAndChars/StringsAndChars/obj/",
+      "projectPath": "C:\\gitHub\\C-\\04 символы и строки\\StringsAndChars-373923-de0ff9\\StringsAndChars\\StringsAndChars\\StringsAndChars.csproj",
+      "packagesPath": "C:\\Users\\Ilya\\.nuget\\packages\\",
+      "outputPath": "C:\\gitHub\\C-\\04 символы и строки\\StringsAndChars-373923-de0ff9\\StringsAndChars\\StringsAndChars\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/tyzykhian/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Ilya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "/Users/tyzykhian/Documents/GitHub/mindbox-local": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.pkg.github.com/mindbox-cloud/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
@@ -40,6 +40,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -61,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
