@@ -71,6 +71,10 @@ namespace _02_homeWork
 
         }
 
+        /// <summary>
+        /// задания для List<int>
+        /// </summary>
+        /// <returns>время выполения 3-х заданий</returns>
         static string list() 
         {
             string timer = "";
@@ -111,12 +115,19 @@ namespace _02_homeWork
             timer +=" " + timeFormat("вывод элемент коллекции, который без остатка делится на 777 в List<int>", stopWatch);
             return timer;
         }
+
+        /// <summary>
+        /// задания для ArrayList
+        /// </summary>
+        /// <returns>время выполения 3-х заданий</returns>
         static string arrayList() 
         {
             string timer = "";
             ArrayList myArraylist = new ArrayList();
             Random myRandom = new Random();
             Stopwatch stopWatch = new Stopwatch();
+           
+            // 1 задание
             stopWatch.Start();
             for (int i = 0; i <= 1000000; i++)
             {
@@ -124,20 +135,18 @@ namespace _02_homeWork
             }
             stopWatch.Stop();
             timer+= " "+timeFormat("Наполенние массива ArrayList", stopWatch);
-
+           
+            // 2 задание
             stopWatch.Start();
-
             Console.WriteLine($"\nэлемент 496753 коллекции: {myArraylist[496753]}");
             stopWatch.Stop();
             timer += " " + timeFormat("вывод  496753 в Arraylist", stopWatch);
-
+          
+            // 3 задание
             stopWatch.Start();
-
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nЭлементы, которые без остатка делится на 777 ");
             Console.ForegroundColor = ConsoleColor.White;
-            //777
-
             for (int i = 0; i < myArraylist.Count; i++)
             {
                 if (Convert.ToInt16( myArraylist[i]) % 777 == 0)
@@ -149,12 +158,17 @@ namespace _02_homeWork
             timer += " " + timeFormat("вывод элемент коллекции, который без остатка делится на 777 в Arraylist", stopWatch);
             return timer;
         }
+        /// <summary>
+        /// задания для linkedList
+        /// </summary>
+        /// <returns>время выполения 3-х заданий</returns>
         static string linkedList()
         {
             string timer = "";
             LinkedList<int> myLinkedList = new LinkedList<int>();
             Random myRandom = new Random();
             Stopwatch stopWatch = new Stopwatch();
+            // 1 задание
             stopWatch.Start();
             for (int i = 0; i <= 1000000; i++)
             {
@@ -162,15 +176,15 @@ namespace _02_homeWork
             }
             stopWatch.Stop();
             timer += " " + timeFormat("Наполенние массива LinkedList", stopWatch);
-
+           
+            // 2 задание
             stopWatch.Start();
-         
             Console.WriteLine($"\nэлемент 496753 коллекции: {myLinkedList.ElementAt(496753)}");
             stopWatch.Stop();
             timer += " " + timeFormat("вывод  496753 в LinkedList", stopWatch);
             stopWatch.Start();
    
-            //777
+            // 3 задание 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nЭлементы, которые без остатка делится на 777 ");
             Console.ForegroundColor = ConsoleColor.White;
