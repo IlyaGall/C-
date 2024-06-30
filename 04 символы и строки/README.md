@@ -569,8 +569,6 @@ Console.WriteLine(ReferenceEquals(s3, s4)); // теперь s3 и s4 ссыла�
 
 ```c#
 
-
-
 var plus = "plus";
 
 Console.WriteLine("Privet"[2]);

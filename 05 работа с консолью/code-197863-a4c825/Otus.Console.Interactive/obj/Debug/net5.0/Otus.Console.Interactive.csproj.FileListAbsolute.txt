@@ -1,0 +1,16 @@
+C:\Users\Эдгар\Documents\otus\modules\csharp-base\5 - Делаем программу интерактивной\code\Otus.Console.Interactive\bin\Debug\net5.0\Otus.Console.Interactive.exe
+C:\Users\Эдгар\Documents\otus\modules\csharp-base\5 - Делаем программу интерактивной\code\Otus.Console.Interactive\bin\Debug\net5.0\Otus.Console.Interactive.deps.json
+C:\Users\Эдгар\Documents\otus\modules\csharp-base\5 - Делаем программу интерактивной\code\Otus.Console.Interactive\bin\Debug\net5.0\Otus.Console.Interactive.runtimeconfig.json
+C:\Users\Эдгар\Documents\otus\modules\csharp-base\5 - Делаем программу интерактивной\code\Otus.Console.Interactive\bin\Debug\net5.0\Otus.Console.Interactive.runtimeconfig.dev.json
+C:\Users\Эдгар\Documents\otus\modules\csharp-base\5 - Делаем программу интерактивной\code\Otus.Console.Interactive\bin\Debug\net5.0\Otus.Console.Interactive.dll
+C:\Users\Эдгар\Documents\otus\modules\csharp-base\5 - Делаем программу интерактивной\code\Otus.Console.Interactive\bin\Debug\net5.0\Otus.Console.Interactive.pdb
+C:\Users\Эдгар\Documents\otus\modules\csharp-base\5 - Делаем программу интерактивной\code\Otus.Console.Interactive\obj\Debug\net5.0\Otus.Console.Interactive.csproj.AssemblyReference.cache
+C:\Users\Эдгар\Documents\otus\modules\csharp-base\5 - Делаем программу интерактивной\code\Otus.Console.Interactive\obj\Debug\net5.0\Otus.Console.Interactive.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Эдгар\Documents\otus\modules\csharp-base\5 - Делаем программу интерактивной\code\Otus.Console.Interactive\obj\Debug\net5.0\Otus.Console.Interactive.AssemblyInfoInputs.cache
+C:\Users\Эдгар\Documents\otus\modules\csharp-base\5 - Делаем программу интерактивной\code\Otus.Console.Interactive\obj\Debug\net5.0\Otus.Console.Interactive.AssemblyInfo.cs
+C:\Users\Эдгар\Documents\otus\modules\csharp-base\5 - Делаем программу интерактивной\code\Otus.Console.Interactive\obj\Debug\net5.0\Otus.Console.Interactive.csproj.CoreCompileInputs.cache
+C:\Users\Эдгар\Documents\otus\modules\csharp-base\5 - Делаем программу интерактивной\code\Otus.Console.Interactive\obj\Debug\net5.0\Otus.Console.Interactive.dll
+C:\Users\Эдгар\Documents\otus\modules\csharp-base\5 - Делаем программу интерактивной\code\Otus.Console.Interactive\obj\Debug\net5.0\refint\Otus.Console.Interactive.dll
+C:\Users\Эдгар\Documents\otus\modules\csharp-base\5 - Делаем программу интерактивной\code\Otus.Console.Interactive\obj\Debug\net5.0\Otus.Console.Interactive.pdb
+C:\Users\Эдгар\Documents\otus\modules\csharp-base\5 - Делаем программу интерактивной\code\Otus.Console.Interactive\obj\Debug\net5.0\Otus.Console.Interactive.genruntimeconfig.cache
+C:\Users\Эдгар\Documents\otus\modules\csharp-base\5 - Делаем программу интерактивной\code\Otus.Console.Interactive\obj\Debug\net5.0\ref\Otus.Console.Interactive.dll
