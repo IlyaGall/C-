@@ -60,6 +60,43 @@
 
 ![Image alt](https://github.com/IlyaGall/C-/blob/main/04%20%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D1%8B%20%D0%B8%20%D1%81%D1%82%D1%80%D0%BE%D0%BA%D0%B8/img/6.PNG)
 
+
+```c#
+#region UTF-8
+
+// Кодируем запятую
+
+var c = ",";
+var emAr = Encoding.GetEncoding("UTF-8").GetBytes(c);
+Console.WriteLine($"1. , = {FormatBytes(emAr)}");
+
+// 00101100
+
+
+// Кодируем букву Б
+c = "Б";
+emAr = Encoding.GetEncoding("UTF-8").GetBytes(c);
+Console.WriteLine($"2. Б = {FormatBytes(emAr)}");
+// 110   10000 10   010001
+// 10000010001
+
+//// 110  10000 10  010001
+//// 10000010001
+
+
+// Кодируем эмоджи
+
+c = "🤖";
+emAr = Encoding.GetEncoding("UTF-8").GetBytes(c);
+Console.WriteLine($"3. 🤖 = {FormatBytes(emAr)}");
+
+// 11110  000 10  011111 10  100100 10  010110
+// 000011111100100010110
+
+
+#endregion
+```
+
 ## UTF-16
 
 Символы Unicode до FFFF16 включительно (исключая диапазон для суррогатов) записываются 
@@ -81,7 +118,7 @@ W2 = 110111xxxxxxxxxx/ 0xDC00 + xxxxxxxxxx
 
 ## Base64
 
-Стандарт кодирования двоичных данных при помощи 64символа 
+Стандарт кодирования двоичных данных при помощи 64 символа 
 алфавита Используются
 * 0-9 (10 символов)
 * A-Z, a-z (52 символа)
@@ -91,6 +128,140 @@ W2 = 110111xxxxxxxxxx/ 0xDC00 + xxxxxxxxxx
 ‘=‘
 
 ![Image alt](https://github.com/IlyaGall/C-/blob/main/04%20%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D1%8B%20%D0%B8%20%D1%81%D1%82%D1%80%D0%BE%D0%BA%D0%B8/img/7.PNG)
+
+
+```C#
+#region UTF-16
+
+c = "Б";
+var emAr1 = Encoding.GetEncoding("UTF-16").GetBytes(c);
+Console.WriteLine($"4. Б = {FormatBytes(emAr1)}");
+// 00010001 00000100
+// 00000100 00010001
+
+//// 11110000 10011111 10100100 10010110
+//// 000011111100100010110
+
+
+c = "🤖";
+emAr1 = Encoding.GetEncoding("UTF-16").GetBytes(c);
+Console.WriteLine($"5. 🤖 = {FormatBytes(emAr1)}");
+
+//  00111110 11011000    00010110 11011101
+// 110110 0000111110     110111 0100010110
+// 00001111100100010110
+// 63766 + 65536
+// 129302
+
+// 00111110 11011000         00010110 11011101
+// 1101100000111110          1101110100010110
+// 110110    0000111110          110111     0100010110
+// 00001111100100010110
+
+// 63766 + (0x10000)65536
+
+#endregion
+```
+
+
+## base-64
+
+```c#
+
+#region base-64
+
+var p = "Привет";
+
+var pUtf16 = Encoding.GetEncoding("UTF-16").GetBytes(p);
+
+//// Encoding.GetEncoding("UTF-8")
+var pUtf8 = Encoding.UTF8.GetBytes(p);
+
+
+Console.WriteLine($"UFT8 - {FormatBytes(pUtf8)}");
+Console.WriteLine($"UFT16 - {FormatBytes(pUtf16)}");
+
+
+var pb64Utf16 = Convert.ToBase64String(pUtf16);
+var pb64Utf8 = Convert.ToBase64String(pUtf8);
+
+Console.WriteLine("UTF16base64: "+pb64Utf16);
+
+Console.WriteLine("UTF8base64: "+pb64Utf8);
+
+var backUtf16 = Convert.FromBase64String(pb64Utf16);
+var backUtf8 = Convert.FromBase64String(pb64Utf8);
+Console.WriteLine("backUtf16 " + FormatBytes(backUtf16));
+Console.WriteLine("backUtf8 " + FormatBytes(backUtf8));
+
+var backstring = Encoding.GetEncoding("UTF-16").GetString(backUtf16);
+
+#endregion
+
+#region char
+
+var ch1 = '2';
+Console.WriteLine(char.IsWhiteSpace('r'));
+Console.WriteLine(char.ToUpper('r'));
+Console.WriteLine(char.IsPunctuation('.'));
+//// var emojiC = '🤖'; // Будет ошибка
+
+#endregion
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## C# кодирование
+
+```c#
+var privet = "Привет";
+var bytes = 
+Encoding.UTF8.GetBytes(privet); var b64 = 
+Convert.ToBase64String(bytes);
+var checkBytes = 
+Convert.FromBase64String(b64); var s = 
+Encoding.UTF8.GetString(checkBytes);
+Console.WriteLine(s);
+```
+
+```c#
+///для удобного представления данных
+static string FormatBytes(byte[] b)
+{
+    return string.Join(' ', b.Select(x => Convert.ToString(x, 2).PadLeft(8, '0')));
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ```c#
@@ -158,118 +329,13 @@ static void ShowStringBuilder()
 }
 
 
-static string FormatBytes(byte[] b)
-{
-    return string.Join(' ', b.Select(x => Convert.ToString(x, 2).PadLeft(8, '0')));
-}
-
-//Console.WriteLine("Прив");
-
-#region UTF-8
-
-// Кодируем запятую
-
-var c = ",";
-var emAr = Encoding.GetEncoding("UTF-8").GetBytes(c);
-Console.WriteLine($"1. , = {FormatBytes(emAr)}");
-
-// 00101100
 
 
-// Кодируем букву Б
-c = "Б";
-emAr = Encoding.GetEncoding("UTF-8").GetBytes(c);
-Console.WriteLine($"2. Б = {FormatBytes(emAr)}");
-// 110   10000 10   010001
-// 10000010001
-
-//// 110  10000 10  010001
-//// 10000010001
 
 
-// Кодируем эмоджи
-
-c = "🤖";
-emAr = Encoding.GetEncoding("UTF-8").GetBytes(c);
-Console.WriteLine($"3. 🤖 = {FormatBytes(emAr)}");
-
-// 11110  000 10  011111 10  100100 10  010110
-// 000011111100100010110
 
 
-#endregion
 
-#region UTF-16
-
-c = "Б";
-var emAr1 = Encoding.GetEncoding("UTF-16").GetBytes(c);
-Console.WriteLine($"4. Б = {FormatBytes(emAr1)}");
-// 00010001 00000100
-// 00000100 00010001
-
-//// 11110000 10011111 10100100 10010110
-//// 000011111100100010110
-
-
-c = "🤖";
-emAr1 = Encoding.GetEncoding("UTF-16").GetBytes(c);
-Console.WriteLine($"5. 🤖 = {FormatBytes(emAr1)}");
-
-//  00111110 11011000    00010110 11011101
-// 110110 0000111110     110111 0100010110
-// 00001111100100010110
-// 63766 + 65536
-// 129302
-
-// 00111110 11011000         00010110 11011101
-// 1101100000111110          1101110100010110
-// 110110    0000111110          110111     0100010110
-// 00001111100100010110
-
-// 63766 + (0x10000)65536
-
-#endregion
-
-
-#region base-64
-
-var p = "Привет";
-
-var pUtf16 = Encoding.GetEncoding("UTF-16").GetBytes(p);
-
-//// Encoding.GetEncoding("UTF-8")
-var pUtf8 = Encoding.UTF8.GetBytes(p);
-
-
-Console.WriteLine($"UFT8 - {FormatBytes(pUtf8)}");
-Console.WriteLine($"UFT16 - {FormatBytes(pUtf16)}");
-
-
-var pb64Utf16 = Convert.ToBase64String(pUtf16);
-var pb64Utf8 = Convert.ToBase64String(pUtf8);
-
-Console.WriteLine("UTF16base64: "+pb64Utf16);
-
-Console.WriteLine("UTF8base64: "+pb64Utf8);
-
-var backUtf16 = Convert.FromBase64String(pb64Utf16);
-var backUtf8 = Convert.FromBase64String(pb64Utf8);
-Console.WriteLine("backUtf16 " + FormatBytes(backUtf16));
-Console.WriteLine("backUtf8 " + FormatBytes(backUtf8));
-
-var backstring = Encoding.GetEncoding("UTF-16").GetString(backUtf16);
-
-#endregion
-
-#region char
-
-var ch1 = '2';
-Console.WriteLine(char.IsWhiteSpace('r'));
-Console.WriteLine(char.ToUpper('r'));
-Console.WriteLine(char.IsPunctuation('.'));
-//// var emojiC = '🤖'; // Будет ошибка
-
-#endregion
 
 #region string
 
