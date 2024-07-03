@@ -1,0 +1,14 @@
+C:\Users\Ilya\source\repos\06 массивы и листы\06 массивы и листы\bin\Debug\net8.0\06 массивы и листы.exe
+C:\Users\Ilya\source\repos\06 массивы и листы\06 массивы и листы\bin\Debug\net8.0\06 массивы и листы.deps.json
+C:\Users\Ilya\source\repos\06 массивы и листы\06 массивы и листы\bin\Debug\net8.0\06 массивы и листы.runtimeconfig.json
+C:\Users\Ilya\source\repos\06 массивы и листы\06 массивы и листы\bin\Debug\net8.0\06 массивы и листы.dll
+C:\Users\Ilya\source\repos\06 массивы и листы\06 массивы и листы\bin\Debug\net8.0\06 массивы и листы.pdb
+C:\Users\Ilya\source\repos\06 массивы и листы\06 массивы и листы\obj\Debug\net8.0\06 массивы и листы.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ilya\source\repos\06 массивы и листы\06 массивы и листы\obj\Debug\net8.0\06 массивы и листы.AssemblyInfoInputs.cache
+C:\Users\Ilya\source\repos\06 массивы и листы\06 массивы и листы\obj\Debug\net8.0\06 массивы и листы.AssemblyInfo.cs
+C:\Users\Ilya\source\repos\06 массивы и листы\06 массивы и листы\obj\Debug\net8.0\06 массивы и листы.csproj.CoreCompileInputs.cache
+C:\Users\Ilya\source\repos\06 массивы и листы\06 массивы и листы\obj\Debug\net8.0\06 массивы и листы.dll
+C:\Users\Ilya\source\repos\06 массивы и листы\06 массивы и листы\obj\Debug\net8.0\refint\06 массивы и листы.dll
+C:\Users\Ilya\source\repos\06 массивы и листы\06 массивы и листы\obj\Debug\net8.0\06 массивы и листы.pdb
+C:\Users\Ilya\source\repos\06 массивы и листы\06 массивы и листы\obj\Debug\net8.0\06 массивы и листы.genruntimeconfig.cache
+C:\Users\Ilya\source\repos\06 массивы и листы\06 массивы и листы\obj\Debug\net8.0\ref\06 массивы и листы.dll
