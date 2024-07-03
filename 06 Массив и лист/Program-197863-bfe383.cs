@@ -6,47 +6,51 @@ using System.ComponentModel;
 
 // ## МАССИВЫ
 
-//var arrayOfNumber = new int[7];
-//WriteLine(arrayOfNumber.Length);
-//WriteLine(PrintArray(arrayOfNumber));
+var arrayOfNumber = new int[7];
+WriteLine(arrayOfNumber.Length);
+WriteLine(PrintArray(arrayOfNumber));
 
-//arrayOfNumber[0] = 17;
+arrayOfNumber[0] = 17;
 
-//arrayOfNumber[5] = 8522;
-//WriteLine(PrintArray(arrayOfNumber));
-//arrayOfNumber[6] = 10000;
-//WriteLine(PrintArray(arrayOfNumber));
+arrayOfNumber[5] = 8522;
+WriteLine(PrintArray(arrayOfNumber));
+arrayOfNumber[6] = 10000;
+WriteLine(PrintArray(arrayOfNumber));
 
-//WriteLine(arrayOfNumber[4] + 19);
+WriteLine(arrayOfNumber[4] + 19);
 
-//var arrayOfNumber1 = new int[] { 1242, 444, 22142, 512, 512, 512, 51, 25 };
+var arrayOfNumber1 = new int[] { 1242, 444, 22142, 512, 512, 512, 51, 25 };
 
-//WriteLine("============");
-//WriteLine($"Size = {arrayOfNumber1.Length} {PrintArray(arrayOfNumber1)}");
-
-
-//int[] arrayOfNumber2 = [12444442, 2, 224142, 512, 512, 512, 51, 25, 044, -1];
-
-//WriteLine("============");
-//WriteLine($"Size = {arrayOfNumber2.Length} {PrintArray(arrayOfNumber2)}");
+WriteLine("============");
+WriteLine($"Size = {arrayOfNumber1.Length} {PrintArray(arrayOfNumber1)}");
 
 
+int[] arrayOfNumber2 = [12444442, 2, 224142, 512, 512, 512, 51, 25, 044, -1];
 
-//string aaaa = "asfafasfasf";
-//WriteLine("============");
-//WriteLine(PrintArray(Quadratic(1, 1, 1)));// x^2+x+1
-
-//WriteLine(PrintArray(Quadratic(1, -2, 1))); // x^2-2x+1
+WriteLine("============");
+WriteLine($"Size = {arrayOfNumber2.Length} {PrintArray(arrayOfNumber2)}");
 
 
-//WriteLine(PrintArray(Quadratic(1, -4, 3))); // x^2 - 4x + 3
+
+string aaaa = "asfafasfasf";
+WriteLine("============");
+WriteLine(PrintArray(Quadratic(1, 1, 1)));// x^2+x+1
+
+WriteLine(PrintArray(Quadratic(1, -2, 1))); // x^2-2x+1
 
 
-//string[] arrayOfstrings = new[] { "asfaf", "qqqq" };
-//arrayOfstrings = new[] { "", "", "", "", "", "", "", "", "", };
-// a*x^2+b*x+c =0 
+WriteLine(PrintArray(Quadratic(1, -4, 3))); // x^2 - 4x + 3
 
 
+string[] arrayOfstrings = new[] { "asfaf", "qqqq" };
+arrayOfstrings = new[] { "", "", "", "", "", "", "", "", "", };
+a* x^2+b*x+c =0 
+
+///превращение массива в один элемент string
+static string PrintArray<T>(T[] array)
+{
+    return $"[{string.Join(", ", array)}]";
+}
 
 //var listOfInts1 = new List<int>();
 
@@ -225,13 +229,7 @@ static string PrintList<T>(List<T> list)
    
 }
 
-static string PrintArray<T>(T[] array)
-{
 
-    return $"[{string.Join(", ", array)}]";
- 
-
-}
 
 
 

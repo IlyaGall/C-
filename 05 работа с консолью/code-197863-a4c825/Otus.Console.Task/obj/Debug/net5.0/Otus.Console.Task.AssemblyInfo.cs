@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Otus.Console.Task")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf03766a362b2ca6d77caef546f9c1c8e8b19fee")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c9a17e9368a5dec466ca45ab3c9e6e0314b9d87")]
 [assembly: System.Reflection.AssemblyProductAttribute("Otus.Console.Task")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Otus.Console.Task")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

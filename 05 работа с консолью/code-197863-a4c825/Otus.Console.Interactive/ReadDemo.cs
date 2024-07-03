@@ -4,6 +4,10 @@ namespace Otus.Console.Interactive
     using System;
     using System.Globalization;
 
+
+
+
+
     public static class ReadDemo
     {
 
