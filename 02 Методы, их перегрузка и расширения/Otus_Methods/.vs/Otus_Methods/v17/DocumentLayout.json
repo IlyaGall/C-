@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\gitHub\\C-\\02 \u041C\u0435\u0442\u043E\u0434\u044B, \u0438\u0445 \u043F\u0435\u0440\u0435\u0433\u0440\u0443\u0437\u043A\u0430 \u0438 \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043D\u0438\u044F\\Otus_Methods\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{32D8CAF8-1D2D-4784-8850-EFEFD67DDCD2}|Otus_Methods\\Otus_Methods.csproj|c:\\github\\c-\\02 \u043C\u0435\u0442\u043E\u0434\u044B, \u0438\u0445 \u043F\u0435\u0440\u0435\u0433\u0440\u0443\u0437\u043A\u0430 \u0438 \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043D\u0438\u044F\\otus_methods\\otus_methods\\hint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D8CAF8-1D2D-4784-8850-EFEFD67DDCD2}|Otus_Methods\\Otus_Methods.csproj|solutionrelative:otus_methods\\hint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D8CAF8-1D2D-4784-8850-EFEFD67DDCD2}|Otus_Methods\\Otus_Methods.csproj|c:\\github\\c-\\02 \u043C\u0435\u0442\u043E\u0434\u044B, \u0438\u0445 \u043F\u0435\u0440\u0435\u0433\u0440\u0443\u0437\u043A\u0430 \u0438 \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043D\u0438\u044F\\otus_methods\\otus_methods\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D8CAF8-1D2D-4784-8850-EFEFD67DDCD2}|Otus_Methods\\Otus_Methods.csproj|solutionrelative:otus_methods\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Hint.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\02 \u041C\u0435\u0442\u043E\u0434\u044B, \u0438\u0445 \u043F\u0435\u0440\u0435\u0433\u0440\u0443\u0437\u043A\u0430 \u0438 \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043D\u0438\u044F\\Otus_Methods\\Otus_Methods\\Hint.cs",
+              "RelativeDocumentMoniker": "Otus_Methods\\Hint.cs",
+              "ToolTip": "C:\\gitHub\\C-\\02 \u041C\u0435\u0442\u043E\u0434\u044B, \u0438\u0445 \u043F\u0435\u0440\u0435\u0433\u0440\u0443\u0437\u043A\u0430 \u0438 \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043D\u0438\u044F\\Otus_Methods\\Otus_Methods\\Hint.cs",
+              "RelativeToolTip": "Otus_Methods\\Hint.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwEkAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T17:37:04.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\02 \u041C\u0435\u0442\u043E\u0434\u044B, \u0438\u0445 \u043F\u0435\u0440\u0435\u0433\u0440\u0443\u0437\u043A\u0430 \u0438 \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043D\u0438\u044F\\Otus_Methods\\Otus_Methods\\Program.cs",
+              "RelativeDocumentMoniker": "Otus_Methods\\Program.cs",
+              "ToolTip": "C:\\gitHub\\C-\\02 \u041C\u0435\u0442\u043E\u0434\u044B, \u0438\u0445 \u043F\u0435\u0440\u0435\u0433\u0440\u0443\u0437\u043A\u0430 \u0438 \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043D\u0438\u044F\\Otus_Methods\\Otus_Methods\\Program.cs",
+              "RelativeToolTip": "Otus_Methods\\Program.cs",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAgwFcAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T17:36:46.008Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

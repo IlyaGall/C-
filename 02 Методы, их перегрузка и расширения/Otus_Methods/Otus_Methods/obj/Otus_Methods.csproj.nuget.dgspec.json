@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ilya\\Desktop\\Otus_Methods-373923-aa8315\\Otus_Methods\\Otus_Methods\\Otus_Methods.csproj": {}
+    "C:\\gitHub\\C-\\02 Методы, их перегрузка и расширения\\Otus_Methods\\Otus_Methods\\Otus_Methods.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ilya\\Desktop\\Otus_Methods-373923-aa8315\\Otus_Methods\\Otus_Methods\\Otus_Methods.csproj": {
+    "C:\\gitHub\\C-\\02 Методы, их перегрузка и расширения\\Otus_Methods\\Otus_Methods\\Otus_Methods.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ilya\\Desktop\\Otus_Methods-373923-aa8315\\Otus_Methods\\Otus_Methods\\Otus_Methods.csproj",
+        "projectUniqueName": "C:\\gitHub\\C-\\02 Методы, их перегрузка и расширения\\Otus_Methods\\Otus_Methods\\Otus_Methods.csproj",
         "projectName": "Otus_Methods",
-        "projectPath": "C:\\Users\\Ilya\\Desktop\\Otus_Methods-373923-aa8315\\Otus_Methods\\Otus_Methods\\Otus_Methods.csproj",
+        "projectPath": "C:\\gitHub\\C-\\02 Методы, их перегрузка и расширения\\Otus_Methods\\Otus_Methods\\Otus_Methods.csproj",
         "packagesPath": "C:\\Users\\Ilya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ilya\\Desktop\\Otus_Methods-373923-aa8315\\Otus_Methods\\Otus_Methods\\obj\\",
+        "outputPath": "C:\\gitHub\\C-\\02 Методы, их перегрузка и расширения\\Otus_Methods\\Otus_Methods\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ilya\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Otus_Methods")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+356fd32820e61054b2e85702cc7a7d74ef56de74")]
 [assembly: System.Reflection.AssemblyProductAttribute("Otus_Methods")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Otus_Methods")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
