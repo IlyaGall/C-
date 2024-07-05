@@ -416,3 +416,111 @@ int GetItem(int[] arr, int index)
 
 
 
+### использование классов исключения
+
+```c#
+    class WrongTurnException : Exception
+    {
+        public DateTime TimeStamp;
+
+        public WrongTurnException(string message) : base(message) { }
+    }
+
+
+    class RightTurnException : Exception
+    {
+        public DateTime TimeStamp;
+
+        public RightTurnException(string message) : base(message) { }
+    }
+
+    class SuperException : RightTurnException
+    {
+
+        public SuperException(string message) : base(message) { }
+    }
+    class Program
+    {
+
+
+        static void InnerFunction()
+        {
+            var a = 0;
+            var b = 4;
+            var arr = new[] { 1, 2 };
+
+            try
+            {
+
+                if (a == 0)
+                {
+                    //  var ex = new Exception("Something wrong");
+
+                    var ex = new WrongTurnException("aaaa");
+                    ex.TimeStamp = DateTime.Now;
+
+                    ex.Data.Add("timestamp", DateTime.Now);
+                    ex.Data.Add("b", b);
+                    throw ex;
+                }
+                else
+                {
+                    Console.WriteLine(b / a);
+
+                }
+            }
+            catch(Exception ex)
+            {
+                if(ex is WrongTurnException)
+                {
+
+               }
+               else if (ex is RightTurnException)
+               {
+
+               }
+            }
+        }
+    }
+```
+
+### пример исключения в одном методе и обработка его в другом методе
+
+```C#
+ 
+        class Result
+        {
+            public Object Data;
+            public bool IsOk;
+        }
+
+
+        static Result Divide(int a, int b)
+        {
+            if (b == 0)
+            {
+                // throw 
+                return new Result { IsOk = false };
+            }
+            else
+            {
+                return new Result
+                {
+                    IsOk = true,
+                    Data = a / b
+                };
+            }
+        }
+          static void Main(string[] args)
+  {
+      try
+      {
+
+         Divide(1,0);
+      }
+      catch (Exception e)
+      {
+         Console.WriteLine(e.Message);
+      }
+  }
+```
