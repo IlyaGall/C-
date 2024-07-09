@@ -19,15 +19,16 @@ namespace _04_homeWork
             /// <summary>
             /// индекс элемента 
             /// </summary>
-            public int Index;
+            public int Index { get; set;}
+
             /// <summary>
             /// ссылка на предыдущий элемент
             /// </summary>
-            public Item ItemAfter;
+            public Item ItemAfter { get; set; }
             /// <summary>
             /// значение
             /// </summary>
-            public string Value;
+            public string Value { get; set; }
 
             /// <summary>
             /// добавить элемент к стеку
@@ -57,15 +58,15 @@ namespace _04_homeWork
                 ссылку на предыдущий элемент в стеке
                 Методы, описанные в основном задании переделаны под работу со StackItem
              */
-            public int size = 0;
+            public int Size { get; set; } = 0;
             /// <summary>
             /// текущая ячейка
             /// </summary>
-            public Item nowItem;
+            public Item nowItem { get; set; }
             /// <summary>
             /// предыдущая ячейка
             /// </summary>
-            public Item afterItem;
+            public Item afterItem { get; set; }
 
 
             /// <summary>
@@ -77,16 +78,16 @@ namespace _04_homeWork
                 if (nowItem == null)
                 {
                     // нет ссылки на предыдущий элемент
-                    size = 1;
-                    nowItem = new Item(value, null, size);
+                    Size = 1;
+                    nowItem = new Item(value, null, Size);
 
                 }
                 else
                 {
                     //есть ссылка на предыдущий элемент
                     afterItem = nowItem;
-                    size++;
-                    nowItem = new Item(value, afterItem, size);
+                    Size++;
+                    nowItem = new Item(value, afterItem, Size);
 
                 }
             }
@@ -145,7 +146,7 @@ namespace _04_homeWork
                     {
                         nowItem = null;
                     }
-                    size--;
+                    Size--;
                     if (afterItem != null)
                     {
                         afterItem = nowItem.ItemAfter;
@@ -154,7 +155,7 @@ namespace _04_homeWork
                 }
                 else
                 {
-                    size = 0;
+                    Size = 0;
                     throw new Exception("Стек пустой");
                 }
             }
@@ -168,7 +169,7 @@ namespace _04_homeWork
             public string ElementAt(int index)
             {
                int indexItem = index;
-                if (indexItem < 0 || indexItem <= size)
+                if (indexItem < 0 || indexItem <= Size)
                 {
                     if (nowItem.Index == index)
                     {
@@ -216,12 +217,12 @@ namespace _04_homeWork
         /// <summary>
         /// кол-во элементов в stack
         /// </summary>
-        public int Size;
+        public int Size { get => stackItem.Size; }
 
         /// <summary>
         ///последний вошедший элемент в stack
         /// </summary>
-        public string Top;
+        public string Top { get ; set; }
 
    
         /// <summary>
@@ -234,10 +235,11 @@ namespace _04_homeWork
             {
                 stackItem.Add(item);
             }
-            Size = stackItem.size;
             // stackItem.writeCollection(); 
             TopLastItem();
         }
+
+
         /// <summary>
         /// добавление элемента в Stack
         /// </summary>
@@ -245,7 +247,6 @@ namespace _04_homeWork
         public void Add(string item) 
         {
             stackItem.Add(item);
-            Size++;
             TopLastItem();
         }
 
@@ -254,7 +255,6 @@ namespace _04_homeWork
         /// </summary>
         public string Pop() 
         {
-            Size--;
             var returnValue = stackItem.RemoveLastItem();
             TopLastItem();
             return returnValue;
@@ -265,8 +265,8 @@ namespace _04_homeWork
         /// </summary>
         private void TopLastItem() 
         {
-            //  Top = stackItem.size == 0 ? null : stackItem.nowItem.Value;
-            if (stackItem.size == 0)
+           //   Top = stackItem.Size == 0 ? null : stackItem.nowItem.Value;
+            if (stackItem.Size == 0)
             {
                 Top = null;
             }
