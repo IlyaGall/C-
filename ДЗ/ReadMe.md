@@ -180,9 +180,9 @@ message
 **
 Хорошая работа, стека работает согласно ТЗ. Рекомендации на будущее:
 * 1.Классы принято выносить в отдельные файлы и называть как классы.
-* 2. Стоит следить за codestyle и удалять лишние переносы строк
-* 3. Top и Size лучше сделать через свойства. public int Size => myStack.Count;
-* 4. List<string> myStack; - лучше сделать private readonly
-* 5. Merge - лучше реализовать через Pop
-* 6. ElementAt - лишний метод
+* 2 Стоит следить за codestyle и удалять лишние переносы строк
+* 3 Top и Size лучше сделать через свойства. public int Size => myStack.Count;
+* 4 List<string> myStack; - лучше сделать private readonly
+* 5 Merge - лучше реализовать через Pop
+* 6 ElementAt - лишний метод
 **
