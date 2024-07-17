@@ -9,7 +9,7 @@ namespace FinalProject
     {
         static void Main(string[] args)
         {
-            Menu.start();
+            ErrorProcessing.start();
             Console.ReadKey();
         }
     }

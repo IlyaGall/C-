@@ -106,10 +106,6 @@ namespace FinalProject
 
 
 
-
-
-
-
         /// <summary>
         /// вернуть индекс московской биржи(за 30 дней)
         /// </summary>
@@ -129,9 +125,10 @@ namespace FinalProject
         /// <param name="dataStart">дата начала</param>
         /// <param name="dataEnd">дата окончания</param>
         /// <returns></returns>
-        static public string QueryGetMoscowExchange(string dataStart = "2024-01-01", string dataEnd = "2024-01-30")
+        static public string QueryGetMoscowExchange(string dataStart , string dataEnd )
         {
-           
+            // тут новый запрос по дате https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history.cursor&from=2024-01-01&till=2024-07-30
+            // где index + pageSize >= total
             //https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history&history.columns=CLOSE,TRADEDATE&from=2024-01-01&till=2024-01-30
             return $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history&history.columns=CLOSE,TRADEDATE&from={dataStart}&till={dataEnd}";
         }
