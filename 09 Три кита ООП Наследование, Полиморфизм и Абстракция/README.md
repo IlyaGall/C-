@@ -344,3 +344,181 @@ public class Tree : FaunaThing
 Выделяют два основных типа полиморфизма:
 - Времени компиляции (перегрузка методов)
 - Времени выполнения (переопределение методов)
+
+
+
+## Перегрузка операторов
+```c#
+public class Circle
+{
+	public double Radius { get; set; }
+
+	public Circle(double radius)
+	{
+    	Radius = radius;
+	}
+
+	public static Circle operator +(Circle c1, Circle c2)
+	{
+    	return new Circle(c1.Radius + c2.Radius);
+	}
+}
+```
+### задания
+
+
+  1. Задание по инкапсуляции
+ Задание: Создайте класс с приватными полями и публичными методами для доступа к этим полям и их изменения.
+ Инструкции:
+ Создайте класс под названием Person.
+ Добавьте приватные поля для name (строка) и age (целое число).
+ Реализуйте публичные методы GetName, SetName, GetAge и SetAge для доступа к приватным полям и их изменения.
+ Убедитесь, что метод SetAge включает валидацию, чтобы возраст был положительным числом.
+
+```c#
+ class Person 
+ {
+     private string _name;
+     private int _age;
+
+     public string GetName () 
+     {
+         return _name;
+     }
+     public void SetName(string name)
+     {
+      
+         _name = name;
+     }
+     public void SetAge(int age) 
+     {
+         if (age > 0)
+         {
+             _age = age;
+         }
+         else 
+         {
+             throw new Exception("Error");
+         }
+     }
+     public int GetAge()
+     {
+         return _age;
+     }
+ }
+```
+
+
+
+  4. Задание по абстракции
+ Задание: Спроектируйте абстрактный класс и реализуйте его в подклассе.
+ Инструкции:
+ Создайте абстрактный класс под названием Vehicle с абстрактным методом StartEngine.
+ Добавьте не абстрактный метод StopEngine, который выводит общее сообщение.
+ Создайте подкласс под названием Car, который наследуется от Vehicle и реализует метод StartEngine.
+
+
+```C#
+ abstract class Vehicle 
+ {
+     public abstract void StartEngine();
+     public void StopEngine() 
+     {
+         Console.WriteLine("который выводит общее сообщение");
+     }
+ }
+
+ class Car : Vehicle 
+ {
+     public override void StartEngine() 
+     {
+         Console.WriteLine("какая-то реализация");
+     }
+ }
+```
+
+ 
+Создайте класс Vector с полями X и Y типа double, представляющими координаты вектора.
+ Реализуйте конструктор для инициализации координат вектора.
+ Перегрузите оператор + для создания нового вектора, который является суммой двух исходных векторов. Сумма двух векторов считается как сумма полей  исходных векторов X для поля Х нового вектора и сумма полей Y исходных векторов в поле Y нового вектора.
+ Vector3 = { Vector1.X + Vector2.X , Vector1.Y + Vector2.Y }
+ Перегрузите оператор - для создания нового вектора, который является разностью двух исходных векторов.
+ Переопределите метод ToString, чтобы возвращать строковое представление вектора.
+
+
+
+пример от Otus
+
+```c#
+Пример с кругом:
+Circle smallCircle = new(3);
+Circle mediumCirle = new(7);
+Circle bigCircle = smallCircle + mediumCirle;
+Console.WriteLine(bigCircle);
+
+public class Circle
+{
+	public double Radius { get; set; }
+
+	public Circle(double radius)
+	{
+    	Radius = radius;
+	}
+
+	public static Circle operator +(Circle c1, Circle c2)
+	{
+    	return new Circle(c1.Radius + c2.Radius);
+	}
+
+	public static Circle operator -(Circle c1, Circle c2)
+	{
+    	double newRadius = c1.Radius - c2.Radius;
+    	if (newRadius < 0)
+    	{
+        	throw new Exception(“Радиус не может быть меньше нуля”);
+    	}
+
+    	return new Circle(newRadius);
+	}
+
+	public override string ToString()
+	{
+    	return $"Радиус круга: {Radius}";
+	}
+}
+
+
+
+
+```
+
+  ```c#
+ class Vector 
+ {
+     private double _x;
+     private double _y;
+
+     public double VectorNew { get; set; }
+
+     public Vector(double x, double y) 
+     {
+         _x = x;
+         _y = y;
+     }
+     public static Vector operator +(Vector c1, Vector c2)
+     {
+         
+         return new Vector(c1._x + c2._x, c1._y + c2._y);
+     }
+     public static Vector operator -(Vector c1, Vector c2)
+     {
+      
+         return new Vector(c1._x - c2._x, c1._y - c2._y);
+     }
+     public override string ToString() 
+     {
+         return $"Радиус круга: {_x - _x+_y - _y}";
+
+     }
+ }
+ ```
