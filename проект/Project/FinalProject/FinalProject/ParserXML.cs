@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace FinalProject
 {
@@ -36,16 +39,16 @@ namespace FinalProject
                     Console.WriteLine(attr?.Value);
 
                     // обходим все дочерние узлы элемента user
-                    foreach (XmlNode childnode in xnode.ChildNodes)
+                    foreach (XmlNode childNode in xnode.ChildNodes)
                     {
-                        foreach (XmlNode childNode1 in childnode.ChildNodes)
+                        foreach (XmlNode childNode1 in childNode.ChildNodes)
                         {
                             DataBase.DataStock item = new DataBase.DataStock();
                             PropertyInfo[] properties = typeof(DataBase.DataStock).GetProperties(); // получение свойства класса
                             Type t = typeof(DataBase.DataStock); // https://learn.microsoft.com/en-us/dotnet/api/system.reflection.propertyinfo.propertytype?view=net-8.0
 
 
-                            for (int i = 0; i < childNode1.Attributes.Count; i++)
+                            for (int i = 0; i < childNode1?.Attributes?.Count; i++)
                             {
                                 Console.Write($"{childNode1.Attributes[i].InnerText} {childNode1.Attributes[i].LocalName} ");
 
@@ -80,9 +83,68 @@ namespace FinalProject
             return items;
         }
 
-        static public string parsing(string xml, bool visibleTeg = false)
+
+        /// <summary>
+        /// добавить результат к коллекции, если кол-во записей превышает 100 штук
+        /// </summary>
+        /// <param name="xml"></param>
+        /// <exception cref="Exception"></exception>
+        static private void addCollection(string xml) 
         {
-            List<double> items = new List<double>();
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.LoadXml(xml);
+            XmlElement? xRoot = xDoc.DocumentElement;
+            if (xRoot != null)
+            {
+                
+            }
+            else 
+            {
+                throw new Exception("Не правильный формат xml файла");    
+            }
+        }
+
+
+
+        static private Dictionary<DateTime, double> parsingXML(Dictionary<DateTime, double> items, XmlElement xNode, bool visibleTeg=false) 
+        {
+            // обходим все дочерние узлы элемента user
+            foreach (XmlNode childNode in xNode.ChildNodes)
+            {
+                foreach (XmlNode childNode1 in childNode.ChildNodes)
+                {
+                    if (visibleTeg)
+                    {
+                        for (int i = 0; i < childNode1?.Attributes?.Count; i++)
+                        {
+                            Console.Write($"{childNode1.Attributes[i].InnerText} {childNode1.Attributes[i].LocalName} ");
+                        }
+                    }
+                    items.Add(Convert.ToDateTime(childNode1?.Attributes?[1].InnerText), Convert.ToDouble(childNode1?.Attributes?[0].InnerText.ToString().Replace(".", ",")));
+                    if (visibleTeg)
+                    {
+                        Console.WriteLine();
+                    }
+                }
+            }
+            return items;
+        }
+
+
+
+
+       
+
+        /// <summary>
+        /// распарсить индекс мосбиржи
+        /// </summary>
+        /// <param name="xml">xml</param>
+        /// <param name="request"></param>
+        /// <param name="visibleTeg"></param>
+        /// <returns></returns>
+        static public string parsing(string xml, string request, bool visibleTeg = false)
+        {
+            Dictionary<DateTime, double> items = new Dictionary<DateTime, double>();
             XmlDocument xDoc = new XmlDocument();
             xDoc.LoadXml(xml);
             XmlElement? xRoot = xDoc.DocumentElement;
@@ -93,29 +155,74 @@ namespace FinalProject
                 {
                     // получаем атрибут name
                     XmlNode? attr = xNode.Attributes.GetNamedItem("id");
+                    
                     Console.WriteLine(attr?.Value);
-                    // обходим все дочерние узлы элемента user
-                    foreach (XmlNode childNode in xNode.ChildNodes)
+
+                    switch (attr?.Value) 
                     {
-                        foreach (XmlNode childNode1 in childNode.ChildNodes)
-                        {
-                            if (visibleTeg)
+                        case "history":
+                            items = parsingXML(
+                                items:items,
+                                xNode:xNode,
+                                visibleTeg:false);
+                            break;
+                        case "history.cursor":
+                            foreach (XmlNode childNode in xNode.ChildNodes)
                             {
-                                for (int i = 0; i < childNode1.Attributes.Count; i++)
+                                foreach (XmlNode childNode1 in childNode.ChildNodes)
                                 {
-                                    Console.Write($"{childNode1.Attributes[i].InnerText} {childNode1.Attributes[i].LocalName} ");
+                                   Telegram.SendMessageDebagger($"{childNode1?.Attributes?[0].InnerText} {childNode1?.Attributes?[0].LocalName}\n" +
+                                        $"{childNode1?.Attributes?[1].InnerText} {childNode1?.Attributes?[1].LocalName}\n" +
+                                        $"{childNode1?.Attributes?[2].InnerText} {childNode1?.Attributes?[2].LocalName} ");
+                                    double index = Convert.ToInt32(childNode1?.Attributes?[0].InnerText);
+                                    double total = Convert.ToInt32(childNode1?.Attributes?[1].InnerText);
+                                    double pageSize = Convert.ToInt32(childNode1?.Attributes?[2].InnerText);
+                                    
+                                    if (index + pageSize  < total) 
+                                    {
+                                        for (double i = 1; i < total / 100; i++)
+                                        {
+                                            
+                                            xDoc.LoadXml(Request.request(request + $"&start={i * 100}"));
+                                            
+
+                                            xRoot = xDoc.DocumentElement;
+                                            foreach (XmlElement xNodeHistory in xRoot)
+                                            {
+                                                XmlNode? attrHistory = xNodeHistory.Attributes.GetNamedItem("id");
+                                           
+                                                switch (attrHistory?.Value)
+                                                {
+                                                    case "history":
+                                                        items = parsingXML(
+                                                            items: items,
+                                                            xNode: xNodeHistory,
+                                                            visibleTeg: false);
+                                                        break;
+                                                }
+                                               
+                                            }
+                                         }
+                                    }
+
+
                                 }
                             }
-                            items.Add(Convert.ToDouble(childNode1.Attributes[0].InnerText.ToString().Replace(".", ",")));
-                            if (visibleTeg)
-                            {
-                                Console.WriteLine();
-                            }
-                        }
+
+                                    break;
+
+                        default:
+                            throw new Exception("Не известный xml файл");
+                            
                     }
+
+
+                   
+                 
                 }
             }
-            return Analytic.AnalyticMoscowExchange(items);
+          
+           return Analytic.AnalyticMoscowExchange(items);
         }
     }
 
