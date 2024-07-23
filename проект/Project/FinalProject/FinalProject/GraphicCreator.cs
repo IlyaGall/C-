@@ -18,26 +18,7 @@ namespace FinalProject
         {
         
         }
-        /// <summary>
-        /// проверить на существование директории в случае её отсутствия создать папку
-        /// </summary>
-       static private void exitsFolder(string path) 
-        {
-            string savePath = "";
-            foreach (string s in path.Split('/'))
-            {
-                if (savePath.Length > 0) 
-                {
-                    savePath+="\\";
-                }
-                savePath += s;
-
-                if (!savePath.Contains('.') &!Directory.Exists(savePath))
-                {
-                    Directory.CreateDirectory(savePath);
-                }
-            }
-       }
+   
 
         /// <summary>
         /// построение графика Время - x, диапазон чисел y

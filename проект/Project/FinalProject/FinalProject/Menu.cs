@@ -17,7 +17,7 @@ namespace FinalProject
         /// количество элементов в меню на текущий момент
         /// </summary>
         static public int AmountElementsInNowMenu = 0;
-    
+
         /// <summary>
         /// Исходное положение стрелки меню
         /// </summary>
@@ -35,11 +35,11 @@ namespace FinalProject
         {
             if (selectedValue < AmountElementsInNowMenu)
             {
-               selectedValue++;
+                selectedValue++;
             }
             else
             {
-               selectedValue = 1;
+                selectedValue = 1;
             }
         }
 
@@ -50,11 +50,11 @@ namespace FinalProject
         {
             if (selectedValue > 1)
             {
-               selectedValue--;
+                selectedValue--;
             }
             else
             {
-               selectedValue = AmountElementsInNowMenu;
+                selectedValue = AmountElementsInNowMenu;
             }
         }
         private static void WriteCursor(int pos)
@@ -75,7 +75,7 @@ namespace FinalProject
         #endregion
 
 
-       
+
 
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace FinalProject
         {
             if (stackNavigation.Count > 0)
             {
-                switch (stackNavigation[stackNavigation.Count-1])
+                switch (stackNavigation[stackNavigation.Count - 1])
                 {
                     case "Main menu":
                         Console.WriteLine("Для выхода нажмите Escape");
@@ -137,15 +137,33 @@ namespace FinalProject
 
         private static string[] settings = new[] {
             $"Временное хранение файлов графиков '{Settings.GlobalParameters.PATH_SAVE}'",
-            $"Версия по '{Settings.GlobalParameters.VERSION_PROGRAM}'"
+             $"Сбросить файл настроек по умолчанию",
+            $"Версия по '{Settings.GlobalParameters.VERSION_PROGRAM}'",
+            "Выход в меню"
         };
+
+        /// <summary>
+        /// обновление массива 
+        /// </summary>
+        /// <returns></returns>
+        private static void updateArraySetting()
+        {
+            settings = new[] {
+            $"Временное хранение файлов графиков '{Settings.GlobalParameters.PATH_SAVE}'",
+            $"Сбросить файл настроек по умолчанию",
+            $"Версия по '{Settings.GlobalParameters.VERSION_PROGRAM}'",
+            "Выход в меню"
+            };
+
+        }
+
         private static string[] author = new[] {
             $"Автор ПО '{Settings.GlobalParameters.AVTOR}'",
         };
 
-        static private bool navigation(string movement="+") 
+        static private bool navigation(string movement = "+")
         {
-
+            
             if (movement == "+")
             {//переключение по меню
                 switch (selectedValue)
@@ -153,13 +171,60 @@ namespace FinalProject
                     case 0:
                         break;
                     case 1:
-                        stackNavigation.Clear();
-                        Console.Clear();
-                        return false;
+                        if (stackNavigation[stackNavigation.Count - 1] == "Main menu")
+                        {
+                            Console.Clear();
+                            startServer();
+                        }
+                        if (stackNavigation[stackNavigation.Count - 1] == "Setting")
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Введите новый путь(ПКМ вставить из буфера обмена) если ничего не ввести, то новый путь не будет установлен:");
+                            string? s = Console.ReadLine();
+                            if (Settings.CorrectPathDirectory(s))
+                            {
+                                Settings.GlobalParameters.PATH_SAVE = s;
+                                updateArraySetting();
+                                Console.Clear();
+                                PrintMenu();
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                PrintMenu();
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine($"Внимание не удалось изменить путь на '{s}' путь сброшен на дефолтный {Settings.GlobalParameters.PATH_SAVE} \n{Settings.GlobalParameters.ERROR}\nЧтобы ещё раз попробовать выберите пункт 1 и нажмите 'enter'");
+                                Console.ForegroundColor = ConsoleColor.White;
+
+                            }
+                        }
+
+                        break;
                     case 2:
-                        Clear();
-                        stackNavigation.Add("Setting");
-                        PrintMenu();
+                        switch (stackNavigation[stackNavigation.Count - 1])
+                        {
+
+
+                            case "Main menu":
+                                
+                                Clear();
+                                stackNavigation.Add("Setting");
+                                PrintMenu();
+                                break;
+                            case "Setting":
+
+                                Console.Clear();
+                                Console.WriteLine("Вы действительно хотите сбросить все настройки по умолчанию? Введите: 'y/n' или 'д/н'");
+                                string? command = Console.ReadLine().ToLower();
+                                if (command == "y" || command == "д")
+                                {
+                                    Settings.CheckFileSetting(true);
+                                }
+                                updateArraySetting();
+                                Console.Clear();
+                                PrintMenu();
+                                break;
+                        }
                         break;
                     case 3:
                         Clear();
@@ -169,16 +234,26 @@ namespace FinalProject
                     case 4:
                         Clear();
                         stackNavigation.RemoveAt(stackNavigation.Count - 1);
-                        return true;
+                        switch (stackNavigation[stackNavigation.Count - 1])
+                        {
+                            case "Main menu":
+                                PrintMenu();
+                                selectedValue = 1;
+                                return false; 
+                                default:return true;
+                        }
+
+                        
                 }
             }
-            else 
+            else
             {
                 Clear();
-                stackNavigation.RemoveAt(stackNavigation.Count-1);
+                stackNavigation.RemoveAt(stackNavigation.Count - 1);
                 PrintMenu();
-               
+
             }
+            selectedValue = 1;
             return false;
         }
 
@@ -197,7 +272,7 @@ namespace FinalProject
             {
 
                 ki = Console.ReadKey();
-                ClearCursor( selectedValue);
+                ClearCursor(selectedValue);
                 switch (ki.Key)
                 {
                     case ConsoleKey.UpArrow:
@@ -217,7 +292,7 @@ namespace FinalProject
                     case ConsoleKey.D2:
                     case ConsoleKey.D3:
                     case ConsoleKey.D4:
-                       selectedValue = int.Parse(ki.KeyChar.ToString());
+                        selectedValue = int.Parse(ki.KeyChar.ToString());
                         break;
                     #endregion
 
@@ -226,7 +301,7 @@ namespace FinalProject
                         break;
                     case ConsoleKey.Escape:
                         navigation("-");
-                        if(stackNavigation.Count == 0) 
+                        if (stackNavigation.Count == 0)
                         {
                             flagExit = true;
                         }
@@ -250,10 +325,10 @@ namespace FinalProject
         static public void start()
         {
             Start();
-         
+
         }
 
-        static private void startServer() 
+        static private void startServer()
         {
             bool exit = false;
             Console.WriteLine(MyStaticValues.MyStaticBool);
@@ -302,7 +377,7 @@ namespace FinalProject
                     case "":// для быстрого тестирования
                         Telegram.SendMessage("Введите даты. Две даты через пробел, например 2024-09-23 2024-10-28\n если этого не сделать, то по умолчанию будут взята текущая дата");
                         data = Console.ReadLine();
-                        data = "1996-01-01 2024-07-18";
+                        data = "1996-01-01 2024-07-21";
                         if (string.IsNullOrEmpty(data))
                         {
                             Request.quest("индекс мосбиржи", RequestCommand.QueryGetMoscowExchange());

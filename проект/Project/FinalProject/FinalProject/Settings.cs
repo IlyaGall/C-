@@ -3,24 +3,175 @@ using ScottPlot.Plottables;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+using ScottPlot;
 
 namespace FinalProject
 {
     internal static class Settings
     {
+        /// <summary>
+        /// проверка пути, который хочет указать пользователь
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool CorrectPathDirectory(string NewPath)
+        {
+            if (string.IsNullOrEmpty(NewPath))
+            {
+                GlobalParameters.ERROR = "Пустая строчка";
+                return false;
+            }
+
+            if (!exitsFolder(NewPath))
+            {
+                GlobalParameters.ERROR = "не получилось создать/найти папку";
+                return false;
+            }
+            else 
+            {
+                return true; 
+            }
+        }
+
+
+        /// <summary>
+        /// проверить на существование директории в случае её отсутствия создать папку
+        /// </summary>
+        static private bool exitsFolder(string path)
+        {
+            try
+            {
+                if (!Directory.Exists(path))
+                {
+                    if (path.Split('\\').Length <= 1) { return false; }
+                    if ( !Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// проверка, что директория и файл существуют в системе
+        /// </summary>
+        /// <param name="replaceFileSettings">сбросить настройки по умолчанию (false)</param>
+        static public void CheckFileSetting(bool replaceFileSettings = false)
+        {
+            string filename = "setting.txt";
+            string path = Directory.GetCurrentDirectory();
+            if (!Directory.Exists(path + "/setting"))
+            {
+                Directory.CreateDirectory(path + "/setting");
+            }
+            if (!File.Exists(path + "/setting/" + filename))
+            {
+              //  File.Create(path + "/setting/" + filename);
+                //UpdateFileSetting(path + "\\setting\\" + filename);
+                saveSetting(path + "\\setting\\" + "setting.json");
+            }
+            if (replaceFileSettings)
+            {
+                // File.Create(path + "/setting/" + filename);
+                //  UpdateFileSetting(path + "\\setting\\" + filename);
+                saveSetting(path + "\\setting\\" + "setting.json");
+
+
+            }
+            
+              //  writeFileSetting(path + "\\setting\\" + filename);
+                loadSetting(path + "\\setting\\" + "setting.json");
+           
+        }
+
+
+       private class SettingJson
+        {
+            public string Version { get; }
+            public string Path { get; set; }
+            public SettingJson(string version, string path)
+            {
+                Version = version;
+                Path = path;
+            }
+        }
+
+        /// <summary>
+        /// сохранение файла настроек
+        /// </summary>
+        /// <param name="path"></param>
+        static private void saveSetting(string path) 
+        {
+            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+            {
+                SettingJson setting = new SettingJson(GlobalParameters.VERSION_PROGRAM, GlobalParameters.PATH_SAVE);
+                JsonSerializer.Serialize<SettingJson>(fs, setting);
+                Console.WriteLine("Data has been saved to file");
+            }
+        }
+
+        /// <summary>
+        /// загрузка файла настроек
+        /// </summary>
+        /// <param name="path"></param>
+        static private void loadSetting(string path) 
+        {
+            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+            {
+                var settingJson =  JsonSerializer.Deserialize<SettingJson>(fs);
+            //    SettingJson? settingJson = JsonSerializer.Deserialize<SettingJson>(fs);
+                Console.WriteLine($"version: {settingJson?.Version}  Age: {settingJson?.Path}");
+            }
+        }
+
+
+        //static public void UpdateFileSetting(string path) 
+        //{
+        //    using (StreamWriter sw = new StreamWriter(path))
+        //    {
+        //        sw.WriteLine(GlobalParameters.PATH_SAVE);
+        //        sw.WriteLine(GlobalParameters.VERSION_PROGRAM);
+        //    }
+        //}
+
+
+        //static private void writeFileSetting(string path)
+        //{
+        //    using (StreamReader readtext = new StreamReader(path))
+        //    {
+        //        string s;
+        //        var strings = readtext.ReadLine().Length;
+        //        while ((s = readtext.ReadLine()) != null)
+        //        {
+        //            Console.WriteLine(s);
+        //        }
+              
+        //    }
+        //} 
+
         public static class GlobalParameters
         {
             public static string VERSION_PROGRAM = "1.0.0.0";
-            public static string PATH_SAVE = @"C:\Users\Ilya\Desktop\ыфвыф"; 
+            public static string PATH_SAVE = @"C:\Users\Ilya\Desktop\ыфвыф";
             public static string AVTOR = "ENG: Ilay Galuzinskiy          RU: Илья Галузинский\n" +
                                          "#########################################################\n" +
                                          "ENG:You can contact me:        RU: Связаться со мной можно:\n" +
                                          "Telegram: IlyaGaluzinskiy      Телеграмм: IlyaGaluzinskiy \n" +
                                          "Gmail: ilyagall01@gmail.com    Почта: ilyagall01@gmail.com\n";
+            public static string ERROR = "Error";
+
+
 
             /*
             пришлось ставить пакет draving common от этой фичи наверное нужно избавиться)
@@ -32,7 +183,7 @@ namespace FinalProject
                 string imagePath = @"C:\\Users\\Ilya\\Desktop\\kak_vygliadit_cherepakha_risunok_54.png";
 
                 // Загружаем изображение
-               Bitmap bitmap = new Bitmap(imagePath);
+                Bitmap bitmap = new Bitmap(imagePath);
 
                 // Вычисляем ширину и высоту консоли
                 int consoleWidth = Console.WindowWidth - 1;
@@ -66,7 +217,7 @@ namespace FinalProject
                                 }
                                 if (py >= bitmap.Height)
                                 { py = bitmap.Height - 1; }
-                                Color color = bitmap.GetPixel(px, py);
+                                System.Drawing.Color color = bitmap.GetPixel(px, py);
                                 int intensity = (color.R + color.G + color.B) / 3;
                                 totalIntensity += intensity;
                                 pixelCount++;
@@ -143,7 +294,7 @@ namespace FinalProject
                         // Hapucyem cumeon ana Toro 6noKa
                         Console.Write(character);
 
-                        
+
                     }
                     Console.WriteLine();
                 }
@@ -153,4 +304,3 @@ namespace FinalProject
     }
 }
 
-      

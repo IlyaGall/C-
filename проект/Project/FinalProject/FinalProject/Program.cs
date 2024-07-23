@@ -15,7 +15,8 @@ namespace FinalProject
 
         static void Main(string[] args)
         {
-                     
+            Settings.CheckFileSetting();
+           
             ErrorProcessing.start();
          
 
