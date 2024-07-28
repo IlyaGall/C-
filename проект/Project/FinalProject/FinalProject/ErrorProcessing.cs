@@ -18,7 +18,7 @@ namespace FinalProject
     internal class ErrorProcessing
     {
     /// <summary>
-    /// модулю ловли ошибок
+    /// модуль ловли ошибок
     /// </summary>
     /// <param name="message">Дополнительное сообщение о том, где </param>
         static public void start(string message ="")

@@ -7,9 +7,6 @@ using System.Threading.Tasks;
 
 namespace FinalProject
 {
-
-
-
     static class Menu
     {
         #region управление курсором меню
@@ -137,8 +134,10 @@ namespace FinalProject
 
         private static string[] settings = new[] {
             $"Временное хранение файлов графиков '{Settings.GlobalParameters.PATH_SAVE}'",
-             $"Сбросить файл настроек по умолчанию",
+            $"Сбросить файл настроек по умолчанию",
             $"Версия по '{Settings.GlobalParameters.VERSION_PROGRAM}'",
+            $"Ширина картинки = {Settings.GlobalParameters.WITH_IMG}",
+            $"Высота картинки = {Settings.GlobalParameters.HEIHG_IMG}",
             "Выход в меню"
         };
 
@@ -152,6 +151,8 @@ namespace FinalProject
             $"Временное хранение файлов графиков '{Settings.GlobalParameters.PATH_SAVE}'",
             $"Сбросить файл настроек по умолчанию",
             $"Версия по '{Settings.GlobalParameters.VERSION_PROGRAM}'",
+            $"Ширина картинки = {Settings.GlobalParameters.WITH_IMG}",
+            $"Высота картинки = {Settings.GlobalParameters.HEIHG_IMG}",
             "Выход в меню"
             };
 
@@ -163,7 +164,10 @@ namespace FinalProject
 
         static private bool navigation(string movement = "+")
         {
-            
+       
+   
+
+
             if (movement == "+")
             {//переключение по меню
                 switch (selectedValue)
@@ -174,7 +178,9 @@ namespace FinalProject
                         if (stackNavigation[stackNavigation.Count - 1] == "Main menu")
                         {
                             Console.Clear();
-                            startServer();
+                            Server.ServerStart();
+                            Clear();
+                            PrintMenu();
                         }
                         if (stackNavigation[stackNavigation.Count - 1] == "Setting")
                         {
@@ -203,8 +209,6 @@ namespace FinalProject
                     case 2:
                         switch (stackNavigation[stackNavigation.Count - 1])
                         {
-
-
                             case "Main menu":
                                 
                                 Clear();
@@ -233,17 +237,65 @@ namespace FinalProject
                         break;
                     case 4:
                         Clear();
-                        stackNavigation.RemoveAt(stackNavigation.Count - 1);
+                      
                         switch (stackNavigation[stackNavigation.Count - 1])
                         {
                             case "Main menu":
+                                stackNavigation.RemoveAt(stackNavigation.Count - 1);
                                 PrintMenu();
                                 selectedValue = 1;
-                                return false; 
-                                default:return true;
-                        }
+                                return false;
+                            case "Setting":
+                                Console.Clear();
+                                Console.WriteLine("Ведите новую ширину");
 
-                        
+                                if (int.TryParse(Console.ReadLine(), out var with))
+                                {
+                                    Settings.GlobalParameters.WITH_IMG = with;
+                                    updateArraySetting();
+                                    Settings.CheckFileSetting(true);
+                                    Console.Clear();
+                                }
+                                else 
+                                {
+                                    Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine($"Внимание не удалось преобразовать {with} в целочисленное число. Сброшено на дефолтные значения.{Settings.GlobalParameters.ERROR}");
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                }
+                                PrintMenu();
+                                break;
+                             
+                            default:
+                                return true;
+                        }
+                        break;
+                    case 5:
+                        Console.Clear();
+                        Console.WriteLine("Ведите новую высоту");
+                        if (int.TryParse(Console.ReadLine(), out var heigh))
+                        {
+                            Settings.GlobalParameters.HEIHG_IMG = heigh;
+                            updateArraySetting();
+                            Settings.CheckFileSetting(true);
+                            Console.Clear();
+                        }
+                        else 
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine($"Внимание не удалось преобразовать {heigh} в целочисленное число. Сброшено на дефолтные значения.{Settings.GlobalParameters.ERROR}");
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }
+                        PrintMenu();
+                        break;
+                    case 6:
+                        Console.Clear();
+                        stackNavigation.RemoveAt(stackNavigation.Count - 1);
+                        PrintMenu();
+                        selectedValue = 1;
+                        return false;
+                        break;
                 }
             }
             else
@@ -328,90 +380,7 @@ namespace FinalProject
 
         }
 
-        static private void startServer()
-        {
-            bool exit = false;
-            Console.WriteLine(MyStaticValues.MyStaticBool);
-            while (!exit)
-            {
-                Telegram.SendMessage("введите команду!");
-                string? command = Console.ReadLine();
-                switch (command)
-                {
-                    case "/Info":
-                        Console.WriteLine(RequestCommand.info());
-                        break;
-                    case "/exit":
-                        exit = true;
-                        break;
-                    case "/получить всё акции":
-                        Request.quest("вернуть все акции за сегодняшний день", RequestCommand.QueryStatisticAll());
-                        break;
-                    case "/обновить бд":
-                        Request.quest("Обновить бд DataStock", RequestCommand.QueryGetAllAction());
-                        break;
-                    case "/получение свечи":
-                        Request.quest("Обновить бд DataStock", RequestCommand.QueryCandle());
-                        break;
-                    case "/индекс мосбиржи":
-                        Telegram.SendMessage("Введите даты. Две даты через пробел, например 2024-09-23 2024-10-28\n если этого не сделать, то по умолчанию будут взята текущая дата");
-                        string? data = Console.ReadLine();
-
-                        if (string.IsNullOrEmpty(data))
-                        {
-                            Request.quest("индекс мосбиржи", RequestCommand.QueryGetMoscowExchange());
-                        }
-                        else
-                        {
-                            var splitDate = data.Split(' ');
-                            if (splitDate.Length == 2)
-                            {
-                                Request.quest("индекс мосбиржи", RequestCommand.QueryGetMoscowExchange(data.Split(' ')[0], data.Split(' ')[1]));
-                            }
-                            else
-                            {
-                                ErrorProcessing.generateTextError($"Вы ввели не правильный формат данных ''{data}'', а требовалось ''2024-09-23 2024-10-28''");
-                            }
-                        }
-                        break;
-                    case "":// для быстрого тестирования
-                        Telegram.SendMessage("Введите даты. Две даты через пробел, например 2024-09-23 2024-10-28\n если этого не сделать, то по умолчанию будут взята текущая дата");
-                        data = Console.ReadLine();
-                        data = "1996-01-01 2024-07-21";
-                        if (string.IsNullOrEmpty(data))
-                        {
-                            Request.quest("индекс мосбиржи", RequestCommand.QueryGetMoscowExchange());
-                        }
-                        else
-                        {
-                            var splitDate = data.Split(' ');
-                            if (splitDate.Length == 2)
-                            {
-                                Request.quest("индекс мосбиржи", RequestCommand.QueryGetMoscowExchange(data.Split(' ')[0], data.Split(' ')[1]));
-                            }
-                            else
-                            {
-                                ErrorProcessing.generateTextError($"Вы ввели не правильный формат данных ''{data}'', а требовалось ''2024-09-23 2024-10-28''");
-                            }
-                        }
-                        break;
-
-
-
-                    // индекс мосбиржи https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history&history.columns=CLOSE,TRADEDATE&from=2024-01-01&till=2024-01-30
-
-                    ///"https://raw.githubusercontent.com/d10xa/holidays-calendar/master/json/calendar.json" #Ссылка на календарь праздников
-                    ///
-                    //  https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.json #индекс мосбиржи
-                    // http://iss.moex.com/iss/engines/stock/markets/shares/securities/SBER/candles
-                    // http://iss.moex.com/iss/engines/stock/markets/shares/securities/SBER/candles.json?from=2021-01-01&till=2021-01-30&interval=10&securities.columns=SECID,PREVPRICE,SHORTNAME
-                    // https://iss.moex.com/iss/engines/stock/markets/shares/boards/tqbr/securities.xml?iss.meta=off&iss.only=securities&securities.columns=SECID,PREVPRICE,SHORTNAME
-                    default:
-                        Console.WriteLine("Ошибка команды!");
-                        break;
-                }
-            }
-        }
+      
 
     }
 

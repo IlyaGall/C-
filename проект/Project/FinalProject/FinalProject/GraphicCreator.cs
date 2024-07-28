@@ -38,7 +38,8 @@ namespace FinalProject
             myPlot.Add.Scatter(dateTimes, value); // x , y
             myPlot.Axes.DateTimeTicksBottom();
             myPlot.Axes.Right.MinimumSize = 50;
-            myPlot.SavePng($"{directory}\\{nameFile}", 400, 300);
+
+            myPlot.SavePng($"{directory}\\{nameFile}", Settings.GlobalParameters.WITH_IMG,Settings.GlobalParameters.HEIHG_IMG);
         }
 
     }

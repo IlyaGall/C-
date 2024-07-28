@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace FinalProject
 {
     /// <summary>
-    /// работа с телеграмом
+    /// работа с телеграмм
     /// </summary>
-    internal class Telegram
+    public class Telegram
     {
         /// <summary>
         /// вытащить путь к картинкам в сообщении

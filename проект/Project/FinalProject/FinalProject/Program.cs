@@ -6,17 +6,13 @@ using System.Runtime.InteropServices;
 
 namespace FinalProject
 {
-    public static class MyStaticValues
-    {
-        public static bool MyStaticBool { get; set; }
-    }
+ 
     internal class Program
     {
 
         static void Main(string[] args)
         {
             Settings.CheckFileSetting();
-           
             ErrorProcessing.start();
          
 
