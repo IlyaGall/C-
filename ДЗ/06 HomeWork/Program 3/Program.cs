@@ -14,7 +14,6 @@ namespace Program_3
          */
     internal class Program
     {
-        delegate void MyDelagate(); // 1. Объявляем делегат
         static void Main(string[] args)
         {
             CatalogPlanet planet = new CatalogPlanet();
