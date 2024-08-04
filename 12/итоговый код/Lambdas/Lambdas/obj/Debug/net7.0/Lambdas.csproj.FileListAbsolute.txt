@@ -1,0 +1,29 @@
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/Lambdas/bin/Debug/net7.0/Lambdas
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/Lambdas/bin/Debug/net7.0/Lambdas.deps.json
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/Lambdas/bin/Debug/net7.0/Lambdas.runtimeconfig.json
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/Lambdas/bin/Debug/net7.0/Lambdas.dll
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/Lambdas/bin/Debug/net7.0/Lambdas.pdb
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/Lambdas/obj/Debug/net7.0/Lambdas.csproj.AssemblyReference.cache
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/Lambdas/obj/Debug/net7.0/Lambdas.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/Lambdas/obj/Debug/net7.0/Lambdas.AssemblyInfoInputs.cache
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/Lambdas/obj/Debug/net7.0/Lambdas.AssemblyInfo.cs
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/Lambdas/obj/Debug/net7.0/Lambdas.csproj.CoreCompileInputs.cache
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/Lambdas/obj/Debug/net7.0/Lambdas.dll
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/Lambdas/obj/Debug/net7.0/refint/Lambdas.dll
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/Lambdas/obj/Debug/net7.0/Lambdas.pdb
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/Lambdas/obj/Debug/net7.0/Lambdas.genruntimeconfig.cache
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/Lambdas/obj/Debug/net7.0/ref/Lambdas.dll
+C:\Users\tyzykhian\Desktop\Otus\Lambdas\Lambdas\bin\Debug\net7.0\Lambdas.exe
+C:\Users\tyzykhian\Desktop\Otus\Lambdas\Lambdas\bin\Debug\net7.0\Lambdas.deps.json
+C:\Users\tyzykhian\Desktop\Otus\Lambdas\Lambdas\bin\Debug\net7.0\Lambdas.runtimeconfig.json
+C:\Users\tyzykhian\Desktop\Otus\Lambdas\Lambdas\bin\Debug\net7.0\Lambdas.dll
+C:\Users\tyzykhian\Desktop\Otus\Lambdas\Lambdas\bin\Debug\net7.0\Lambdas.pdb
+C:\Users\tyzykhian\Desktop\Otus\Lambdas\Lambdas\obj\Debug\net7.0\Lambdas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tyzykhian\Desktop\Otus\Lambdas\Lambdas\obj\Debug\net7.0\Lambdas.AssemblyInfoInputs.cache
+C:\Users\tyzykhian\Desktop\Otus\Lambdas\Lambdas\obj\Debug\net7.0\Lambdas.AssemblyInfo.cs
+C:\Users\tyzykhian\Desktop\Otus\Lambdas\Lambdas\obj\Debug\net7.0\Lambdas.csproj.CoreCompileInputs.cache
+C:\Users\tyzykhian\Desktop\Otus\Lambdas\Lambdas\obj\Debug\net7.0\Lambdas.dll
+C:\Users\tyzykhian\Desktop\Otus\Lambdas\Lambdas\obj\Debug\net7.0\refint\Lambdas.dll
+C:\Users\tyzykhian\Desktop\Otus\Lambdas\Lambdas\obj\Debug\net7.0\Lambdas.pdb
+C:\Users\tyzykhian\Desktop\Otus\Lambdas\Lambdas\obj\Debug\net7.0\Lambdas.genruntimeconfig.cache
+C:\Users\tyzykhian\Desktop\Otus\Lambdas\Lambdas\obj\Debug\net7.0\ref\Lambdas.dll

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambdas", "Lambdas\Lambdas.csproj", "{0D62CDA2-6CF6-45A4-ACAB-CC9EE70331DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tuples", "Tuples\Tuples.csproj", "{D848F7BB-9F4B-499A-970D-DE7DCF05BB17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnonTypes", "AnonTypes\AnonTypes.csproj", "{EEDD66D7-E50C-46E4-9604-05C2CBEDA6A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D62CDA2-6CF6-45A4-ACAB-CC9EE70331DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D62CDA2-6CF6-45A4-ACAB-CC9EE70331DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D62CDA2-6CF6-45A4-ACAB-CC9EE70331DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D62CDA2-6CF6-45A4-ACAB-CC9EE70331DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D848F7BB-9F4B-499A-970D-DE7DCF05BB17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D848F7BB-9F4B-499A-970D-DE7DCF05BB17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D848F7BB-9F4B-499A-970D-DE7DCF05BB17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D848F7BB-9F4B-499A-970D-DE7DCF05BB17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEDD66D7-E50C-46E4-9604-05C2CBEDA6A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEDD66D7-E50C-46E4-9604-05C2CBEDA6A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEDD66D7-E50C-46E4-9604-05C2CBEDA6A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEDD66D7-E50C-46E4-9604-05C2CBEDA6A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

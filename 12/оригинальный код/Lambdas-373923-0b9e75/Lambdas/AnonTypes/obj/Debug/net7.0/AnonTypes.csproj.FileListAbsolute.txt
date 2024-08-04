@@ -1,0 +1,15 @@
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/AnonTypes/bin/Debug/net7.0/AnonTypes
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/AnonTypes/bin/Debug/net7.0/AnonTypes.deps.json
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/AnonTypes/bin/Debug/net7.0/AnonTypes.runtimeconfig.json
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/AnonTypes/bin/Debug/net7.0/AnonTypes.dll
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/AnonTypes/bin/Debug/net7.0/AnonTypes.pdb
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/AnonTypes/obj/Debug/net7.0/AnonTypes.csproj.AssemblyReference.cache
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/AnonTypes/obj/Debug/net7.0/AnonTypes.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/AnonTypes/obj/Debug/net7.0/AnonTypes.AssemblyInfoInputs.cache
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/AnonTypes/obj/Debug/net7.0/AnonTypes.AssemblyInfo.cs
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/AnonTypes/obj/Debug/net7.0/AnonTypes.csproj.CoreCompileInputs.cache
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/AnonTypes/obj/Debug/net7.0/AnonTypes.dll
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/AnonTypes/obj/Debug/net7.0/refint/AnonTypes.dll
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/AnonTypes/obj/Debug/net7.0/AnonTypes.pdb
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/AnonTypes/obj/Debug/net7.0/AnonTypes.genruntimeconfig.cache
+/Users/tyzykhian/Documents/Otus/C# Basic/18_Анонимные типы, кортежи, лямбда-выражения и анонимные методы/Lambdas/AnonTypes/obj/Debug/net7.0/ref/AnonTypes.dll

@@ -210,7 +210,6 @@ namespace FinalProject
                         switch (stackNavigation[stackNavigation.Count - 1])
                         {
                             case "Main menu":
-                                
                                 Clear();
                                 stackNavigation.Add("Setting");
                                 PrintMenu();
@@ -244,7 +243,7 @@ namespace FinalProject
                                 stackNavigation.RemoveAt(stackNavigation.Count - 1);
                                 PrintMenu();
                                 selectedValue = 1;
-                                return false;
+                                return true;
                             case "Setting":
                                 Console.Clear();
                                 Console.WriteLine("Ведите новую ширину");

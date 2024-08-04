@@ -29,7 +29,12 @@ namespace FinalProject
                 $"/command QUERY2 вернуть последнюю цену по акциям расширенное наименование\n" +
                 $"/command QuerySearchName \n" +
                 $"/command QueryCandle вернуть свечи\n" +
-                $"/command QueryStatisticAll вернуть все акции\n";
+                $"/command QueryStatisticAll вернуть все акции\n" +
+                "/exit выход\n" +
+                "/обновить бд\n" +
+                "/получение свечи\n" +
+                "/индекс мосбиржи";
+
 
 
             return returnS;
