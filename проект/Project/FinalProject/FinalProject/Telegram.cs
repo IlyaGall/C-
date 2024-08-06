@@ -15,7 +15,7 @@ namespace FinalProject
         /// вытащить путь к картинкам в сообщении
         /// </summary>
         /// <returns></returns>
-        static private string[] parsingPath(string message) 
+        static private string[]? parsingPath(string message) 
         {
             string[] pathImg = message.Split('~');
             return null;

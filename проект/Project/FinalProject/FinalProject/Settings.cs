@@ -80,22 +80,14 @@ namespace FinalProject
             }
             if (File.Exists(path + "/setting/" + filename))
             {
-              //  File.Create(path + "/setting/" + filename);
-                //UpdateFileSetting(path + "\\setting\\" + filename);
                 saveSetting(path + "\\setting\\" + "setting.json");
             }
             if (replaceFileSettings)
             {
-                // File.Create(path + "/setting/" + filename);
-                //  UpdateFileSetting(path + "\\setting\\" + filename);
                 saveSetting(path + "\\setting\\" + "setting.json");
-
-
             }
             else
             {
-
-                //  writeFileSetting(path + "\\setting\\" + filename);
                 loadSetting(path + "\\setting\\" + "setting.json");
             }
         }
@@ -132,7 +124,6 @@ namespace FinalProject
                     GlobalParameters.WITH_IMG.ToString(), 
                     GlobalParameters.HEIHG_IMG.ToString());
                 JsonSerializer.Serialize<SettingJson>(fs, setting);
-               // Console.WriteLine("Data has been saved to file");
             }
         }
 
@@ -155,29 +146,7 @@ namespace FinalProject
         }
 
 
-        //static public void UpdateFileSetting(string path) 
-        //{
-        //    using (StreamWriter sw = new StreamWriter(path))
-        //    {
-        //        sw.WriteLine(GlobalParameters.PATH_SAVE);
-        //        sw.WriteLine(GlobalParameters.VERSION_PROGRAM);
-        //    }
-        //}
-
-
-        //static private void writeFileSetting(string path)
-        //{
-        //    using (StreamReader readtext = new StreamReader(path))
-        //    {
-        //        string s;
-        //        var strings = readtext.ReadLine().Length;
-        //        while ((s = readtext.ReadLine()) != null)
-        //        {
-        //            Console.WriteLine(s);
-        //        }
-              
-        //    }
-        //} 
+  
 
         public static class GlobalParameters
         {

@@ -15,10 +15,10 @@ namespace FinalProject
             {
                 Telegram.SendMessage("введите команду!");
                 string? command = Console.ReadLine();
-                switch (command.ToLower())
+                switch (command?.ToLower())
                 {
                     case "/info":
-                        Console.WriteLine(RequestCommand.info());
+                       Telegram.SendMessage(RequestCommand.info());
                         break;
                     case "/exit":
                         exit = true;

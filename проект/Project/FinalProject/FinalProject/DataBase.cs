@@ -14,7 +14,7 @@ namespace FinalProject
         {
 
             private double _prevprice;
-            public string SECID { get; set; }
+            public string? SECID { get; set; }
             public double PREVPRICE
             {
                 get => _prevprice;
@@ -22,7 +22,6 @@ namespace FinalProject
                 {
                     try
                     {
-
                         _prevprice = Convert.ToDouble(value.ToString().Replace(".", ","));
                     }
                     catch
@@ -31,7 +30,7 @@ namespace FinalProject
                     }
                 }
             }
-            public string SHORTNAME { get; set; }
+            public string? SHORTNAME { get; set; }
 
 
 

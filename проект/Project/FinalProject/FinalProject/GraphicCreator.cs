@@ -12,11 +12,16 @@ namespace FinalProject
     {
 
         /// <summary>
-        /// удаление всех файлов после завершения ссесии
+        /// удаление всех файлов после завершения работы
         /// </summary>
         static public void DelAllIMGInTemp() 
         {
-        
+            DirectoryInfo dirInfo = new DirectoryInfo(Settings.GlobalParameters.PATH_SAVE);
+
+            foreach (FileInfo file in dirInfo.GetFiles())
+            {
+                file.Delete();
+            }
         }
    
 

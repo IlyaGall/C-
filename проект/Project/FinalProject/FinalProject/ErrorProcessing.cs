@@ -25,6 +25,7 @@ namespace FinalProject
         {
             try 
             {
+                GraphicCreator.DelAllIMGInTemp();
                 Menu.start();
             }
             catch(Exception e)  

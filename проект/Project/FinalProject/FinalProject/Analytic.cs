@@ -11,21 +11,12 @@ namespace FinalProject
     public static class Analytic
     {
 
-       static private void texst() 
-        {
-            
-        }
-
-
         /// <summary>
         /// код отвечающий за генерацию ответов, чтобы разгрузить основной класс
         /// </summary>
         /// <returns>сгенерированный текст ответа</returns>
         private static string generationText(string switcher, string info, params double[] statistic)
         {
-
-
-
             string returnStringAnalytic = "";
             switch (switcher)
             {

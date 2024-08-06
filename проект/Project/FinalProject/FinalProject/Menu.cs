@@ -67,18 +67,11 @@ namespace FinalProject
             Console.Write(" ");
             Console.SetCursorPosition(0, pos);
         }
-
-
         #endregion
-
-
-
-
-
+       
         /// <summary>
         /// Вывести меню
         /// </summary>
-
         private static void PrintMenu()
         {
             if (stackNavigation.Count > 0)
@@ -131,7 +124,9 @@ namespace FinalProject
             "Выход из программы"
 
         };
-
+        /// <summary>
+        /// Обновление раздела настроек 
+        /// </summary>
         private static string[] settings = new[] {
             $"Временное хранение файлов графиков '{Settings.GlobalParameters.PATH_SAVE}'",
             $"Сбросить файл настроек по умолчанию",
@@ -158,16 +153,20 @@ namespace FinalProject
 
         }
 
+        /// <summary>
+        /// возвращаем фичу
+        /// </summary>
         private static string[] author = new[] {
             $"Автор ПО '{Settings.GlobalParameters.AVTOR}'",
         };
 
+        /// <summary>
+        /// навигация по меню
+        /// </summary>
+        /// <param name="movement">в какую строну движение + вперёд</param>
+        /// <returns>bool try если дошли до конца пути</returns>
         static private bool navigation(string movement = "+")
         {
-       
-   
-
-
             if (movement == "+")
             {//переключение по меню
                 switch (selectedValue)
@@ -201,10 +200,8 @@ namespace FinalProject
                                 Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine($"Внимание не удалось изменить путь на '{s}' путь сброшен на дефолтный {Settings.GlobalParameters.PATH_SAVE} \n{Settings.GlobalParameters.ERROR}\nЧтобы ещё раз попробовать выберите пункт 1 и нажмите 'enter'");
                                 Console.ForegroundColor = ConsoleColor.White;
-
                             }
                         }
-
                         break;
                     case 2:
                         switch (stackNavigation[stackNavigation.Count - 1])
@@ -218,7 +215,7 @@ namespace FinalProject
 
                                 Console.Clear();
                                 Console.WriteLine("Вы действительно хотите сбросить все настройки по умолчанию? Введите: 'y/n' или 'д/н'");
-                                string? command = Console.ReadLine().ToLower();
+                                string? command = Console.ReadLine()?.ToLower();
                                 if (command == "y" || command == "д")
                                 {
                                     Settings.CheckFileSetting(true);
@@ -294,7 +291,6 @@ namespace FinalProject
                         PrintMenu();
                         selectedValue = 1;
                         return false;
-                        break;
                 }
             }
             else
@@ -302,7 +298,6 @@ namespace FinalProject
                 Clear();
                 stackNavigation.RemoveAt(stackNavigation.Count - 1);
                 PrintMenu();
-
             }
             selectedValue = 1;
             return false;
@@ -321,7 +316,6 @@ namespace FinalProject
             bool flagExit = false;
             do
             {
-
                 ki = Console.ReadKey();
                 ClearCursor(selectedValue);
                 switch (ki.Key)
@@ -376,11 +370,6 @@ namespace FinalProject
         static public void start()
         {
             Start();
-
         }
-
-      
-
     }
-
 }
