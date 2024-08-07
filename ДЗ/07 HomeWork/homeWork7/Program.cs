@@ -29,6 +29,7 @@ namespace homeWork7
 
             }
             Console.WriteLine("Для цикла");
+            clock.Reset();
             foreach (int oneElement in array)
             {
                 clock.Start();
