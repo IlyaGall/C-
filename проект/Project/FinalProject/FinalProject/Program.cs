@@ -12,6 +12,9 @@ namespace FinalProject
 
         static void Main(string[] args)
         {
+            Telegram.startTelegram();
+            return;
+
             Settings.CheckFileSetting();
             ErrorProcessing.start();
          

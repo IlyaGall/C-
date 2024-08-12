@@ -8,18 +8,26 @@ namespace FinalProject
 {
     internal  class Server
     {
-        static public void ServerStart()
+
+        static public void test(string s) 
         {
+            Console.WriteLine($"server protect {s}");
+        }
+
+
+        static public string ServerCommand(string command)
+        {
+            //  Telegram.startTelegram();
+            Console.WriteLine($"Command client: {command}");
             bool exit = false;
-            while (!exit)
-            {
+          //  while (!exit)
+          //  {
                 Telegram.SendMessage("введите команду!");
-                string? command = Console.ReadLine();
+               // string? command = Console.ReadLine();
                 switch (command?.ToLower())
                 {
                     case "/info":
-                       Telegram.SendMessage(RequestCommand.info());
-                        break;
+                        return  RequestCommand.info();
                     case "/exit":
                         exit = true;
                         break;
@@ -89,7 +97,8 @@ namespace FinalProject
                         Console.WriteLine("Ошибка команды!");
                         break;
                 }
-            }
+            return "";
+            //}
         }
     }
 }
