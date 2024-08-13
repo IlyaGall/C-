@@ -72,23 +72,23 @@ namespace FinalProject
         /// <param name="replaceFileSettings">сбросить настройки по умолчанию (false)</param>
         static public void CheckFileSetting(bool replaceFileSettings = false)
         {
-            string filename = "setting.txt";
+            string filename = "setting.json";
             string path = Directory.GetCurrentDirectory();
             if (!Directory.Exists(path + "/setting"))
             {
                 Directory.CreateDirectory(path + "/setting");
             }
-            if (File.Exists(path + "/setting/" + filename))
+            if (!File.Exists(path + "\\setting\\" + filename))
             {
-                saveSetting(path + "\\setting\\" + "setting.json");
+                saveSetting(path + "\\setting\\" + filename);
             }
             if (replaceFileSettings)
             {
-                saveSetting(path + "\\setting\\" + "setting.json");
+                saveSetting(path + "\\setting\\" + filename);
             }
             else
             {
-                loadSetting(path + "\\setting\\" + "setting.json");
+                loadSetting(path + "\\setting\\" + filename);
             }
         }
 
@@ -100,12 +100,15 @@ namespace FinalProject
             public string With { get; set; }    
             public string Height {  get; set; }
 
-            public SettingJson(string version, string path, string with, string height)
+            public string Token { get; set; }
+
+            public SettingJson(string version, string path, string with, string height ,string token)
             {
                 Version = version;
                 Path = path;
                 With = with; 
                 Height = height;
+                Token = token;
             }
             
         }
@@ -122,7 +125,9 @@ namespace FinalProject
                     GlobalParameters.VERSION_PROGRAM, 
                     GlobalParameters.PATH_SAVE,
                     GlobalParameters.WITH_IMG.ToString(), 
-                    GlobalParameters.HEIHG_IMG.ToString());
+                    GlobalParameters.HEIHG_IMG.ToString(),
+                    GlobalParameters.TOKEN
+                    );
                 JsonSerializer.Serialize<SettingJson>(fs, setting);
             }
         }
@@ -160,7 +165,7 @@ namespace FinalProject
             public static string ERROR = "Error";
             public static int WITH_IMG = 400;
             public static int HEIHG_IMG = 300;
-
+            public static string TOKEN = "";
 
 
             /*
