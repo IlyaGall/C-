@@ -22,7 +22,7 @@ namespace FinalProject
 
         public static void startTelegram()
         {
-            var botClient = new TelegramBotClient("7464125156:AAHqimIk5c3Sh5z2L-pu6txlpup9ZZ6M7-k");
+            var botClient = new TelegramBotClient(Settings.GlobalParameters.TOKEN);
             botClient.StartReceiving(clientUpdate, Error);
             Console.WriteLine($"server start. {DateTime.Now}");
             Console.ReadLine();

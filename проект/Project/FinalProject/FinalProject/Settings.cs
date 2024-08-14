@@ -147,6 +147,7 @@ namespace FinalProject
                 GlobalParameters.VERSION_PROGRAM = settingJson.Version;
                 GlobalParameters.WITH_IMG = int.Parse( settingJson.With);
                 GlobalParameters.HEIHG_IMG = int.Parse(settingJson.Height);
+                GlobalParameters.TOKEN=settingJson.Token;
             }
         }
 
