@@ -82,11 +82,11 @@ namespace FinalProject
         {
             /*
             читаем описание в котором сказано, что url строится по шаблону / iss / engines / [engine] / markets / [market] / securities / [security] / candles и описаны дополнительные параметры. Строим ссылку, например (с выводом в json):
-            http://iss.moex.com/iss/engines/stock/markets/shares/securities/SBER/candles.json?from=2021-01-01&till=2021-01-30&interval=10
+            http://iss.moex.com/iss/engines/stock/markets/shares/securities/SBER/candles.xml?iss.meta=off&from=2021-01-01&till=2021-01-30&interval=1
             Данные для свечей по Сбербанку с 1 по 30 января 2021 получены.
             */
-            
-            return $@"http://iss.moex.com/iss/engines/stock/markets/shares/securities/{nameActive}/candles.json?from={dataStart}&till={dataEnd}&interval={interval}";
+
+            return $@"http://iss.moex.com/iss/engines/stock/markets/shares/securities/{nameActive}/candles.xml?from={dateTime()}&till={dateTime()}&interval={interval}";
         }
 
         /// <summary>
@@ -120,8 +120,18 @@ namespace FinalProject
             string dataStart = dateTime(-30);
             string dataEnd = dateTime();
             return $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history&history.columns=CLOSE,TRADEDATE&from={dataStart}&till={dataEnd}";
+        }
 
 
+        /// <summary>
+        /// вернуть индекс московской биржи(за 30 дней)
+        /// </summary>
+        /// <returns></returns>
+        static public string QueryGetMoscowExchangeYear()
+        {
+            string dataStart = dateTime(-364);
+            string dataEnd = dateTime();
+            return $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history|history.cursor&history.columns=CLOSE,TRADEDATE&from={dataStart}&till={dataEnd}";
         }
 
         /// <summary>
@@ -142,3 +152,14 @@ namespace FinalProject
 
     }
 }
+
+
+/*
+ https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml
+ ?iss.meta=off&
+ iss.only =
+ history|history.cursor&history.columns=CLOSE,TRADEDATE&from={dataStart}&till={dataEnd}
+
+ iss.meta =off отключает не нужные данные
+
+ */

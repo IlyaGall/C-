@@ -34,6 +34,41 @@ namespace FinalProject
             }
         }
 
+        /// <summary>
+        /// запрос к серверу Московской биржи
+        /// </summary>
+        /// <param name="url">запрос в виде url</param>
+        /// <param name="command">команда</param>
+        /// <returns></returns>
+        static public string RequestServer(string url)
+        {
+            using (var client = new HttpClient())
+            {
+                HttpResponseMessage response = client.GetAsync(url).Result;
+                string json = response.Content.ReadAsStringAsync().Result;
+                return json;
+            }
+
+        }
+
+        /// <summary>
+        /// запрос к серверу Московской биржи
+        /// </summary>
+        /// <param name="url">запрос в виде url</param>
+        /// <param name="command">команда</param>
+        /// <returns></returns>
+        static public (string,List<string>) RequestServer(string url, string command = "") 
+        {
+            using (var client = new HttpClient())
+            {
+                HttpResponseMessage response = client.GetAsync(url).Result;
+                string json = response.Content.ReadAsStringAsync().Result;
+                List<string> result = new List<string>() { "C:\\Users\\Ilya\\Desktop\\inventory.png" };
+                return (json, result);
+            }
+          
+        }
+
 
 
         /// <summary>
@@ -42,16 +77,12 @@ namespace FinalProject
         /// <param name="command">комманда</param>
         static public void quest(string command, string request, bool parsing = true)
         {
-            using (var client = new HttpClient
-                (new HttpClientHandler
-                { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate }
-                )
-                )
+            using (var client = new HttpClient(new HttpClientHandler {AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate }))
             {
                 client.BaseAddress = new Uri("http://iss.moex.com");
                 HttpResponseMessage response = client.GetAsync(request).Result;
                 string json = response.Content.ReadAsStringAsync().Result;
-                Telegram.SendMessageDebagger("Result :\n" + json);
+                TelegramBots.SendMessageDebagger("Result :\n" + json);
                 switch (command)
                 {
                     case "Обновить бд DataStock":
@@ -63,7 +94,7 @@ namespace FinalProject
                         }
                         break;
                     case "индекс мосбиржи":
-                        Telegram.SendMessage(ParserXML.parsing(json, request));
+                        TelegramBots.SendMessage(ParserXML.parsing(json, request));
                         break;
 
 

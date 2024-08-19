@@ -30,13 +30,13 @@ namespace FinalProject
             }
             catch(Exception e)  
             {
-                Telegram.SendMessage($"Ошибка {e.Message.ToString()}");
+                TelegramBots.SendMessage($"Ошибка {e.Message.ToString()}");
             }
         }
 
         static public void generateTextError(string message) 
         {
-            Telegram.SendMessage($"Ошибка. {message}");
+            TelegramBots.SendMessage($"Ошибка. {message}");
         }
     }
 }

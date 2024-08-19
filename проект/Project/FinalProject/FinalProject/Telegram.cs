@@ -5,9 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Telegram.Bot.Types;
+
 using Telegram.Bot;
 using Telegram.Bot.Types.ReplyMarkups; // кнопки телеграмма в чате
 using ScottPlot;
+using Microsoft.VisualBasic;
+using static System.Net.WebRequestMethods;
 
 //https://telegrambots.github.io/book/index.html документация по telegram
 
@@ -17,7 +20,7 @@ namespace FinalProject
     /// <summary>
     /// работа с телеграмм
     /// </summary>
-    public class Telegram
+    public class TelegramBots
     {
 
         public static void startTelegram()
@@ -28,6 +31,9 @@ namespace FinalProject
             Console.ReadLine();
         }
 
+
+
+
         /// <summary>
         /// запуск клиента телеграмма
         /// </summary>
@@ -37,20 +43,47 @@ namespace FinalProject
         /// <returns></returns>
         async static Task clientUpdate(ITelegramBotClient botClient, Update update, CancellationToken token)
         {
+            var button = update.CallbackQuery;
+            if (update.CallbackQuery != null)
+            {
+                string buttonCommand = update.CallbackQuery.Data;
+                long userId = update.CallbackQuery.From.Id;
+                Console.WriteLine($"Пользователь {userId} нажал кнопку {buttonCommand}");
+                var getAnswer = Server.ServerCommand(buttonCommand);
+                await botClient.SendTextMessageAsync(userId, $"command: {buttonCommand}\n {getAnswer.Item1}");
+                if (getAnswer.Item2 != null)
+                {
+                    int stepCollection = 0;
+                    foreach (string pathImg in getAnswer.Item2)
+                    {
+                        if (getAnswer.Item3 != null && getAnswer.Item3[stepCollection]!=null)
+                        {
+                            await loadPhoto(botClient, userId, pathImg, getAnswer.Item3[stepCollection]);
+                        }
+                        else 
+                        {
+                            await loadPhoto(botClient, userId, pathImg, "");
+                        }
+                    }
+                }
+
+            }
             var message = update.Message;
+            if (message != null) 
+            {
+
+
+            
             long IDChats = update.Message.Chat.Id;
 
             if (!string.IsNullOrEmpty(message?.Text))
             {
-   //             Server.test(message.Text);
-              string s =  Server.ServerCommand(message.Text);
-
+                var s = Server.ServerCommand(message.Text);
                 Console.WriteLine($"{message.Chat.Username ?? "этот пользователь без имени"} пишет: {message.Text}");
-                //if (message.Text.ToLower().Contains("h"))
-                //{
-                    await botClient.SendTextMessageAsync(message.Chat.Id, $"command: {message.Text}\n {s}");
-                // using Telegram.Bot.Types.ReplyMarkups;
+                await botClient.SendTextMessageAsync(message.Chat.Id, $"command: {message.Text}\n {s.Item1}");
 
+                #region пример с кнопками
+                /*
                 var keyboard = new ReplyKeyboardMarkup(new[]
                  {
                     new []
@@ -70,10 +103,37 @@ namespace FinalProject
                 });
                 await botClient.SendTextMessageAsync(message.Chat.Id, "О нашем хостеле мы расскажем тут", replyMarkup: keyboard);
                 await botClient.SendTextMessageAsync(message.Chat.Id, "Removing keyboard", replyMarkup: new ReplyKeyboardRemove());
+                */
+                #endregion
+
+
+                var text = "Список команд:";
+                var ikm = new InlineKeyboardMarkup(new[]
+                {
+                    new[]
+                    {
+                        InlineKeyboardButton.WithCallbackData("Список команд (справка)", "/info"),
+                    },
+                    new[]
+                    {
+                        InlineKeyboardButton.WithCallbackData("Индекс МБ за 30 дней", "/indexMB30Day"),
+                    },
+                    new[]
+                    {
+                        InlineKeyboardButton.WithCallbackData("Индекс МБ за год", "/indexMBYear"),
+                    },
+                    new[]
+                    {
+                        InlineKeyboardButton.WithCallbackData("тестирование ф-и", "test"),
+                    },
+                });
+
+                await botClient.SendTextMessageAsync(message.Chat.Id, text, replyMarkup: ikm);
                 return;
-                //}
+
 
             }
+         
             if (message?.Photo != null)
             {
                 await loadFile(botClient, IDChats, "C:\\Users\\Ilya\\Desktop\\falen world\\pero.jpg");
@@ -110,11 +170,11 @@ namespace FinalProject
 
                 return;
             }
-
+            }
         }
 
         /// <summary>
-        /// ф-ция отправки фото клиенту
+        /// ф-ция отправки документа клиенту
         /// </summary>
         /// <param name="botClient">(ITelegramBotClient) экземпляр интерфейса </param>
         /// <param name="IDChats">(long) id чата пользователя</param>
@@ -126,19 +186,40 @@ namespace FinalProject
 
             string fileName = pathFile.Remove(0, pathFile.LastIndexOf('\\') - 1);// "PEROOOOOO.jpg";
             await using Stream stream = System.IO.File.OpenRead(pathFile);
+
+
             var messageLoad = await botClient.SendDocumentAsync(
                 IDChats,
                 document: InputFile.FromStream(stream, fileName),
                 caption: $"{text}");
+
+
         }
 
-
-
-
-        private static async Task Error(ITelegramBotClient client, Exception exception, CancellationToken token)
+        /// <summary>
+        /// ф-ция отправки фотографии клиенту
+        /// </summary>
+        /// <param name="botClient">(ITelegramBotClient) экземпляр интерфейса </param>
+        /// <param name="IDChats">(long) id чата пользователя</param>
+        /// <param name="pathFile">(string) путь до файла</param>
+        /// <param name="text">(string) Текст если требуется</param>
+        /// <returns></returns>
+        private static async Task loadPhoto(ITelegramBotClient botClient, long IDChats, string pathFile, string text = "12121212")
         {
-            throw new NotImplementedException();
+            string fileName = pathFile.Remove(0, pathFile.LastIndexOf('\\') - 1);// "PEROOOOOO.jpg";
+            await using Stream stream = System.IO.File.OpenRead(pathFile);
+            var messageLoad = await botClient.SendPhotoAsync(
+                  chatId: IDChats,
+                  photo: InputFile.FromStream(stream, fileName),
+                  caption: $"{text}"
+                );
         }
+
+
+    private static async Task Error(ITelegramBotClient client, Exception exception, CancellationToken token)
+    {
+            throw new NotImplementedException();
+    }
 
 
 
@@ -148,30 +229,30 @@ namespace FinalProject
         /// вытащить путь к картинкам в сообщении
         /// </summary>
         /// <returns></returns>
-        static private string[]? parsingPath(string message) 
+        static private string[]? parsingPath(string message)
         {
             string[] pathImg = message.Split('~');
             return null;
-        } 
+        }
 
         /// <summary>
         /// отправка пользователю сообщения
         /// </summary>
         /// <param name="message"></param>
-        static public void SendMessage(string message) 
+        static public void SendMessage(string message)
         {
             //пока поставлю заглушку, в виде writeline
-            
-            
+
+
             Console.WriteLine(message);
 
-        } 
+        }
 
         /// <summary>
         /// отправка сообщения разработчику о том, чтобы посмотрел что-же пошло не так и подробное описание
         /// </summary>
         /// <param name="message"></param>
-        static public void SendMessageDebagger(string message) 
+        static public void SendMessageDebagger(string message)
         {
             Console.WriteLine(message);
         }

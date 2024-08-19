@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Metadata;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
+using Telegram.Bot.Requests.Abstractions;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FinalProject
 {
@@ -84,29 +88,11 @@ namespace FinalProject
         }
 
 
-        /// <summary>
-        /// добавить результат к коллекции, если кол-во записей превышает 100 штук
-        /// </summary>
-        /// <param name="xml"></param>
-        /// <exception cref="Exception"></exception>
-        static private void addCollection(string xml) 
-        {
-            XmlDocument xDoc = new XmlDocument();
-            xDoc.LoadXml(xml);
-            XmlElement? xRoot = xDoc.DocumentElement;
-            if (xRoot != null)
-            {
-                
-            }
-            else 
-            {
-                throw new Exception("Не правильный формат xml файла");    
-            }
-        }
 
 
 
-        static private Dictionary<DateTime, double> parsingXML(Dictionary<DateTime, double> items, XmlElement xNode, bool visibleTeg=false) 
+
+        static private Dictionary<DateTime, double> parsingXML(Dictionary<DateTime, double> items, XmlElement xNode, bool visibleTeg = false)
         {
             // обходим все дочерние узлы элемента user
             foreach (XmlNode childNode in xNode.ChildNodes)
@@ -133,10 +119,10 @@ namespace FinalProject
 
 
 
-       
+
 
         /// <summary>
-        /// распарсить индекс мосбиржи
+        /// распарcить индекс мосбиржи
         /// </summary>
         /// <param name="xml">xml</param>
         /// <param name="request"></param>
@@ -155,42 +141,42 @@ namespace FinalProject
                 {
                     // получаем атрибут name
                     XmlNode? attr = xNode.Attributes.GetNamedItem("id");
-                    
+
                     Console.WriteLine(attr?.Value);
 
-                    switch (attr?.Value) 
+                    switch (attr?.Value)
                     {
                         case "history":
                             items = parsingXML(
-                                items:items,
-                                xNode:xNode,
-                                visibleTeg:false);
+                                items: items,
+                                xNode: xNode,
+                                visibleTeg: false);
                             break;
                         case "history.cursor":
                             foreach (XmlNode childNode in xNode.ChildNodes)
                             {
                                 foreach (XmlNode childNode1 in childNode.ChildNodes)
                                 {
-                                   Telegram.SendMessageDebagger($"{childNode1?.Attributes?[0].InnerText} {childNode1?.Attributes?[0].LocalName}\n" +
-                                        $"{childNode1?.Attributes?[1].InnerText} {childNode1?.Attributes?[1].LocalName}\n" +
-                                        $"{childNode1?.Attributes?[2].InnerText} {childNode1?.Attributes?[2].LocalName} ");
+                                    //Telegram.SendMessageDebagger($"{childNode1?.Attributes?[0].InnerText} {childNode1?.Attributes?[0].LocalName}\n" +
+                                    //     $"{childNode1?.Attributes?[1].InnerText} {childNode1?.Attributes?[1].LocalName}\n" +
+                                    //     $"{childNode1?.Attributes?[2].InnerText} {childNode1?.Attributes?[2].LocalName} ");
                                     double index = Convert.ToInt32(childNode1?.Attributes?[0].InnerText);
                                     double total = Convert.ToInt32(childNode1?.Attributes?[1].InnerText);
                                     double pageSize = Convert.ToInt32(childNode1?.Attributes?[2].InnerText);
-                                    
-                                    if (index + pageSize  < total) 
+
+                                    if (index + pageSize < total)
                                     {
                                         for (double i = 1; i < total / 100; i++)
                                         {
-                                            
+                                            Console.WriteLine($"обработано страниц {i} из {total / 100}");
                                             xDoc.LoadXml(Request.request(request + $"&start={i * 100}"));
-                                            
+
 
                                             xRoot = xDoc.DocumentElement;
                                             foreach (XmlElement xNodeHistory in xRoot)
                                             {
                                                 XmlNode? attrHistory = xNodeHistory.Attributes.GetNamedItem("id");
-                                           
+
                                                 switch (attrHistory?.Value)
                                                 {
                                                     case "history":
@@ -200,30 +186,200 @@ namespace FinalProject
                                                             visibleTeg: false);
                                                         break;
                                                 }
-                                               
+
                                             }
-                                         }
+                                        }
                                     }
 
 
                                 }
                             }
-
-                                    break;
-
+                            break;
                         default:
                             throw new Exception("Не известный xml файл");
-                            
                     }
-
-
-                   
-                 
                 }
             }
-          
-           return Analytic.AnalyticMoscowExchange(items);
+
+            return Analytic.AnalyticMoscowExchange(items);
         }
+
+
+
+        ////////////////////########новый парсер###########/////////////////////
+
+        /// <summary>
+        /// Парсинг исторического массива данных
+        /// </summary>
+        /// <returns></returns>
+        public static Dictionary<DateTime, double> parsingXmlHistory(string request, bool visibleTeg = false)
+        {
+            string xml = Request.RequestServer(request);
+            Dictionary<DateTime, double> items = new Dictionary<DateTime, double>();
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.LoadXml(xml);
+            XmlElement? xRoot = xDoc.DocumentElement;
+            if (xRoot != null)
+            {
+                // обход всех узлов в корневом элементе
+                foreach (XmlElement xNode in xRoot)
+                {
+                    // получаем атрибут name
+                    XmlNode? attr = xNode.Attributes.GetNamedItem("id");
+                    switch (attr?.Value)
+                    {
+                        case "history":
+                            items = parsingXML(
+                                items: items,
+                                xNode: xNode,
+                                visibleTeg: false);
+                            break;
+                        case "history.cursor":
+                            foreach (XmlNode childNode in xNode.ChildNodes)
+                            {
+                                foreach (XmlNode childNode1 in childNode.ChildNodes)
+                                {
+                                    double index = Convert.ToInt32(childNode1?.Attributes?[0].InnerText);
+                                    double total = Convert.ToInt32(childNode1?.Attributes?[1].InnerText);
+                                    double pageSize = Convert.ToInt32(childNode1?.Attributes?[2].InnerText);
+
+                                    if (index + pageSize < total)
+                                    {
+                                        for (double i = 1; i < total / 100; i++)
+                                        {
+                                            Console.WriteLine($"обработано страниц {i} из {total / 100}");
+                                            xDoc.LoadXml(Request.request(request + $"&start={i * 100}"));
+
+
+                                            xRoot = xDoc.DocumentElement;
+                                            foreach (XmlElement xNodeHistory in xRoot)
+                                            {
+                                                XmlNode? attrHistory = xNodeHistory.Attributes.GetNamedItem("id");
+
+                                                switch (attrHistory?.Value)
+                                                {
+                                                    case "history":
+                                                        items = parsingXML(
+                                                            items: items,
+                                                            xNode: xNodeHistory,
+                                                            visibleTeg: false);
+                                                        break;
+                                                }
+
+                                            }
+                                        }
+                                    }
+
+
+                                }
+                            }
+                            break;
+                        default:
+                            throw new Exception("Не известный xml файл");
+                    }
+                }
+            }
+
+            return items;
+        }
+
+
+
+
+
+        public static List<Candle> passingXMLStock(string request)
+        {
+            List<Candle> candles = new List<Candle>();
+            string xml = Request.RequestServer(request);
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.LoadXml(xml);
+            XmlElement? xRoot = xDoc.DocumentElement;
+            if (xRoot != null)
+            {
+                foreach (XmlElement xNode in xRoot)
+                {
+                    XmlNode? attr = xNode.Attributes.GetNamedItem("id");
+                    foreach (XmlNode childNode in xNode.ChildNodes)
+                    {
+                        foreach (XmlNode childNode1 in childNode.ChildNodes)
+                        {
+                            if (childNode1.LocalName == "row")
+                            {
+                                candles.Add(
+                                    new Candle(
+                                        childNode1?.Attributes?[0].InnerText,
+                                        childNode1?.Attributes?[1].InnerText,
+                                        childNode1?.Attributes?[2].InnerText,
+                                        childNode1?.Attributes?[3].InnerText,
+                                        childNode1?.Attributes?[4].InnerText,
+                                        childNode1?.Attributes?[5].InnerText,
+                                        childNode1?.Attributes?[6].InnerText,
+                                        childNode1?.Attributes?[7].InnerText
+                                        )
+                                    );
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            return candles;
+        }
+
+
+        /// <summary>
+        /// свечка
+        /// </summary>
+        public class Candle
+        {
+            /// <summary>
+            /// открытие (цена) 
+            /// </summary>
+            public double Open { get; set; }
+            /// <summary>
+            /// закрытие (цена)
+            /// </summary>
+            public double Close { get; set; }
+            /// <summary>
+            /// покупка(высота)
+            /// </summary>
+            public double High { get; set; }
+            /// <summary>
+            /// продажа (высота)
+            /// </summary>
+            public double Low { get; set; }
+            /// <summary>
+            /// стоимость
+            /// </summary>
+            public double Value { get; set; }
+            /// <summary>
+            /// Объём
+            /// </summary>
+            public double Volume { get; set; }
+            /// <summary>
+            /// начало время продажи (свечки)
+            /// </summary>
+            public DateTime Begin { get; set; }
+            /// <summary>
+            /// конец время продажи (свечки)
+            /// </summary>
+            public DateTime End { get; set; }
+
+
+            public Candle(string? open, string? close, string? high, string? low, string? value, string? volume, string? begin, string? end)
+            {
+                Open = Convert.ToDouble(open?.Replace('.',','));
+                Close = Convert.ToDouble(close?.Replace('.', ','));
+                High = Convert.ToDouble(high?.Replace('.', ','));
+                Low = Convert.ToDouble(low?.Replace('.', ','));
+                Value = Convert.ToDouble(value?.Replace('.', ','));
+                Volume = Convert.ToDouble(volume?.Replace('.',','));
+                Begin = Convert.ToDateTime(begin);
+                End = Convert.ToDateTime(end);
+            }
+
+        }
+
     }
 
 

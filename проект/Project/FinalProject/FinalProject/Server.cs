@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScottPlot.Colormaps;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,23 +16,43 @@ namespace FinalProject
         }
 
 
-        static public string ServerCommand(string command)
+        static public (string, List<string>?,List<string>?) ServerCommand(string command)
         {
             //  Telegram.startTelegram();
             Console.WriteLine($"Command client: {command}");
             bool exit = false;
-          //  while (!exit)
-          //  {
-                Telegram.SendMessage("введите команду!");
+            //  while (!exit)
+            //  {
+                TelegramBots.SendMessage("введите команду!");
                // string? command = Console.ReadLine();
-                switch (command?.ToLower())
+                switch (command)
                 {
                     case "/info":
-                        return  RequestCommand.info();
+                        return  (RequestCommand.info(),null,null);
                     case "/exit":
                         exit = true;
                         break;
-                    case "/получить всё акции":
+
+                    case "/indexMB30Day": // индекс московской биржи за 30 дней
+                    return Analytic.AnalyticMoscowExchangeActive(
+                       url:RequestCommand.QueryGetMoscowExchange(),
+                       typeActive: "MoscowExchangeHistory");
+
+                case "/indexMBYear":
+                       return Analytic.AnalyticMoscowExchangeActive(
+                       url: RequestCommand.QueryGetMoscowExchangeYear(),
+                       typeActive: "MoscowExchangeHistory");
+
+                case "test":// получить акцию
+                    return Analytic.AnalyticMoscowExchangeActive(
+                        url: RequestCommand.QueryCandle()
+                        );
+
+
+
+
+
+                case "/получить всё акции":
                         Request.quest("вернуть все акции за сегодняшний день", RequestCommand.QueryStatisticAll());
                         break;
                     case "/обновить бд":
@@ -41,7 +62,7 @@ namespace FinalProject
                         Request.quest("Обновить бд DataStock", RequestCommand.QueryCandle());
                         break;
                     case "/индекс мосбиржи":
-                        Telegram.SendMessage("Введите даты. Две даты через пробел, например 2024-09-23 2024-10-28\n если этого не сделать, то по умолчанию будут взята текущая дата");
+                        TelegramBots.SendMessage("Введите даты. Две даты через пробел, например 2024-09-23 2024-10-28\n если этого не сделать, то по умолчанию будут взята текущая дата");
                         string? data = Console.ReadLine();
 
                         if (string.IsNullOrEmpty(data))
@@ -61,9 +82,13 @@ namespace FinalProject
                             }
                         }
                         break;
-                    case "":// для быстрого тестирования
-                        Telegram.SendMessage("Введите даты. Две даты через пробел, например 2024-09-23 2024-10-28\n если этого не сделать, то по умолчанию будут взята текущая дата");
-                        data = Console.ReadLine();
+                    case "test1":// для быстрого тестирования
+
+                 
+                    return Analytic.AnalyticMoscowExchangeActive(RequestCommand.QueryCandle());
+
+                    TelegramBots.SendMessage("Введите даты. Две даты через пробел, например 2024-09-23 2024-10-28\n если этого не сделать, то по умолчанию будут взята текущая дата");
+                      //  data = Console.ReadLine();
                         data = "1996-01-01 2024-07-21";
                         if (string.IsNullOrEmpty(data))
                         {
@@ -97,7 +122,7 @@ namespace FinalProject
                         Console.WriteLine("Ошибка команды!");
                         break;
                 }
-            return "";
+            return ("",null,null);
             //}
         }
     }

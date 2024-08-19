@@ -6,7 +6,33 @@ using System.Threading.Tasks;
 
 namespace FinalProject
 {
+    interface DateBase
+    {
+        /// <summary>
+        /// добавить пользователя в бд пользователя
+        /// </summary>
+        /// <returns>true успешно или нет</returns>
+        public bool addUser();
 
+        /// <summary>
+        /// добавить акции в избранное
+        /// </summary>
+        /// <returns></returns>
+        public string AddStock();
+
+        /// <summary>
+        /// поиск акции
+        /// </summary>
+        /// <returns></returns>
+        public string SearchStock();
+
+        /// <summary>
+        /// вернуть все избранные активы пользователя
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public List<string> GetStockListUser(long id);
+    }
     //логика работы с БД
     public class DataBase
     {
