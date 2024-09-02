@@ -27,13 +27,13 @@ namespace FinalProject
         {
             if (string.IsNullOrEmpty(NewPath))
             {
-                GlobalParameters.ERROR = "Пустая строчка";
+                GlobalParameters.Error = "Пустая строчка";
                 return false;
             }
 
             if (!exitsFolder(NewPath))
             {
-                GlobalParameters.ERROR = "не получилось создать/найти папку";
+                GlobalParameters.Error = "не получилось создать/найти папку";
                 return false;
             }
             else 
@@ -99,16 +99,18 @@ namespace FinalProject
             public string Path { get; set; }
             public string With { get; set; }    
             public string Height {  get; set; }
-
             public string Token { get; set; }
 
-            public SettingJson(string version, string path, string with, string height ,string token)
+            public string CandleInterval { get; set; }
+
+            public SettingJson(string version, string path, string with, string height ,string token, string candleInterval)
             {
                 Version = version;
                 Path = path;
                 With = with; 
                 Height = height;
                 Token = token;
+                CandleInterval = candleInterval;
             }
             
         }
@@ -122,11 +124,12 @@ namespace FinalProject
             using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
             {
                 SettingJson setting = new SettingJson(
-                    GlobalParameters.VERSION_PROGRAM, 
-                    GlobalParameters.PATH_SAVE,
-                    GlobalParameters.WITH_IMG.ToString(), 
-                    GlobalParameters.HEIHG_IMG.ToString(),
-                    GlobalParameters.TOKEN
+                    GlobalParameters.VersionProgram, 
+                    GlobalParameters.PathSave,
+                    GlobalParameters.WithIMG.ToString(), 
+                    GlobalParameters.HeightIMG.ToString(),
+                    GlobalParameters.Token,
+                    GlobalParameters.CandleInterval
                     );
                 JsonSerializer.Serialize<SettingJson>(fs, setting);
             }
@@ -141,13 +144,12 @@ namespace FinalProject
             using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
             {
                 var settingJson =  JsonSerializer.Deserialize<SettingJson>(fs);
-                //    SettingJson? settingJson = JsonSerializer.Deserialize<SettingJson>(fs);
-                //Console.WriteLine($"version: {settingJson?.Version}  Age: {settingJson?.Path}");
-                GlobalParameters.PATH_SAVE = settingJson.Path;
-                GlobalParameters.VERSION_PROGRAM = settingJson.Version;
-                GlobalParameters.WITH_IMG = int.Parse( settingJson.With);
-                GlobalParameters.HEIHG_IMG = int.Parse(settingJson.Height);
-                GlobalParameters.TOKEN=settingJson.Token;
+                GlobalParameters.PathSave = settingJson.Path;
+                GlobalParameters.VersionProgram = settingJson.Version;
+                GlobalParameters.WithIMG = int.Parse( settingJson.With);
+                GlobalParameters.HeightIMG = int.Parse(settingJson.Height);
+                GlobalParameters.Token=settingJson.Token;
+                GlobalParameters.CandleInterval = settingJson.CandleInterval;
             }
         }
 
@@ -156,17 +158,18 @@ namespace FinalProject
 
         public static class GlobalParameters
         {
-            public static string VERSION_PROGRAM = "1.0.0.0";
-            public static string PATH_SAVE = @"C:\Users\Ilya\Desktop\ыфвыф";
-            public static string AVTOR = "ENG: Ilay Galuzinskiy          RU: Илья Галузинский\n" +
+            public static string VersionProgram = "1.0.0.0";
+            public static string PathSave = @"C:\Users\Ilya\Desktop\ыфвыф";
+            public static string Avtar = "ENG: Ilay Galuzinskiy          RU: Илья Галузинский\n" +
                                          "#########################################################\n" +
                                          "ENG:You can contact me:        RU: Связаться со мной можно:\n" +
                                          "Telegram: IlyaGaluzinskiy      Телеграмм: IlyaGaluzinskiy \n" +
                                          "Gmail: ilyagall01@gmail.com    Почта: ilyagall01@gmail.com\n";
-            public static string ERROR = "Error";
-            public static int WITH_IMG = 400;
-            public static int HEIHG_IMG = 300;
-            public static string TOKEN = "";
+            public static string Error = "Error";
+            public static int WithIMG = 400;
+            public static int HeightIMG = 300;
+            public static string Token = "";
+            public static string CandleInterval = "1";
 
 
             /*

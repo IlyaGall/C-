@@ -2,8 +2,10 @@
 using ScottPlot;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Telegram.Bot.Types;
@@ -19,8 +21,7 @@ namespace FinalProject
         /// </summary>
         static public void DelAllIMGInTemp() 
         {
-            DirectoryInfo dirInfo = new DirectoryInfo(Settings.GlobalParameters.PATH_SAVE);
-
+            DirectoryInfo dirInfo = new DirectoryInfo(Settings.GlobalParameters.PathSave);
             foreach (FileInfo file in dirInfo.GetFiles())
             {
                 file.Delete();
@@ -35,15 +36,10 @@ namespace FinalProject
         /// <param name="nameFile">название файла</param>
         /// <param name="date">массив дат</param>
         /// <param name="value">массив значений</param>
-        static public string GraphicCreatorDateTime(string nameFile, DateTime[] date, double[] value)
+        static public string GraphicCreatorDateTime(string nameFile, DateTime[] date, double[] value )
         {
             ScottPlot.Plot myPlot = new();
-            DateTime[] dateTimes = new DateTime[date.Length];
-            for (int i = 0; i < date.Length; i++)
-            {
-                dateTimes[i] = Convert.ToDateTime(date[i]);
-            }
-            myPlot.Add.Scatter(dateTimes, value); // x , y
+            myPlot.Add.Scatter(date, value); // x , y
             myPlot.Axes.DateTimeTicksBottom();
 
             myPlot.Axes.Right.MinimumSize = 50;
@@ -64,21 +60,122 @@ namespace FinalProject
             axLine4.Color = Colors.Green;
 
 
-            SearchForExtremum(value);
+           // SearchForExtremum(value);
             nameFile = nameFile.Insert(nameFile.LastIndexOf('.'), Guid.NewGuid().ToString());
-            myPlot.SavePng($"{Settings.GlobalParameters.PATH_SAVE}\\{nameFile}", Settings.GlobalParameters.WITH_IMG,Settings.GlobalParameters.HEIHG_IMG);
+            myPlot.SavePng($"{Settings.GlobalParameters.PathSave}\\{nameFile}", Settings.GlobalParameters.WithIMG,Settings.GlobalParameters.HeightIMG);
             
-            return $"{Settings.GlobalParameters.PATH_SAVE}\\{nameFile}";
+            return $"{Settings.GlobalParameters.PathSave}\\{nameFile}";
+        }
+
+        static public string GraphicCreatorDateTimeEMA(string nameFile, DateTime[] date, double[] value, double[] EMA )
+        {
+            ScottPlot.Plot myPlot = new();
+            myPlot.Add.Scatter(date, value); // x , y
+            myPlot.Axes.DateTimeTicksBottom();
+
+            myPlot.Axes.Right.MinimumSize = 50;
+
+            Console.WriteLine($"{myPlot.Axes.Bottom.Min} - {myPlot.Axes.Bottom.Max}");
+
+
+            myPlot.Add.Scatter(date, EMA); // x , y
+            myPlot.Axes.DateTimeTicksBottom();
+
+
+            //double startPoint = myPlot.Axes.Bottom.Min;
+            //double endPoint = myPlot.Axes.Bottom.Max;
+
+            //var axLine3 = myPlot.Add.Line(startPoint, 3019, endPoint, 3019);
+            //var axLine2 = myPlot.Add.Line(startPoint, 3074, endPoint, 3074);
+            //var axLine1 = myPlot.Add.Line(startPoint, 3132, endPoint, 3132);
+            //var axLine4 = myPlot.Add.Line(startPoint, 3240, endPoint, 3240);
+
+            //axLine1.Color = Colors.Green;
+            //axLine2.Color = Colors.Green;
+            //axLine3.Color = Colors.Green;
+            //axLine4.Color = Colors.Green;
+
+
+           // SearchForExtremum(value);
+            nameFile = nameFile.Insert(nameFile.LastIndexOf('.'), Guid.NewGuid().ToString());
+            myPlot.SavePng($"{Settings.GlobalParameters.PathSave}\\{nameFile}", Settings.GlobalParameters.WithIMG, Settings.GlobalParameters.HeightIMG);
+
+            return $"{Settings.GlobalParameters.PathSave}\\{nameFile}";
         }
 
 
+ 
 
-        static public string GraphicCreateStock(List<Candle> candles,string nameFile= "свечки.png") 
+        static public string GraphicCreatorLineSupport(List<Candle> candles, List<LinePoint> linePoints, string nameFile = "за день свечки.png")
         {
             ScottPlot.Plot myPlot = new();
             DateTime timeOpen = candles[0].Begin;// new(2024, 01, 03, 9, 30, 0); // 9:30 AM
             DateTime timeClose = candles[candles.Count - 1].End;// new(2024, 01, 03, 16, 0, 0); // 4:00 PM
-            TimeSpan timeSpan = TimeSpan.FromMinutes(10); // 10 minute bins
+            TimeSpan timeSpan = TimeSpan.FromMinutes(
+                Convert.ToInt16(Settings.GlobalParameters.CandleInterval)
+                );
+            List<OHLC> prices = new();
+            foreach (Candle candle in candles)
+            {
+                double open = candle.Open;
+                double close = candle.Close;
+                double high = candle.High;
+                double low = candle.Low;
+
+                prices.Add(new OHLC(open, high, low, close, candle.End, timeSpan));
+            }
+            myPlot.Add.Candlestick(prices);
+            myPlot.Axes.DateTimeTicksBottom();
+
+            double onePoint = myPlot.Axes.Bottom.Max  - myPlot.Axes.Bottom.Min;
+            myPlot.Add.VerticalLine(264);
+            myPlot.Add.HorizontalLine(264);
+
+            for (int i = linePoints.Count-1; i!= linePoints.Count-5; i--) 
+            {
+                var axLine3 = myPlot.Add.Line(
+                myPlot.Axes.Bottom.Min,
+                       linePoints[i].CoordinateY,
+                myPlot.Axes.Bottom.Max,
+                       linePoints[i].CoordinateY
+                      );
+            }
+            //foreach (var linePoint in linePoints)
+            //{
+            //    var axLine3 = myPlot.Add.Line(
+            //        myPlot.Axes.Bottom.Min,
+            //        linePoint.CoordinateY,
+            //        myPlot.Axes.Bottom.Max,
+            //        linePoint.CoordinateY
+            //       );
+            //  //  myPlot.Add.HorizontalLine(linePoint.CoordinateY);
+            //}
+
+
+            nameFile = nameFile.Insert(nameFile.LastIndexOf('.'), Guid.NewGuid().ToString());
+            myPlot.SavePng($"{Settings.GlobalParameters.PathSave}\\{nameFile}", Settings.GlobalParameters.WithIMG, Settings.GlobalParameters.HeightIMG);
+            return $"{Settings.GlobalParameters.PathSave}\\{nameFile}";
+        }
+
+
+
+
+
+
+        /// <summary>
+        /// Создание картинки свечей
+        /// </summary>
+        /// <param name="candles">экземпляр класса candles</param>
+        /// <param name="nameFile">название файла</param>
+        /// <returns></returns>
+        static public string GraphicCreateStock(List<Candle> candles,string nameFile = "за день свечки.png") 
+        {
+            ScottPlot.Plot myPlot = new();
+            DateTime timeOpen = candles[0].Begin;// new(2024, 01, 03, 9, 30, 0); // 9:30 AM
+            DateTime timeClose = candles[candles.Count - 1].End;// new(2024, 01, 03, 16, 0, 0); // 4:00 PM
+            TimeSpan timeSpan = TimeSpan.FromMinutes(
+                Convert.ToInt16(Settings.GlobalParameters.CandleInterval)
+                ); 
             List<OHLC> prices = new();
             foreach (Candle candle in candles)
             {
@@ -92,13 +189,22 @@ namespace FinalProject
             myPlot.Add.Candlestick(prices);
             myPlot.Axes.DateTimeTicksBottom();
 
-
             nameFile = nameFile.Insert(nameFile.LastIndexOf('.'), Guid.NewGuid().ToString());
-            myPlot.SavePng($"{Settings.GlobalParameters.PATH_SAVE}\\{nameFile}", Settings.GlobalParameters.WITH_IMG, Settings.GlobalParameters.HEIHG_IMG);
-            return $"{Settings.GlobalParameters.PATH_SAVE}\\{nameFile}";
+            myPlot.SavePng($"{Settings.GlobalParameters.PathSave}\\{nameFile}", Settings.GlobalParameters.WithIMG, Settings.GlobalParameters.HeightIMG);
+            return $"{Settings.GlobalParameters.PathSave}\\{nameFile}";
         }
 
 
+        static public string GraphicCreatorValue(List<Candle> candles, string nameFile = "Объём покупки - продажи.png")
+        {
+            ScottPlot.Plot myPlot = new();
+
+            // create a bar plot
+            double[] values = { 5, 10, 7, 13, 25, 60 };
+            myPlot.Add.Bars(values);
+            myPlot.Axes.Margins(bottom: 0);
+            return "";
+        }
 
 
 

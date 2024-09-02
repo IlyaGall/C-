@@ -23,9 +23,51 @@ namespace FinalProject
     public class TelegramBots
     {
 
+        /// <summary>
+        /// массив кнопок
+        /// </summary>
+        /// <returns>экземпляр класса InlineKeyboardMarkup с массивом кнопок</returns>
+        private static InlineKeyboardMarkup ArrayButton()
+        {
+            return new InlineKeyboardMarkup(
+                new[]
+                {
+                    new[]
+                    {
+                        InlineKeyboardButton.WithCallbackData("справка", "/info"),
+                    },
+                     new[]
+                    {
+                        InlineKeyboardButton.WithCallbackData("Список команд", "/ListCommand"),
+                    },
+                    new[]
+                    {
+                        InlineKeyboardButton.WithCallbackData("Индекс МБ за 30 дней", "/indexMB30Day"),
+                    },
+                    new[]
+                    {
+                        InlineKeyboardButton.WithCallbackData("Индекс МБ за год", "/indexMBYear"),
+                    },
+                    new[]
+                    {
+                        InlineKeyboardButton.WithCallbackData("тестирование ф-и", "test"),
+                    },
+                    new[]
+                    {
+                        InlineKeyboardButton.WithCallbackData("Добавить акцию в избранное", "/AddFavorites"),
+                    },
+                    new[]
+                    {
+                        InlineKeyboardButton.WithCallbackData("Получить избранные акции", "/GetFavoritesStocks"),
+                    },
+                }
+            );
+        }
+
+
         public static void startTelegram()
         {
-            var botClient = new TelegramBotClient(Settings.GlobalParameters.TOKEN);
+            var botClient = new TelegramBotClient(Settings.GlobalParameters.Token);
             botClient.StartReceiving(clientUpdate, Error);
             Console.WriteLine($"server start. {DateTime.Now}");
             Console.ReadLine();
@@ -49,127 +91,173 @@ namespace FinalProject
                 string buttonCommand = update.CallbackQuery.Data;
                 long userId = update.CallbackQuery.From.Id;
                 Console.WriteLine($"Пользователь {userId} нажал кнопку {buttonCommand}");
-                var getAnswer = Server.ServerCommand(buttonCommand);
-                await botClient.SendTextMessageAsync(userId, $"command: {buttonCommand}\n {getAnswer.Item1}");
-                if (getAnswer.Item2 != null)
+
+                switch (buttonCommand)
                 {
-                    int stepCollection = 0;
-                    foreach (string pathImg in getAnswer.Item2)
-                    {
-                        if (getAnswer.Item3 != null && getAnswer.Item3[stepCollection]!=null)
+                    case "/info":
+                        var text = "Список команд:";
+                        var getAnswer = Server.ServerCommand(buttonCommand);
+                        await botClient.SendTextMessageAsync(userId, $"command: {buttonCommand}\n {getAnswer.Item1}");
+                        await botClient.SendTextMessageAsync(userId, text, replyMarkup: ArrayButton());
+                        break;
+                    case "/ListCommand":
+                        text = "Список команд:";
+                        await botClient.SendTextMessageAsync(userId, text, replyMarkup: ArrayButton());
+                        break;
+                    case "/indexMB30Day":
+                    case "/indexMBYear":
+
+                    case "test":
+                        getAnswer = Server.ServerCommand(buttonCommand);
+                        await botClient.SendTextMessageAsync(userId, $"command: {buttonCommand}\n {getAnswer.Item1}");
+                        if (getAnswer.Item2 != null)
                         {
-                            await loadPhoto(botClient, userId, pathImg, getAnswer.Item3[stepCollection]);
+                            int stepCollection = 0;
+                            foreach (string pathImg in getAnswer.Item2)
+                            {
+                                if (getAnswer.Item3 != null && getAnswer.Item3[stepCollection] != null)
+                                {
+                                    await loadPhoto(botClient, userId, pathImg, getAnswer.Item3[stepCollection]);
+                                }
+                                else
+                                {
+                                    await loadPhoto(botClient, userId, pathImg, "");
+                                }
+                            }
                         }
-                        else 
+                        break;
+                    case "/AddFavorites":
+                        text = "Для того чтобы добавить акцию в избранное, нужно написать команду:'/AddFavorites название акции'"; 
+                        await botClient.SendTextMessageAsync(userId, text);
+                        break;
+                   
+                    case "/GetFavoritesStocks":
+                        foreach (var nameActive in DataBase.GetStockListUser(userId)) 
                         {
-                            await loadPhoto(botClient, userId, pathImg, "");
+                            getAnswer = Server.ServerCommand("/GetFavoritesStocks", nameActive);
+                            if (getAnswer.Item2 != null)
+                            {
+                                int stepCollection = 0;
+                                foreach (string pathImg in getAnswer.Item2)
+                                {
+                                    if (getAnswer.Item3 != null && getAnswer.Item3[stepCollection] != null)
+                                    {
+                                        await loadPhoto(botClient, userId, pathImg, getAnswer.Item3[stepCollection]);
+                                    }
+                                    else
+                                    {
+                                        await loadPhoto(botClient, userId, pathImg, "");
+                                    }
+                                }
+                            }
                         }
-                    }
+                        break;
+
+                }
+            }
+
+            var message = update.Message;
+            if (message != null)
+            {
+                long userId = message.Chat.Id;
+                var messageTelegram = message.Text?.ToString()?.Split(' ');
+                switch (messageTelegram[0]) 
+                {
+                    case "/AddFavorites":
+                        DataBase.addUser(userId);
+                        DataBase.AddFavoritesStock(userId,messageTelegram[1]);
+                        break;
+                    default:
+                        await botClient.SendTextMessageAsync(userId, @"Не известная команда! Вызовите \info, чтобы открыть список доступных команд.");
+                        break;
                 }
 
-            }
-            var message = update.Message;
-            if (message != null) 
-            {
 
 
-            
-            long IDChats = update.Message.Chat.Id;
-
-            if (!string.IsNullOrEmpty(message?.Text))
-            {
-                var s = Server.ServerCommand(message.Text);
-                Console.WriteLine($"{message.Chat.Username ?? "этот пользователь без имени"} пишет: {message.Text}");
-                await botClient.SendTextMessageAsync(message.Chat.Id, $"command: {message.Text}\n {s.Item1}");
-
-                #region пример с кнопками
-                /*
-                var keyboard = new ReplyKeyboardMarkup(new[]
-                 {
-                    new []
-                    {
-                        new KeyboardButton("Хостел"),
-                        new KeyboardButton("Хостел"),
-                        new KeyboardButton("Хостел"),
-                        new KeyboardButton("Контакты"),
-                    },
-                    new []
-                    {
-                        new KeyboardButton("Геолокация"),
-                        new KeyboardButton("Оборудование"),
-                        new KeyboardButton("Оборудование"),
-                        new KeyboardButton("Оборудование"),
-                    }
-                });
-                await botClient.SendTextMessageAsync(message.Chat.Id, "О нашем хостеле мы расскажем тут", replyMarkup: keyboard);
-                await botClient.SendTextMessageAsync(message.Chat.Id, "Removing keyboard", replyMarkup: new ReplyKeyboardRemove());
-                */
-                #endregion
 
 
-                var text = "Список команд:";
-                var ikm = new InlineKeyboardMarkup(new[]
+                //long IDChats = update.Message.Chat.Id;
+
+
+
+
+
+
+                //if (!string.IsNullOrEmpty(message?.Text))
+                //{
+                //    var s = Server.ServerCommand(message.Text);
+                //    Console.WriteLine($"{message.Chat.Username ?? "этот пользователь без имени"} пишет: {message.Text}");
+                //    await botClient.SendTextMessageAsync(message.Chat.Id, $"command: {message.Text}\n {s.Item1}");
+
+                //    #region пример с кнопками
+                //    /*
+                //    var keyboard = new ReplyKeyboardMarkup(new[]
+                //     {
+                //        new []
+                //        {
+                //            new KeyboardButton("Хостел"),
+                //            new KeyboardButton("Хостел"),
+                //            new KeyboardButton("Хостел"),
+                //            new KeyboardButton("Контакты"),
+                //        },
+                //        new []
+                //        {
+                //            new KeyboardButton("Геолокация"),
+                //            new KeyboardButton("Оборудование"),
+                //            new KeyboardButton("Оборудование"),
+                //            new KeyboardButton("Оборудование"),
+                //        }
+                //    });
+                //    await botClient.SendTextMessageAsync(message.Chat.Id, "О нашем хостеле мы расскажем тут", replyMarkup: keyboard);
+                //    await botClient.SendTextMessageAsync(message.Chat.Id, "Removing keyboard", replyMarkup: new ReplyKeyboardRemove());
+                //    */
+                //    #endregion
+
+
+                //    var text = "Список команд:";
+
+                //    await botClient.SendTextMessageAsync(message.Chat.Id, text, replyMarkup: ArrayButton());
+                //    return;
+
+
+                //}
+
+                //if (message?.Photo != null)
+                //{
+                //    await loadFile(botClient, IDChats, "C:\\Users\\Ilya\\Desktop\\falen world\\pero.jpg");
+                //    return;
+                //}
+
+                if (message.Document != null)
                 {
-                    new[]
-                    {
-                        InlineKeyboardButton.WithCallbackData("Список команд (справка)", "/info"),
-                    },
-                    new[]
-                    {
-                        InlineKeyboardButton.WithCallbackData("Индекс МБ за 30 дней", "/indexMB30Day"),
-                    },
-                    new[]
-                    {
-                        InlineKeyboardButton.WithCallbackData("Индекс МБ за год", "/indexMBYear"),
-                    },
-                    new[]
-                    {
-                        InlineKeyboardButton.WithCallbackData("тестирование ф-и", "test"),
-                    },
-                });
+                    await botClient.SendTextMessageAsync(message.Chat.Id, $"Ща отправим");
+                    // var fileId = update.Message.Photo.Last().FileId;
+                    var fileId = update.Message.Document.FileId;
 
-                await botClient.SendTextMessageAsync(message.Chat.Id, text, replyMarkup: ikm);
-                return;
+                    var fileInfo = await botClient.GetFileAsync(fileId);
+                    var filePath = fileInfo.FilePath;
 
+                    string destinationFilePath = $@"C:\\Users\\Ilya\\Desktop\\Новая папка\\" + $"{message.Document.FileName}";
 
-            }
-         
-            if (message?.Photo != null)
-            {
-                await loadFile(botClient, IDChats, "C:\\Users\\Ilya\\Desktop\\falen world\\pero.jpg");
-                return;
-            }
-
-            if (message.Document != null)
-            {
-                await botClient.SendTextMessageAsync(message.Chat.Id, $"Ща отправим");
-                // var fileId = update.Message.Photo.Last().FileId;
-                var fileId = update.Message.Document.FileId;
-
-                var fileInfo = await botClient.GetFileAsync(fileId);
-                var filePath = fileInfo.FilePath;
-
-                string destinationFilePath = $@"C:\\Users\\Ilya\\Desktop\\Новая папка\\" + $"{message.Document.FileName}";
-
-                await using Stream fileStream = System.IO.File.Create(destinationFilePath);
-                await botClient.DownloadFileAsync(
-                    filePath: filePath,
-                    destination: fileStream);
-                fileStream.Close();
+                    await using Stream fileStream = System.IO.File.Create(destinationFilePath);
+                    await botClient.DownloadFileAsync(
+                        filePath: filePath,
+                        destination: fileStream);
+                    fileStream.Close();
 
 
 
-                //отправка файла
-                string fileName = "PEROOOOOO.jpg";
-                await using Stream stream = System.IO.File.OpenRead("C:\\Users\\Ilya\\Desktop\\falen world\\pero.jpg");
-                var messageLoad = await botClient.SendDocumentAsync(
-                    message.Chat.Id,
-                    document: InputFile.FromStream(stream, fileName),
-                    caption: "The Tragedy of Hamlet,\nPrince of Denmark");
+                    //отправка файла
+                    string fileName = "PEROOOOOO.jpg";
+                    await using Stream stream = System.IO.File.OpenRead("C:\\Users\\Ilya\\Desktop\\falen world\\pero.jpg");
+                    var messageLoad = await botClient.SendDocumentAsync(
+                        message.Chat.Id,
+                        document: InputFile.FromStream(stream, fileName),
+                        caption: "The Tragedy of Hamlet,\nPrince of Denmark");
 
 
-                return;
-            }
+                    return;
+                }
             }
         }
 
@@ -208,18 +296,20 @@ namespace FinalProject
         {
             string fileName = pathFile.Remove(0, pathFile.LastIndexOf('\\') - 1);// "PEROOOOOO.jpg";
             await using Stream stream = System.IO.File.OpenRead(pathFile);
+           
             var messageLoad = await botClient.SendPhotoAsync(
                   chatId: IDChats,
                   photo: InputFile.FromStream(stream, fileName),
                   caption: $"{text}"
                 );
+           
         }
 
 
-    private static async Task Error(ITelegramBotClient client, Exception exception, CancellationToken token)
-    {
+        private static async Task Error(ITelegramBotClient client, Exception exception, CancellationToken token)
+        {
             throw new NotImplementedException();
-    }
+        }
 
 
 

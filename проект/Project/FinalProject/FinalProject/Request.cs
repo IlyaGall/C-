@@ -51,23 +51,6 @@ namespace FinalProject
 
         }
 
-        /// <summary>
-        /// запрос к серверу Московской биржи
-        /// </summary>
-        /// <param name="url">запрос в виде url</param>
-        /// <param name="command">команда</param>
-        /// <returns></returns>
-        static public (string,List<string>) RequestServer(string url, string command = "") 
-        {
-            using (var client = new HttpClient())
-            {
-                HttpResponseMessage response = client.GetAsync(url).Result;
-                string json = response.Content.ReadAsStringAsync().Result;
-                List<string> result = new List<string>() { "C:\\Users\\Ilya\\Desktop\\inventory.png" };
-                return (json, result);
-            }
-          
-        }
 
 
 

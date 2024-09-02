@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScottPlot.Palettes;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -249,8 +250,6 @@ namespace FinalProject
                                         {
                                             Console.WriteLine($"обработано страниц {i} из {total / 100}");
                                             xDoc.LoadXml(Request.request(request + $"&start={i * 100}"));
-
-
                                             xRoot = xDoc.DocumentElement;
                                             foreach (XmlElement xNodeHistory in xRoot)
                                             {
@@ -284,27 +283,44 @@ namespace FinalProject
         }
 
 
+        /// <summary>
+        /// проверить, данные на превышение 500 значений в запросе
+        /// </summary>
+        /// <returns></returns>
+        private static bool DataVerificationCandle(string request) 
+        {
+           
+            return false;
+        }
 
 
-
+        /// <summary>
+        /// Парсинг xml для акций
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public static List<Candle> passingXMLStock(string request)
         {
             List<Candle> candles = new List<Candle>();
-            string xml = Request.RequestServer(request);
-            XmlDocument xDoc = new XmlDocument();
-            xDoc.LoadXml(xml);
-            XmlElement? xRoot = xDoc.DocumentElement;
-            if (xRoot != null)
+            bool flagStop = false;
+            int startRow = 0;
+            while (!flagStop)
             {
+                flagStop = true;
+                string xml = Request.RequestServer(request + $"&start={startRow.ToString()}");
+                XmlDocument xDoc = new XmlDocument();
+                xDoc.LoadXml(xml);
+                XmlElement? xRoot = xDoc.DocumentElement;
                 foreach (XmlElement xNode in xRoot)
                 {
-                    XmlNode? attr = xNode.Attributes.GetNamedItem("id");
                     foreach (XmlNode childNode in xNode.ChildNodes)
                     {
                         foreach (XmlNode childNode1 in childNode.ChildNodes)
                         {
                             if (childNode1.LocalName == "row")
                             {
+                                flagStop = false;
+                               
                                 candles.Add(
                                     new Candle(
                                         childNode1?.Attributes?[0].InnerText,
@@ -315,16 +331,23 @@ namespace FinalProject
                                         childNode1?.Attributes?[5].InnerText,
                                         childNode1?.Attributes?[6].InnerText,
                                         childNode1?.Attributes?[7].InnerText
-                                        )
-                                    );
-                                
+                                    )
+                                );
                             }
                         }
                     }
                 }
+                startRow += 500;
+                Console.WriteLine("ParserXML: " + startRow);
             }
             return candles;
         }
+
+
+
+
+
+
 
 
         /// <summary>

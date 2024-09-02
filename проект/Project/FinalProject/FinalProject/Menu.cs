@@ -128,27 +128,31 @@ namespace FinalProject
         /// Обновление раздела настроек 
         /// </summary>
         private static string[] settings = new[] {
-            $"Временное хранение файлов графиков '{Settings.GlobalParameters.PATH_SAVE}'",
+            $"Временное хранение файлов графиков '{Settings.GlobalParameters.PathSave}'",
             $"Сбросить файл настроек по умолчанию",
-            $"Версия по '{Settings.GlobalParameters.VERSION_PROGRAM}'",
-            $"Ширина картинки = {Settings.GlobalParameters.WITH_IMG}",
-            $"Высота картинки = {Settings.GlobalParameters.HEIHG_IMG}",
+            $"Версия по '{Settings.GlobalParameters.VersionProgram}'",
+            $"Ширина картинки = {Settings.GlobalParameters.WithIMG}",
+            $"Высота картинки = {Settings.GlobalParameters.HeightIMG}",
+            $"Размер интервала свечки = {Settings.GlobalParameters.CandleInterval}",
+            $"Токен telegram = *скрыто*",
             "Выход в меню"
         };
 
         /// <summary>
         /// обновление массива 
         /// </summary>
-        /// <returns></returns>
         private static void updateArraySetting()
         {
             settings = new[] {
-            $"Временное хранение файлов графиков '{Settings.GlobalParameters.PATH_SAVE}'",
+            $"Временное хранение файлов графиков '{Settings.GlobalParameters.PathSave}'",
             $"Сбросить файл настроек по умолчанию",
-            $"Версия по '{Settings.GlobalParameters.VERSION_PROGRAM}'",
-            $"Ширина картинки = {Settings.GlobalParameters.WITH_IMG}",
-            $"Высота картинки = {Settings.GlobalParameters.HEIHG_IMG}",
-            "Выход в меню"
+            $"Версия по '{Settings.GlobalParameters.VersionProgram}'",
+            $"Ширина картинки = {Settings.GlobalParameters.WithIMG}",
+            $"Высота картинки = {Settings.GlobalParameters.HeightIMG}",
+            $"Размер интервала свечки = {Settings.GlobalParameters.CandleInterval}",
+        
+             $"Токен telegram = *скрыто*",
+                "Выход в меню"
             };
 
         }
@@ -157,7 +161,7 @@ namespace FinalProject
         /// возвращаем фичу
         /// </summary>
         private static string[] author = new[] {
-            $"Автор ПО '{Settings.GlobalParameters.AVTOR}'",
+            $"Автор ПО '{Settings.GlobalParameters.Avtar}'",
         };
 
         /// <summary>
@@ -189,7 +193,7 @@ namespace FinalProject
                             string? s = Console.ReadLine();
                             if (Settings.CorrectPathDirectory(s))
                             {
-                                Settings.GlobalParameters.PATH_SAVE = s;
+                                Settings.GlobalParameters.PathSave = s;
                                 updateArraySetting();
                                 Console.Clear();
                                 PrintMenu();
@@ -199,7 +203,7 @@ namespace FinalProject
                                 Console.Clear();
                                 PrintMenu();
                                 Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine($"Внимание не удалось изменить путь на '{s}' путь сброшен на дефолтный {Settings.GlobalParameters.PATH_SAVE} \n{Settings.GlobalParameters.ERROR}\nЧтобы ещё раз попробовать выберите пункт 1 и нажмите 'enter'");
+                                Console.WriteLine($"Внимание не удалось изменить путь на '{s}' путь сброшен на дефолтный {Settings.GlobalParameters.PathSave} \n{Settings.GlobalParameters.Error}\nЧтобы ещё раз попробовать выберите пункт 1 и нажмите 'enter'");
                                 Console.ForegroundColor = ConsoleColor.White;
                             }
                         }
@@ -248,7 +252,7 @@ namespace FinalProject
 
                                 if (int.TryParse(Console.ReadLine(), out var with))
                                 {
-                                    Settings.GlobalParameters.WITH_IMG = with;
+                                    Settings.GlobalParameters.WithIMG = with;
                                     updateArraySetting();
                                     Settings.CheckFileSetting(true);
                                     Console.Clear();
@@ -257,7 +261,7 @@ namespace FinalProject
                                 {
                                     Console.Clear();
                                     Console.ForegroundColor = ConsoleColor.Red;
-                                    Console.WriteLine($"Внимание не удалось преобразовать {with} в целочисленное число. Сброшено на дефолтные значения.{Settings.GlobalParameters.ERROR}");
+                                    Console.WriteLine($"Внимание не удалось преобразовать {with} в целочисленное число. Сброшено на дефолтные значения.{Settings.GlobalParameters.Error}");
                                     Console.ForegroundColor = ConsoleColor.White;
                                 }
                                 PrintMenu();
@@ -272,7 +276,7 @@ namespace FinalProject
                         Console.WriteLine("Ведите новую высоту");
                         if (int.TryParse(Console.ReadLine(), out var heigh))
                         {
-                            Settings.GlobalParameters.HEIHG_IMG = heigh;
+                            Settings.GlobalParameters.HeightIMG = heigh;
                             updateArraySetting();
                             Settings.CheckFileSetting(true);
                             Console.Clear();
@@ -281,12 +285,42 @@ namespace FinalProject
                         {
                             Console.Clear();
                             Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine($"Внимание не удалось преобразовать {heigh} в целочисленное число. Сброшено на дефолтные значения.{Settings.GlobalParameters.ERROR}");
+                            Console.WriteLine($"Внимание не удалось преобразовать {heigh} в целочисленное число. Сброшено на дефолтные значения.{Settings.GlobalParameters.Error}");
                             Console.ForegroundColor = ConsoleColor.White;
                         }
                         PrintMenu();
                         break;
                     case 6:
+                        Console.Clear();
+                        Console.WriteLine("Ведите новый размер интервала");
+                        if (int.TryParse(Console.ReadLine(), out var candleInterval))
+                        {
+                            Settings.GlobalParameters.CandleInterval = candleInterval.ToString();
+                            updateArraySetting();
+                            Settings.CheckFileSetting(true);
+                            Console.Clear();
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine($"Внимание не удалось преобразовать {candleInterval} в целочисленное число. Сброшено на дефолтные значения.{Settings.GlobalParameters.Error}");
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }
+                        PrintMenu();
+                        break;
+                    case 7:
+                        Console.Clear();
+                        Console.WriteLine("Ведите token Telegram");
+                       
+                            Settings.GlobalParameters.Token = Console.ReadLine();
+                            updateArraySetting();
+                            Settings.CheckFileSetting(true);
+                            Console.Clear();
+                        
+                        PrintMenu();
+                        break;
+                    case 8:
                         Console.Clear();
                         stackNavigation.RemoveAt(stackNavigation.Count - 1);
                         PrintMenu();

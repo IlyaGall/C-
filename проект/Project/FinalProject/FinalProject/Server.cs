@@ -16,7 +16,10 @@ namespace FinalProject
         }
 
 
-        static public (string, List<string>?,List<string>?) ServerCommand(string command)
+       
+
+
+        static public (string, List<string>?,List<string>?) ServerCommand(string command, string nameActive="")
         {
             //  Telegram.startTelegram();
             Console.WriteLine($"Command client: {command}");
@@ -43,9 +46,22 @@ namespace FinalProject
                        url: RequestCommand.QueryGetMoscowExchangeYear(),
                        typeActive: "MoscowExchangeHistory");
 
+                case "/AddFavorites":
+
+                    break;
                 case "test":// получить акцию
                     return Analytic.AnalyticMoscowExchangeActive(
-                        url: RequestCommand.QueryCandle()
+                        url: RequestCommand.QueryCandle(
+                            ),
+                        nameStock: "Сбербанк"
+                        );
+
+                case "/GetFavoritesStocks":// получить акцию
+                    return Analytic.AnalyticMoscowExchangeActive(
+                        url: RequestCommand.QueryCandle(
+                            nameActive: nameActive
+                            ),
+                        nameStock: nameActive
                         );
 
 

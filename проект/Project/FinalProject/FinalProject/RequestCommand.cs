@@ -78,16 +78,36 @@ namespace FinalProject
         /// <param name="interval">интервал свечи (минуты)</param>
         /// 
         /// <returns></returns>
-        static public string QueryCandle(string nameActive = "SBER", string dataStart = "2024-01-01", string dataEnd = "2024-01-30", string interval = "10")
+        static public string QueryCandle(string nameActive = "SBER", string dataStart = "2024-01-01", string dataEnd = "2024-01-30")
         {
-            /*
+
+            /* http://iss.moex.com/iss/events
+             * 
             читаем описание в котором сказано, что url строится по шаблону / iss / engines / [engine] / markets / [market] / securities / [security] / candles и описаны дополнительные параметры. Строим ссылку, например (с выводом в json):
-            http://iss.moex.com/iss/engines/stock/markets/shares/securities/SBER/candles.xml?iss.meta=off&from=2021-01-01&till=2021-01-30&interval=1
+                      http://iss.moex.com/iss/engines/stock/markets/shares/securities/SBER/candles.xml?iss.meta=off&from=2021-01-01&till=2021-01-30&interval=1
             Данные для свечей по Сбербанку с 1 по 30 января 2021 получены.
             */
 
-            return $@"http://iss.moex.com/iss/engines/stock/markets/shares/securities/{nameActive}/candles.xml?from={dateTime()}&till={dateTime()}&interval={interval}";
+            return $@"http://iss.moex.com/iss/engines/stock/markets/shares/securities/{nameActive}/candles.xml?iss.meta=off&from={dateTime()}&till={dateTime()}&interval={Settings.GlobalParameters.CandleInterval}";
         }
+
+        static public string QueryStock(string nameActive = "SBER", string dataStart = "2024-01-01", string dataEnd = "2024-01-30")
+        {
+            return $@"http://iss.moex.com/iss/engines/stock/markets/shares/securities/{nameActive}/candles.xml?iss.meta=off&from={dataStart}&till={dataEnd}&interval={Settings.GlobalParameters.CandleInterval}";
+        }
+        static public string QueryStockYear(string nameActive = "SBER") 
+        {
+            string now = dateTime();
+            string lastYear = dateTime(-364);
+            //https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities/SBER.xml?iss.meta=off
+            //$@"https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities/{nameActive}.xml?iss.meta=off&from={now}&till={lastYear}"
+
+            return $@"https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities/{nameActive}.xml?iss.meta=off&iss.only=history|history.cursor&history.columns=CLOSE,TRADEDATE&from={lastYear}&till={now  }";
+        }
+
+
+
+
 
         /// <summary>
         /// вернуть все текущие цены по акциям
@@ -124,7 +144,7 @@ namespace FinalProject
 
 
         /// <summary>
-        /// вернуть индекс московской биржи(за 30 дней)
+        /// вернуть индекс московской биржи(за год)
         /// </summary>
         /// <returns></returns>
         static public string QueryGetMoscowExchangeYear()
@@ -149,6 +169,10 @@ namespace FinalProject
             return $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history|history.cursor&history.columns=CLOSE,TRADEDATE&from={dataStart}&till={dataEnd}";
             return $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history&history.columns=CLOSE,TRADEDATE&from={dataStart}&till={dataEnd}";
         }
+
+    
+
+
 
     }
 }
