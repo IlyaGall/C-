@@ -15,6 +15,10 @@
       "RelativeMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\analytic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2AB3EB2A-8898-42E8-8ECF-6DECCC101A5C}|AnalyticMethods\\AnalyticMethods.csproj|C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject\\analyticmethods\\methodlinesupport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AB3EB2A-8898-42E8-8ECF-6DECCC101A5C}|AnalyticMethods\\AnalyticMethods.csproj|solutionrelative:analyticmethods\\methodlinesupport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\FinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject\\finalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -25,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\FinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject\\finalproject\\requestcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\requestcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AB3EB2A-8898-42E8-8ECF-6DECCC101A5C}|AnalyticMethods\\AnalyticMethods.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject\\analyticmethods\\methodlinesupport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AB3EB2A-8898-42E8-8ECF-6DECCC101A5C}|AnalyticMethods\\AnalyticMethods.csproj|solutionrelative:analyticmethods\\methodlinesupport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\FinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject\\finalproject\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -52,40 +52,40 @@
               "RelativeDocumentMoniker": "FinalProject\\GraphicCreator.cs",
               "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject\\FinalProject\\GraphicCreator.cs",
               "RelativeToolTip": "FinalProject\\GraphicCreator.cs",
-              "ViewState": "AQIAAH4AAAAAAAAAAAAIwIUAAAARAAAA",
+              "ViewState": "AQIAAIEAAAAAAAAAAAAgwJEAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-25T14:51:47.391Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "MethodLineSupport.cs",
               "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject\\AnalyticMethods\\MethodLineSupport.cs",
               "RelativeDocumentMoniker": "AnalyticMethods\\MethodLineSupport.cs",
               "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject\\AnalyticMethods\\MethodLineSupport.cs",
               "RelativeToolTip": "AnalyticMethods\\MethodLineSupport.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-25T14:49:02.699Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject\\FinalProject\\Program.cs",
               "RelativeDocumentMoniker": "FinalProject\\Program.cs",
               "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject\\FinalProject\\Program.cs",
               "RelativeToolTip": "FinalProject\\Program.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAAABYAAAAMAAAA",
+              "ViewState": "AQIAAAcAAAAAAAAAAIBJwBYAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-13T07:17:25.228Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "RequestCommand.cs",
               "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject\\FinalProject\\RequestCommand.cs",
               "RelativeDocumentMoniker": "FinalProject\\RequestCommand.cs",
@@ -104,7 +104,7 @@
               "RelativeDocumentMoniker": "FinalProject\\Telegram.cs",
               "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject\\FinalProject\\Telegram.cs",
               "RelativeToolTip": "FinalProject\\Telegram.cs",
-              "ViewState": "AQIAACoBAAAAAAAAAAAWwDoBAAAAAAAA",
+              "ViewState": "AQIAAFkBAAAAAAAAAAAmwCUAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-16T12:12:27.558Z",
               "EditorCaption": ""
@@ -117,20 +117,20 @@
               "RelativeDocumentMoniker": "FinalProject\\Analytic.cs",
               "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject\\FinalProject\\Analytic.cs",
               "RelativeToolTip": "FinalProject\\Analytic.cs",
-              "ViewState": "AQIAAKIBAAAAAAAAAAAjwLEBAABBAAAA",
+              "ViewState": "AQIAAI4BAAAAAAAAAAAgwI8BAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-15T16:01:38.308Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ParserXML.cs",
               "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject\\FinalProject\\ParserXML.cs",
               "RelativeDocumentMoniker": "FinalProject\\ParserXML.cs",
               "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject\\FinalProject\\ParserXML.cs",
               "RelativeToolTip": "FinalProject\\ParserXML.cs",
-              "ViewState": "AQIAADoBAAAAAAAAAAAmwFQBAAAtAAAA",
+              "ViewState": "AQIAADQBAAAAAAAAAAAmwFQBAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-15T16:06:24.005Z",
               "EditorCaption": ""
@@ -145,7 +145,8 @@
               "RelativeToolTip": "FinalProject\\Server.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAQwDwAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-28T11:38:34.557Z"
+              "WhenOpened": "2024-07-28T11:38:34.557Z",
+              "EditorCaption": ""
             }
           ]
         }

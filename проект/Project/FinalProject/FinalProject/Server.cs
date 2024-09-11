@@ -26,7 +26,7 @@ namespace FinalProject
             bool exit = false;
             //  while (!exit)
             //  {
-                TelegramBots.SendMessage("введите команду!");
+                TelegramBotMessage.SendMessage("введите команду!");
                // string? command = Console.ReadLine();
                 switch (command)
                 {
@@ -78,7 +78,7 @@ namespace FinalProject
                         Request.quest("Обновить бд DataStock", RequestCommand.QueryCandle());
                         break;
                     case "/индекс мосбиржи":
-                        TelegramBots.SendMessage("Введите даты. Две даты через пробел, например 2024-09-23 2024-10-28\n если этого не сделать, то по умолчанию будут взята текущая дата");
+                        TelegramBotMessage.SendMessage("Введите даты. Две даты через пробел, например 2024-09-23 2024-10-28\n если этого не сделать, то по умолчанию будут взята текущая дата");
                         string? data = Console.ReadLine();
 
                         if (string.IsNullOrEmpty(data))
@@ -103,7 +103,7 @@ namespace FinalProject
                  
                     return Analytic.AnalyticMoscowExchangeActive(RequestCommand.QueryCandle());
 
-                    TelegramBots.SendMessage("Введите даты. Две даты через пробел, например 2024-09-23 2024-10-28\n если этого не сделать, то по умолчанию будут взята текущая дата");
+                    TelegramBotMessage.SendMessage("Введите даты. Две даты через пробел, например 2024-09-23 2024-10-28\n если этого не сделать, то по умолчанию будут взята текущая дата");
                       //  data = Console.ReadLine();
                         data = "1996-01-01 2024-07-21";
                         if (string.IsNullOrEmpty(data))

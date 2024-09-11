@@ -181,7 +181,7 @@ namespace FinalProject
                         if (stackNavigation[stackNavigation.Count - 1] == "Main menu")
                         {
                             Console.Clear();
-                            TelegramBots.startTelegram();
+                            TelegramBotMessage.startTelegram();
                            // Server.ServerStart();
                             Clear();
                             PrintMenu();

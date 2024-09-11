@@ -65,7 +65,7 @@ namespace FinalProject
                 client.BaseAddress = new Uri("http://iss.moex.com");
                 HttpResponseMessage response = client.GetAsync(request).Result;
                 string json = response.Content.ReadAsStringAsync().Result;
-                TelegramBots.SendMessageDebagger("Result :\n" + json);
+                TelegramBotMessage.SendMessageDebagger("Result :\n" + json);
                 switch (command)
                 {
                     case "Обновить бд DataStock":
@@ -77,7 +77,7 @@ namespace FinalProject
                         }
                         break;
                     case "индекс мосбиржи":
-                        TelegramBots.SendMessage(ParserXML.parsing(json, request));
+                        TelegramBotMessage.SendMessage(ParserXML.parsing(json, request));
                         break;
 
 

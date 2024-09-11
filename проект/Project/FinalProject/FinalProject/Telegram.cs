@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Telegram.Bot.Types;
-
 using Telegram.Bot;
 using Telegram.Bot.Types.ReplyMarkups; // кнопки телеграмма в чате
 using ScottPlot;
 using Microsoft.VisualBasic;
 using static System.Net.WebRequestMethods;
+using System.Text.RegularExpressions;
+using Telegram.Bot.Types.Enums;
 
 //https://telegrambots.github.io/book/index.html документация по telegram
 
@@ -20,7 +21,7 @@ namespace FinalProject
     /// <summary>
     /// работа с телеграмм
     /// </summary>
-    public class TelegramBots
+    public class TelegramBotMessage
     {
 
         /// <summary>
@@ -127,12 +128,12 @@ namespace FinalProject
                         }
                         break;
                     case "/AddFavorites":
-                        text = "Для того чтобы добавить акцию в избранное, нужно написать команду:'/AddFavorites название акции'"; 
+                        text = "Для того чтобы добавить акцию в избранное, нужно написать команду:'/AddFavorites название акции'";
                         await botClient.SendTextMessageAsync(userId, text);
                         break;
-                   
+
                     case "/GetFavoritesStocks":
-                        foreach (var nameActive in DataBase.GetStockListUser(userId)) 
+                        foreach (var nameActive in DataBase.GetStockListUser(userId))
                         {
                             getAnswer = Server.ServerCommand("/GetFavoritesStocks", nameActive);
                             if (getAnswer.Item2 != null)
@@ -143,10 +144,12 @@ namespace FinalProject
                                     if (getAnswer.Item3 != null && getAnswer.Item3[stepCollection] != null)
                                     {
                                         await loadPhoto(botClient, userId, pathImg, getAnswer.Item3[stepCollection]);
+                                        await LoadArrayPhoto(botClient, userId, getAnswer.Item2, getAnswer.Item3);
                                     }
                                     else
                                     {
                                         await loadPhoto(botClient, userId, pathImg, "");
+                                        await LoadArrayPhoto(botClient, userId, getAnswer.Item2, null);
                                     }
                                 }
                             }
@@ -161,11 +164,11 @@ namespace FinalProject
             {
                 long userId = message.Chat.Id;
                 var messageTelegram = message.Text?.ToString()?.Split(' ');
-                switch (messageTelegram[0]) 
+                switch (messageTelegram[0])
                 {
                     case "/AddFavorites":
                         DataBase.addUser(userId);
-                        DataBase.AddFavoritesStock(userId,messageTelegram[1]);
+                        DataBase.AddFavoritesStock(userId, messageTelegram[1]);
                         break;
                     default:
                         await botClient.SendTextMessageAsync(userId, @"Не известная команда! Вызовите \info, чтобы открыть список доступных команд.");
@@ -274,14 +277,10 @@ namespace FinalProject
 
             string fileName = pathFile.Remove(0, pathFile.LastIndexOf('\\') - 1);// "PEROOOOOO.jpg";
             await using Stream stream = System.IO.File.OpenRead(pathFile);
-
-
             var messageLoad = await botClient.SendDocumentAsync(
                 IDChats,
                 document: InputFile.FromStream(stream, fileName),
                 caption: $"{text}");
-
-
         }
 
         /// <summary>
@@ -296,18 +295,67 @@ namespace FinalProject
         {
             string fileName = pathFile.Remove(0, pathFile.LastIndexOf('\\') - 1);// "PEROOOOOO.jpg";
             await using Stream stream = System.IO.File.OpenRead(pathFile);
-           
+
             var messageLoad = await botClient.SendPhotoAsync(
                   chatId: IDChats,
                   photo: InputFile.FromStream(stream, fileName),
                   caption: $"{text}"
                 );
-           
+
+        }
+
+
+        /// <summary>
+        /// тестовая ф-я отправки сообщения с n количеством картинок
+        /// </summary>
+        /// <param name="botClient"></param>
+        /// <param name="IDChats"></param>
+        /// <param name="pathFile"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        private static async Task LoadArrayPhoto(ITelegramBotClient botClient, long IDChats, List <string> pathFile, List<string> text )
+        {
+            List<FileStream> streams = new List<FileStream>();
+            List<InputMediaPhoto> phots = new List<InputMediaPhoto>();
+            bool addText = false;
+            StringBuilder stringBuilder = new () ;
+            foreach (string item in text ) 
+            {
+                stringBuilder.AppendLine(item );
+            }
+            try
+            {
+                foreach (string p in pathFile)
+                {
+                    FileStream s = System.IO.File.OpenRead(p);
+                    streams.Add(s);
+                    phots.Add(new InputMediaPhoto(InputFile.FromStream(s, Path.GetFileName(p)))
+                    { 
+                        Caption = !addText ? $"{stringBuilder.ToString()}" :"" }
+                    );
+                    addText = true;
+                    //phots.Add(new InputMediaPhoto(new InputFile(s, Path.GetFileName(p))));
+                }
+               
+                await botClient.SendMediaGroupAsync(IDChats, phots);
+
+            }
+            catch (Exception ex)
+            {
+                //TODO
+            }
+            finally
+            {
+                foreach (var s in streams)
+                    s.Dispose();
+                phots.Clear();
+            }
         }
 
 
         private static async Task Error(ITelegramBotClient client, Exception exception, CancellationToken token)
         {
+            Console.WriteLine(exception.Message);
             throw new NotImplementedException();
         }
 
@@ -315,15 +363,7 @@ namespace FinalProject
 
 
 
-        /// <summary>
-        /// вытащить путь к картинкам в сообщении
-        /// </summary>
-        /// <returns></returns>
-        static private string[]? parsingPath(string message)
-        {
-            string[] pathImg = message.Split('~');
-            return null;
-        }
+      
 
         /// <summary>
         /// отправка пользователю сообщения
@@ -332,8 +372,6 @@ namespace FinalProject
         static public void SendMessage(string message)
         {
             //пока поставлю заглушку, в виде writeline
-
-
             Console.WriteLine(message);
 
         }

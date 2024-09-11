@@ -131,7 +131,7 @@ namespace FinalProject
             myPlot.Add.VerticalLine(264);
             myPlot.Add.HorizontalLine(264);
 
-            for (int i = linePoints.Count-1; i!= linePoints.Count-5; i--) 
+            for (int i = linePoints.Count - 1; i != linePoints.Count - 5; i--)
             {
                 var axLine3 = myPlot.Add.Line(
                 myPlot.Axes.Bottom.Min,
@@ -148,7 +148,6 @@ namespace FinalProject
             //        myPlot.Axes.Bottom.Max,
             //        linePoint.CoordinateY
             //       );
-            //  //  myPlot.Add.HorizontalLine(linePoint.CoordinateY);
             //}
 
 
