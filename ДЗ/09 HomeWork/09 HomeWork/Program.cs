@@ -42,7 +42,7 @@ namespace _09_HomeWork
         {
             //вызывается в основном теле main
             bool flagStop = false;
-            Console.WriteLine("Нажмите клавишу A для выхода или любую другую клавишу для проверки статуса скачивания");
+    
             var cts = new CancellationTokenSource();
             // для принудительной остановки потока
             ImageDownLoader image = new ImageDownLoader();
@@ -54,7 +54,7 @@ namespace _09_HomeWork
 
             while (!flagStop)
             {
-
+                Console.WriteLine("Нажмите клавишу A для выхода или любую другую клавишу для проверки статуса скачивания");
                 string key = Console.ReadLine().ToUpper();
                 if (key == "A" || key == "А")
                 {//A- анг раскладка;  А -рус раскладка
@@ -69,6 +69,7 @@ namespace _09_HomeWork
                     string status = s.IsCompleted ? "загружена" : "нет";
                     Console.WriteLine($"состояние загрузки картинки: {status}");
                 }
+
             }
 
         }
@@ -109,6 +110,7 @@ namespace _09_HomeWork
 
             while (!flagStop)
             {
+                Console.WriteLine("Нажмите клавишу A для выхода или любую другую клавишу для проверки статуса скачивания");
                 string key = Console.ReadLine().ToUpper();
                 if (key == "A" || key == "А")
                 {//A- анг раскладка;  А -рус раскладка
