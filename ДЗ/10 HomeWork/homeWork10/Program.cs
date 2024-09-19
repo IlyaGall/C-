@@ -49,9 +49,10 @@
             foreach (var file in listPathFiles)
             {
                 //Прочитать все файлы и вывести на консоль: имя_файла: текст + дополнение.
-                Console.WriteLine($"Название файла {file}, содержимое файла {Directory.openAndReadFile(file)}");
+                Console.WriteLine($"Название файла {file}, содержимое файла {Directory.OpenAndReadFile(file)}");
             } 
-            Console.ReadLine();
+            Console.WriteLine("Для завершения и выхода из консоли нажмите любую клавишу.");
+            Console.ReadKey();
         }
     }
 }

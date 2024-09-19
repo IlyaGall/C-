@@ -30,11 +30,8 @@ namespace homeWork10
         /// <returns>путь до файла</returns>
         public static string CreateFile(string path, string nameFile, string extension = ".txt")
         {
-
             string pathFile = $@"{path}\{nameFile}{extension}";
-            FileStream fs = File.Create(pathFile);
-            fs.Close();
-            fs.Dispose();
+            using (FileStream fs = File.Create(pathFile)){ };
             return pathFile;
         }
 
@@ -46,14 +43,29 @@ namespace homeWork10
         /// <returns>item[0]: удалось ли создать файл, item[1]:путь до файла</returns>
         public static (bool, string) WriteInFile(string path, string text)
         {
-            if (File.Exists(path))
-            {// В каждый файл записать его имя в кодировке UTF8. Учесть, что файл может быть удален, либо отсутствовать права на запись.
-                File.AppendAllText(
-                    path: path,
-                    contents: ("\n" + text),
-                    encoding: Encoding.UTF8
-                    );
-                return (true, path);
+            try
+            {
+                if (File.Exists(path))
+                {// В каждый файл записать его имя в кодировке UTF8. Учесть, что файл может быть удален, либо отсутствовать права на запись.
+                    File.AppendAllText(
+                        path: path,
+                        contents: ("\n" + text),
+                        encoding: Encoding.UTF8
+                        );
+                    return (true, path);
+                }
+                else 
+                {
+                    Console.WriteLine("Файл не может быть открыт, так как его нет по этому пути.");
+                }
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine($"Файл не может быть открыт, так как он используется другим процессом.\nПодробности:\n {ex.ToString()}");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Не получись выполнить запись в файл!\nПодробности:\n {ex.ToString()}");
             }
             return (false, "");
         }
@@ -61,13 +73,18 @@ namespace homeWork10
         /// открыть и прочитать содержимое файла
         /// </summary>
         /// <param name="path">путь до файла</param>
-        public static string openAndReadFile(string path)
+        public static string OpenAndReadFile(string path)
         {
             if (File.Exists(path))
             {
                 return File.ReadAllText(path);
-               
-            }return "Error file is Exists";
+
+            }
+            else
+            {
+                throw new Exception("Не получилось записать данные в файл");
+            }
+          
         }
 
     }
