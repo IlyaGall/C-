@@ -41,3 +41,28 @@ C# исполþзует пространство имен System.IO длā фа�
 ## Основнýе операции с файлами и каталогами в C#
 
 ### Создание и записþ файлов
+
+```C#
+    filePath = @"C:\Users\User\Documents\example.txt";
+    File.Create(filePath).Dispose();
+    File.WriteAllText(filePath, "какой-то текст");
+```
+
+### Проверка существованиā файла
+```C#
+filePath = @"C:\Users\User\Documents\example.txt";
+
+if (File.Exists(filePath)) 
+{
+    Console.WriteLine("File Exitst");
+}
+```
+
+### Чтение из файлов
+
+```C#
+    string contents = File.ReadAllText(filePath);
+    Console.WriteLine(contents);
+```
+
+### Перемещение и копирование файлов
