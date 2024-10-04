@@ -6,6 +6,34 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
+
+/*
+    Здравствуйте, Илья. Спасибо большое за вашу работу. Для начала давайте уточню, что пункт 1 и 3 действительно не могут работать одновременно, 
+    однако, так как для набора минимально необходимого балла, чтобы сдать домашнюю работу, не обязательно делать 3 пункт, то вполне может
+    существовать пункт 1 с использованием исключений. (принято)
+
+    Теперь что касается вашей работы. Мне нравится, что вы инициализируете переменные в конструкторе и подробно комментируете код. 
+    Правда, несколько смущает что комментарии начинаются с маленькой буквы, равно как и названия некоторых методов. 
+    Напомню, что по общепринятой конвенции в C# методы всегда начинаются с большой буквы. (исправлено)
+
+    Также, вижу, что вы реализовали разрешение коллизий с помощью открытой адресации. Это несомненно отличное решение, к сожалению, в задании предполагается,
+    что вы реализуете закрытую адресацию. 
+
+    То есть, если у элемента есть ключ, то по этому и только этому ключу будет находиться элемент. 
+
+    Плюс, проверьте, пожалуйста, работу индексаторов с ключом, превышающим размер массива, у меня такой вызов не сработал. (исправлено)
+
+    Также, думаю, что при работе с индексатором в качестве value должна приниматься строка, а не ItemDictionary. 
+    Ещё, в текущей реализации можно добавить несколько разных значений по одному ключу и они все будут храниться в _items.
+
+    Предлагаю вам в качестве хранилища использовать массив строк, как это указано в задаче и реализовать задачу с ним. Возможно,
+    придётся немного поломать голову над тем, как это сделать, однако, уверен, что будете приятно удивлены тем, как просто и элегантно можно сделать 
+    это задание.
+
+    Если же не получится и вы где-то застрянете, то пишите здесь и я с удовольствием вам помогу. А пока возвращаю работу вам.
+ */
+
+
 /*
     Реализуйте класс OtusDictionary, который позволяет оперировать int-овыми значениями в качестве ключей и строками в качестве значений. 
     Для добавления используйте метод void Add(int key, string value), а для получения элементов - string Get(int key). 
@@ -17,24 +45,26 @@ using System.Threading.Tasks;
 namespace HomeWork
 {
     /// <summary>
-    /// кастомный словарь
+    /// Кастомный словарь
     /// </summary>
     internal class OtusDictionary
     {
-
         /// <summary>
-        /// первоначальная длина коллекции OtusDictionary
+        /// Первоначальная длина коллекции OtusDictionary
         /// </summary>
         private int _size;
         /// <summary>
-        /// текущая позиция элемента
+        /// Текущая позиция элемента
         /// </summary>
         private int _nowPosition;
         /// <summary>
-        /// массив items (ключ-значение)
+        /// Массив items (ключ-значение)
         /// </summary>
         private ItemDictionary[] _items;
 
+        /// <summary>
+        /// конструктор(по умолчанию размер OtusDictionary равен 32 
+        /// </summary>
         public OtusDictionary()
         {
             _size = 32;
@@ -46,10 +76,10 @@ namespace HomeWork
         #region 1 Реализуйте метод Add с неизменяемым массивом размером 32 элемента(исключение, если уже занято место).
 
         /// <summary>
-        /// добавить элемент
+        /// Добавить элемент
         /// </summary>
-        /// <param name="key">ключ-значение (int)</param>
-        /// <param name="value">значение (string)</param>
+        /// <param name="key">Ключ-значение (int)</param>
+        /// <param name="value">Значение (string)</param>
         //TODO: 1 задание противоречит 3 "(исключение, если уже занято место)"
         //"Реализуйте увеличение массива в два раза при нахождении коллизий"
         public void Add(int key, string value)
@@ -65,16 +95,16 @@ namespace HomeWork
             // закомментированный фрагмент для первого задания  "(исключение, если уже занято место)"
             if (_nowPosition >= _size)
             {
-                lengthIncrease();
+                LengthIncrease();
             }
-            int keyHash = hashKey(key);
-            if (_items[keyHash] != null) 
+            int keyHash = HashKey(key);
+            if (_items[keyHash] != null)
             {
                 // Решаем проблему. При использовании хеш-кода,например, число 40 при преобразовании превращается в 8
                 // согласно ТЗ, "только один объект по одному индексу". 
-                keyHash = findNewIndex(keyHash);
+                keyHash = FindNewIndex(keyHash);
             }
-            
+
             _items[keyHash] = new ItemDictionary(key, value);
             _nowPosition++;
 
@@ -84,13 +114,13 @@ namespace HomeWork
         #region 2 Реализуйте метод Get.
 
         /// <summary>
-        /// получить элемент по ключу
+        /// Получить элемент по ключу
         /// </summary>
-        /// <param name="key"></param>
-        /// <returns>значение элемента</returns>
+        /// <param name="key">Значение ключа по которому нужно вернуть значение</param>
+        /// <returns>Значение элемента</returns>
         public string Get(int key)
         {
-            int hash = hashKey(key);
+            int hash = HashKey(key);
             while (hash < _size)
             {
                 ItemDictionary entry = _items[hash];
@@ -105,38 +135,38 @@ namespace HomeWork
         #endregion
 
         /// <summary>
-        /// получить key при помощи хеш таблицы
+        /// Получить key при помощи хеш таблицы
         /// </summary>
-        /// <param name="key"> ключ </param>
-        /// <returns>хеш - ключ</returns>
-        private int hashKey(int key) =>  key % _size;
+        /// <param name="key"> Ключ </param>
+        /// <returns>Хеш - ключ</returns>
+        private int HashKey(int key) => key % _size;
 
 
         /// <summary>
-        /// поиск нового индекса
+        /// Поиск нового индекса
         /// </summary>
-        /// <param name="index">текущий индекс</param>
-        /// <returns>индекс элемента</returns>
-        private int findNewIndex(int index)
+        /// <param name="index">Текущий индекс</param>
+        /// <returns>Индекс элемента</returns>
+        private int FindNewIndex(int index)
         {
             int sds = index;
             while (_items[index] != null)
             {
                 index = (index + 1) % _size;
             }
-            if (_size <= index) 
+            if (_size <= index)
             {
-                lengthIncrease();
+                LengthIncrease();
             }
             return index;
         }
         /// <summary>
-        /// поиск нового индекса
+        /// Поиск нового индекса
         /// </summary>
-        /// <param name="index">текущий индекс</param>
-        /// <param name="_itemsNew">новый массив, в котором нужно сделать поиск</param>
-        /// <returns>индекс элемента</returns>
-        private int findNewIndex(int index, ItemDictionary[] _itemsNew)
+        /// <param name="index">Текущий индекс</param>
+        /// <param name="_itemsNew">Новый массив, в котором нужно сделать поиск</param>
+        /// <returns>Индекс элемента</returns>
+        private int FindNewIndex(int index, ItemDictionary[] _itemsNew)
         {
 
             while (_itemsNew[index] != null)
@@ -145,7 +175,7 @@ namespace HomeWork
             }
             if (_size <= index)
             {
-                lengthIncrease();
+                LengthIncrease();
             }
             return index;
         }
@@ -154,18 +184,18 @@ namespace HomeWork
 
         #region 3 Реализуйте увеличение массива в два раза при нахождении коллизий
         /// <summary>
-        /// увеличение длины основного массива OtusDictionary
+        /// Увеличение длины основного массива OtusDictionary
         /// </summary>
-        private void lengthIncrease()
+        private void LengthIncrease()
         {
             _size = _size * 2;
             ItemDictionary[] _itemsNew = new ItemDictionary[_size];
             foreach (ItemDictionary item in _items)
             {
-                int keyHash = hashKey(item.Key);
+                int keyHash = HashKey(item.Key);
                 if (_itemsNew[keyHash] != null)
                 {
-                    keyHash = findNewIndex(keyHash, _itemsNew);
+                    keyHash = FindNewIndex(keyHash, _itemsNew);
                 }
                 _itemsNew[keyHash] = new ItemDictionary(item.Key, item.Value);
             }
@@ -176,13 +206,24 @@ namespace HomeWork
 
         #region Добавьте к классу возможность работы с индексатором
         /// <summary>
-        /// индексатор
+        /// Индексатор
         /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
+        /// <param name="index">Индекс</param>
+        /// <returns>Значение ItemDictionary</returns>
         public ItemDictionary this[int index]
         {
-            get => _items[index];
+            get
+            {
+                if (_size <= index)
+                {
+                    Console.WriteLine("По этому индексу ничего нет, но согласно ТЗ нельзя положить программу");
+                    return null;
+                }
+                else
+                {
+                    return _items[index];
+                }
+            }
             set => _items[index] = value;
             // get and set accessors
         }

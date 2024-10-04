@@ -7,25 +7,25 @@ using System.Threading.Tasks;
 namespace HomeWork
 {
     /// <summary>
-    /// элемент коллекции OtusDictionary
+    /// Элемент коллекции OtusDictionary
     /// </summary>
     internal class ItemDictionary
     {
         /// <summary>
-        /// ключ словаря
+        /// Ключ словаря
         /// </summary>
-        public int Key { get; set; }
+        public int Key { get; private set; }
         /// <summary>
-        /// значение словаря
+        /// Значение словаря
         /// </summary>
-        public string? Value { get; set; }
+        public string? Value { get; private set; }
 
         /// <summary>
-        /// конструктор item
+        /// Конструктор item
         /// </summary>
-        /// <param name="key">ключ</param>
-        /// <param name="value">значение</param>
-        public ItemDictionary(int key, string value) 
+        /// <param name="key">Ключ</param>
+        /// <param name="value">Значение</param>
+        public ItemDictionary(int key, string value)
         {
             Key = key;
             Value = value;

@@ -1,14 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Ilya\\source\\repos\\HomeWork\\",
+  "WorkspaceRootPath": "C:\\gitHub\\C-\\\u0414\u0417\\11 HomeWork\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{72D87E66-25D0-42C2-B835-F3366B4A9832}|HomeWork\\HomeWork.csproj|c:\\users\\ilya\\source\\repos\\homework\\homework\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{72D87E66-25D0-42C2-B835-F3366B4A9832}|HomeWork\\HomeWork.csproj|solutionrelative:homework\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{72D87E66-25D0-42C2-B835-F3366B4A9832}|HomeWork\\HomeWork.csproj|c:\\github\\c-\\\u0434\u0437\\11 homework\\homework\\itemdictionary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72D87E66-25D0-42C2-B835-F3366B4A9832}|HomeWork\\HomeWork.csproj|solutionrelative:homework\\itemdictionary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{72D87E66-25D0-42C2-B835-F3366B4A9832}|HomeWork\\HomeWork.csproj|c:\\users\\ilya\\source\\repos\\homework\\homework\\otusdictionary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{72D87E66-25D0-42C2-B835-F3366B4A9832}|HomeWork\\HomeWork.csproj|c:\\github\\c-\\\u0434\u0437\\11 homework\\homework\\otusdictionary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{72D87E66-25D0-42C2-B835-F3366B4A9832}|HomeWork\\HomeWork.csproj|solutionrelative:homework\\otusdictionary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72D87E66-25D0-42C2-B835-F3366B4A9832}|HomeWork\\HomeWork.csproj|c:\\github\\c-\\\u0434\u0437\\11 homework\\homework\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72D87E66-25D0-42C2-B835-F3366B4A9832}|HomeWork\\HomeWork.csproj|solutionrelative:homework\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,33 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ItemDictionary.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u0414\u0417\\11 HomeWork\\HomeWork\\ItemDictionary.cs",
+              "RelativeDocumentMoniker": "HomeWork\\ItemDictionary.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u0414\u0417\\11 HomeWork\\HomeWork\\ItemDictionary.cs",
+              "RelativeToolTip": "HomeWork\\ItemDictionary.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAcwCMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T13:49:25.85Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "OtusDictionary.cs",
-              "DocumentMoniker": "C:\\Users\\Ilya\\source\\repos\\HomeWork\\HomeWork\\OtusDictionary.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u0414\u0417\\11 HomeWork\\HomeWork\\OtusDictionary.cs",
               "RelativeDocumentMoniker": "HomeWork\\OtusDictionary.cs",
-              "ToolTip": "C:\\Users\\Ilya\\source\\repos\\HomeWork\\HomeWork\\OtusDictionary.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u0414\u0417\\11 HomeWork\\HomeWork\\OtusDictionary.cs",
               "RelativeToolTip": "HomeWork\\OtusDictionary.cs",
-              "ViewState": "AQIAAJ4AAAAAAAAAAAA8wLMAAAAZAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAOkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-29T11:08:25.741Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Ilya\\source\\repos\\HomeWork\\HomeWork\\Program.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u0414\u0417\\11 HomeWork\\HomeWork\\Program.cs",
               "RelativeDocumentMoniker": "HomeWork\\Program.cs",
-              "ToolTip": "C:\\Users\\Ilya\\source\\repos\\HomeWork\\HomeWork\\Program.cs*",
-              "RelativeToolTip": "HomeWork\\Program.cs*",
-              "ViewState": "AQIAACwAAAAAAAAAAAAswDgAAABDAAAA",
+              "ToolTip": "C:\\gitHub\\C-\\\u0414\u0417\\11 HomeWork\\HomeWork\\Program.cs",
+              "RelativeToolTip": "HomeWork\\Program.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAswDgAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T11:07:47.81Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-29T11:07:47.81Z"
             }
           ]
         }
