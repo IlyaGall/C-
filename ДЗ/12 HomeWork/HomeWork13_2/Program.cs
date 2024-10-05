@@ -35,6 +35,4 @@ namespace HomeWork13_2
             UI.UI.Menu();
         }
     }
-
-
 }

@@ -39,17 +39,16 @@ namespace HomeWork13_2.Core
         /// </summary>
         public Library()
         {
-            TaskRunReadBook();
+           // TaskRunReadBook();
         }
 
         /// <summary>
         /// Запуск потока на удаление книжек
         /// </summary>
         /// <returns></returns>
-        async private Task TaskRunReadBook() 
+        async public Task TaskRunReadBook(CancellationTokenSource cst) 
         {
-           await Task.Run(() =>
-              ReadBook());
+          await Task.Run(ReadBook, cst.Token);
         }
 
         /// <summary>
@@ -57,8 +56,6 @@ namespace HomeWork13_2.Core
         /// </summary>
         private void ReadBook()
         {
-            Dictionary<string,int> booksRemove = new Dictionary<string, int>();
-            int value1;
             while (true)
             {
                 Thread.Sleep(1000);      
@@ -67,7 +64,7 @@ namespace HomeWork13_2.Core
                     library.AddOrUpdate(item.Key, 0, (key, oldValue) => oldValue + 1);
                     if (item.Value >= 100)
                     {
-                        library.TryRemove(item.Key, out value1);
+                        library.TryRemove(item.Key, out _);
                     }
                 }
             }

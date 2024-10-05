@@ -9,9 +9,6 @@ namespace HomeWork13_2.UI
 {
     internal class UI
     {
-
-        
-
         /// <summary>
         /// Сообщение меню
         /// </summary>
@@ -23,14 +20,13 @@ namespace HomeWork13_2.UI
        async static public void Menu()
         {
             Library library = new Library();
-
+            var cts = new CancellationTokenSource();
             library.AddBooks("Любовь к жизни", 45);
             library.AddBooks("Приключения Мюнхгаузена", 17);
             library.AddBooks("Незнайка в Солнечном городе", 4);
             library.AddBooks("xxx", 1);
             library.AddBooks("xxx удаление", 98);
-
-
+            library.TaskRunReadBook(cts);
             bool flagStop = false;
             while (!flagStop)
             {
@@ -47,6 +43,8 @@ namespace HomeWork13_2.UI
                             library.GetListBook();
                             break;
                         case 3:
+                            cts.Cancel();
+                            cts.Dispose();
                             flagStop = true;
                             break;
                         default:
@@ -55,7 +53,6 @@ namespace HomeWork13_2.UI
                 }
 
             }
-
         }
     }
 }

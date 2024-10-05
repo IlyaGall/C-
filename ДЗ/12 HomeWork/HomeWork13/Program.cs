@@ -7,12 +7,8 @@
             Console.WriteLine("Hello, World!");
             Customer customer = new Customer();
             Shop shop = new Shop();
-
-
             shop.ChangedShop(customer);
-
             shop.Add($"\"Мясо\" Товар от <{DateTime.Now}>");
-            shop.Add($"\"Цианид\" Товар от <{DateTime.Now}>");
             shop.Add($"\"Макароны\" Товар от <{DateTime.Now}>");
             ui(shop);
 
@@ -63,10 +59,7 @@
                         Console.WriteLine("А - добавить товар\nD - удалить товар\nlist - список всех товаров\nX - выйти из программы");
                         break;
                 }
-
-
             }
-
         }
     }
 }
