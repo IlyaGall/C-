@@ -65,10 +65,6 @@ namespace HomeWork
         /// значения словаря
         /// </summary>
         private string[] _values;
-        /// <summary>
-        /// Ключи словаря для проверки на null
-        /// </summary>
-        private bool[] _keysAddBool;
 
         /// <summary>
         /// конструктор(по умолчанию размер OtusDictionary равен 32 
@@ -79,7 +75,6 @@ namespace HomeWork
             _nowPosition = 0;
             _keys = new int[_size];
             _values = new string[_size];
-            _keysAddBool = new bool[_size];
         }
 
         /// <summary>
@@ -115,7 +110,7 @@ namespace HomeWork
                 LengthIncrease();
                 keyHash = HashKey(key);
             }
-            if (_keysAddBool[keyHash])
+            if (_values[keyHash] is not null)
             {
                 if (_keys[keyHash] == key)
                 {
@@ -125,7 +120,7 @@ namespace HomeWork
                 {
                     bool flagCollision = LengthIncrease();
                     keyHash = HashKey(key);
-                    if (_keysAddBool[keyHash])
+                    if (_values[keyHash] is not null)
                     {
                         flagCollision = true;
                     }
@@ -134,12 +129,11 @@ namespace HomeWork
                         // Число 1 и 65 при размерности массива 32 и 64 имеют двойное попадание в коллизию, поэтому результирующий словарь должен быть 128
                         flagCollision = LengthIncrease();
                         keyHash = HashKey(key);
-                        if (_keysAddBool[keyHash])
+                        if (_values[keyHash] is not null)
                         {
                             flagCollision = true;
                         }
                     }
-                    _keysAddBool[keyHash] = true;
                     _keys[keyHash] = key;
                     _values[keyHash] = value;
                     _nowPosition++;
@@ -147,7 +141,6 @@ namespace HomeWork
             }
             else
             {
-                _keysAddBool[keyHash] = true;
                 _keys[keyHash] = key;
                 _values[keyHash] = value;
                 _nowPosition++;
@@ -165,8 +158,7 @@ namespace HomeWork
         public string Get(int key)
         {
             int _hashKey = HashKey(key);
-
-            if (_keysAddBool[_hashKey])
+            if (_values[_hashKey] is not null)
             {
                 return _values[_hashKey];
             }
@@ -184,28 +176,24 @@ namespace HomeWork
         private bool LengthIncrease()
         {
             _size *= 2;
-            var _keysAddBoolNew = new bool[_size];
             var _keysNew = new int[_size];
             var _valuesNew = new string[_size];
             int _index = 0;
             for (int i = 0; i < _keys.Length - 1; i++)
             {
-                if (_keysAddBool[i])
+                if (_values[i] is not null)
                 {
                     _index = HashKey(_keys[i]);
-                    if (_keysAddBoolNew[_index])
+                    if (_valuesNew[_index] is not null)
                     {
                         return true;
                     }
-                    _keysAddBoolNew[_index] = true;
                     _keysNew[_index] = _keys[i];
                     _valuesNew[_index] = _values[i];
                 }
             }
-            _keysAddBool = _keysAddBoolNew;
             _keys = _keysNew;
             _values = _valuesNew;
-            _keysAddBoolNew = null;
             _keysNew = null;
             _valuesNew = null;
             return false;
