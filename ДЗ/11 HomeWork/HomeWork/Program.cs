@@ -14,7 +14,6 @@
             otusDictionary.Add(65, "test12xxxxxx");
             var getValue = otusDictionary.Get(3);
             var getIndex = otusDictionary[1];
-
             try
             {
                 getValue = otusDictionary.Get(1111);
@@ -32,8 +31,6 @@
             {
                 Console.WriteLine($"Ошибка {ex.Message.ToString()}");
             }
-         
-
             Console.ReadKey();
         }
     }
