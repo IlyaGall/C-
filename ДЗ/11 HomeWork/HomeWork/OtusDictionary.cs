@@ -58,9 +58,17 @@ namespace HomeWork
         /// </summary>
         private int _nowPosition;
         /// <summary>
-        /// Массив items (ключ-значение)
+        /// Ключи словаря
         /// </summary>
-        private ItemDictionary[] _items;
+        private int[] _keys;
+        /// <summary>
+        /// значения словаря
+        /// </summary>
+        private string[] _values;
+        /// <summary>
+        /// Ключи словаря для проверки на null
+        /// </summary>
+        private bool[] _keysAddBool;
 
         /// <summary>
         /// конструктор(по умолчанию размер OtusDictionary равен 32 
@@ -69,9 +77,17 @@ namespace HomeWork
         {
             _size = 32;
             _nowPosition = 0;
-            _items = new ItemDictionary[_size];
+            _keys = new int[_size];
+            _values = new string[_size];
+            _keysAddBool = new bool[_size];
         }
 
+        /// <summary>
+        /// Получить key при помощи хеш таблицы
+        /// </summary>
+        /// <param name="key"> Ключ </param>
+        /// <returns>Хеш - ключ</returns>
+        private int HashKey(int key) => key % _size;
 
         #region 1 Реализуйте метод Add с неизменяемым массивом размером 32 элемента(исключение, если уже занято место).
 
@@ -86,28 +102,56 @@ namespace HomeWork
         {
             if (value == null)
             {
-                throw new ArgumentNullException("Значение не может быть пустым");
+                throw new ArgumentNullException("Значение не может быть null");
             }
             //if (_nowPosition >= _size)
             //{ 
             //    throw new ArgumentNullException("место закончилось!");
             //}
             // закомментированный фрагмент для первого задания  "(исключение, если уже занято место)"
+            int keyHash = HashKey(key);
             if (_nowPosition >= _size)
             {
                 LengthIncrease();
+                keyHash = HashKey(key);
             }
-            int keyHash = HashKey(key);
-            if (_items[keyHash] != null)
+            if (_keysAddBool[keyHash])
             {
-                // Решаем проблему. При использовании хеш-кода,например, число 40 при преобразовании превращается в 8
-                // согласно ТЗ, "только один объект по одному индексу". 
-                keyHash = FindNewIndex(keyHash);
+                if (_keys[keyHash] == key)
+                {
+                    throw new Exception("такой ключ уже добавлен!");
+                }
+                else
+                {
+                    bool flagCollision = LengthIncrease();
+                    keyHash = HashKey(key);
+                    if (_keysAddBool[keyHash])
+                    {
+                        flagCollision = true;
+                    }
+                    while (flagCollision)
+                    {
+                        // Число 1 и 65 при размерности массива 32 и 64 имеют двойное попадание в коллизию, поэтому результирующий словарь должен быть 128
+                        flagCollision = LengthIncrease();
+                        keyHash = HashKey(key);
+                        if (_keysAddBool[keyHash])
+                        {
+                            flagCollision = true;
+                        }
+                    }
+                    _keysAddBool[keyHash] = true;
+                    _keys[keyHash] = key;
+                    _values[keyHash] = value;
+                    _nowPosition++;
+                }
             }
-
-            _items[keyHash] = new ItemDictionary(key, value);
-            _nowPosition++;
-
+            else
+            {
+                _keysAddBool[keyHash] = true;
+                _keys[keyHash] = key;
+                _values[keyHash] = value;
+                _nowPosition++;
+            }
         }
         #endregion
 
@@ -120,114 +164,77 @@ namespace HomeWork
         /// <returns>Значение элемента</returns>
         public string Get(int key)
         {
-            int hash = HashKey(key);
-            while (hash < _size)
+            int _hashKey = HashKey(key);
+
+            if (_keysAddBool[_hashKey])
             {
-                ItemDictionary entry = _items[hash];
-                if (entry != null && entry.Key == key)
-                {
-                    return entry.Value;
-                }
-                hash++;
+                return _values[_hashKey];
             }
-            return null;
+            else
+            {
+                throw new NullReferenceException();
+            }
         }
         #endregion
-
-        /// <summary>
-        /// Получить key при помощи хеш таблицы
-        /// </summary>
-        /// <param name="key"> Ключ </param>
-        /// <returns>Хеш - ключ</returns>
-        private int HashKey(int key) => key % _size;
-
-
-        /// <summary>
-        /// Поиск нового индекса
-        /// </summary>
-        /// <param name="index">Текущий индекс</param>
-        /// <returns>Индекс элемента</returns>
-        private int FindNewIndex(int index)
-        {
-            int sds = index;
-            while (_items[index] != null)
-            {
-                index = (index + 1) % _size;
-            }
-            if (_size <= index)
-            {
-                LengthIncrease();
-            }
-            return index;
-        }
-        /// <summary>
-        /// Поиск нового индекса
-        /// </summary>
-        /// <param name="index">Текущий индекс</param>
-        /// <param name="_itemsNew">Новый массив, в котором нужно сделать поиск</param>
-        /// <returns>Индекс элемента</returns>
-        private int FindNewIndex(int index, ItemDictionary[] _itemsNew)
-        {
-
-            while (_itemsNew[index] != null)
-            {
-                index = (index + 1) % _size;
-            }
-            if (_size <= index)
-            {
-                LengthIncrease();
-            }
-            return index;
-        }
-
-
 
         #region 3 Реализуйте увеличение массива в два раза при нахождении коллизий
         /// <summary>
         /// Увеличение длины основного массива OtusDictionary
         /// </summary>
-        private void LengthIncrease()
+        private bool LengthIncrease()
         {
-            _size = _size * 2;
-            ItemDictionary[] _itemsNew = new ItemDictionary[_size];
-            foreach (ItemDictionary item in _items)
+            _size *= 2;
+            var _keysAddBoolNew = new bool[_size];
+            var _keysNew = new int[_size];
+            var _valuesNew = new string[_size];
+            int _index = 0;
+            for (int i = 0; i < _keys.Length - 1; i++)
             {
-                int keyHash = HashKey(item.Key);
-                if (_itemsNew[keyHash] != null)
+                if (_keysAddBool[i])
                 {
-                    keyHash = FindNewIndex(keyHash, _itemsNew);
+                    _index = HashKey(_keys[i]);
+                    if (_keysAddBoolNew[_index])
+                    {
+                        return true;
+                    }
+                    _keysAddBoolNew[_index] = true;
+                    _keysNew[_index] = _keys[i];
+                    _valuesNew[_index] = _values[i];
                 }
-                _itemsNew[keyHash] = new ItemDictionary(item.Key, item.Value);
             }
-            _items = _itemsNew;
-
+            _keysAddBool = _keysAddBoolNew;
+            _keys = _keysNew;
+            _values = _valuesNew;
+            _keysAddBoolNew = null;
+            _keysNew = null;
+            _valuesNew = null;
+            return false;
         }
         #endregion
 
-        #region Добавьте к классу возможность работы с индексатором
+        #region 5 Добавьте к классу возможность работы с индексатором
         /// <summary>
         /// Индексатор
         /// </summary>
         /// <param name="index">Индекс</param>
         /// <returns>Значение ItemDictionary</returns>
-        public ItemDictionary this[int index]
+        public string? this[int index]
         {
             get
             {
                 if (_size <= index)
                 {
-                    Console.WriteLine("По этому индексу ничего нет, но согласно ТЗ нельзя положить программу");
-                    return null;
+                    throw new IndexOutOfRangeException();
                 }
                 else
                 {
-                    return _items[index];
+                    return _values[index];
                 }
             }
-            set => _items[index] = value;
-            // get and set accessors
+            set => _values[index] = value;
         }
         #endregion
     }
-
 }
+
+
