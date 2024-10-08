@@ -398,3 +398,70 @@ Task != Thread
 
 
 
+### Action метод (подпискас на события) 09 задание
+
+```C#
+        static void Start()
+        {
+            Console.WriteLine("Скачивание файла началось");
+            Console.WriteLine(DateTime.Now.Microsecond);
+            // Log.Info("Скачивание файла началось");
+            // Image.GenerateNewImage();
+        }
+
+        static void Start2()
+        {
+            Console.WriteLine("Скачивание файла началось2");
+            // Log.Info("Скачивание файла началось");
+            // Image.GenerateNewImage();
+        }
+
+        static void Start3()
+        {
+            Console.WriteLine("Скачивание файла началось3");
+            // Log.Info("Скачивание файла началось");
+            // Image.GenerateNewImage();
+        }
+
+        #region 1 - 3 задание
+        static void task1_3()
+        {
+            ImageDownLoader image = new ImageDownLoader();
+            image.NotifyStart += Start;
+            image.NotifyStart += Start2;
+            image.NotifyStart += Start3;
+            image.NotifyEnd += image.ImageFinished;
+
+            image.NotifyStart -= Start;
+        }
+
+        ///класс ImageDownLoader
+           /*
+    Добавьте события: в классе ImageDownloader в начале скачивания картинки и в конце скачивания картинки выкидывайте события (event) 
+    ImageStarted и ImageCompleted соответственно.
+    В основном коде программы подпишитесь на эти события, а в обработчиках их срабатываний выводите соответствующие уведомления в консоль: 
+    "Скачивание файла началось" и "Скачивание файла закончилось".
+    */
+   public event Action? NotifyStart;
+   public event Action? NotifyEnd;
+
+   /// <summary>
+   /// загрузка картинки
+   /// </summary>
+   /// <param name="remoteUri">URL адрес, где расположена картинка</param>
+   /// <param name="savePath">Место сохраннее картинки на ПК</param>
+   public void Download(string remoteUri, string savePath, string nameFile)
+   {
+       string fileNameLoad = savePath + "\\" + nameFile;
+
+       using (var myWebClient = new WebClient())
+       {
+           // Console.WriteLine("Качаю \"{0}\" из \"{1}\" .......\n\n", fileNameLoad, remoteUri);
+           NotifyStart?.Invoke();
+           myWebClient.DownloadFile(remoteUri, fileNameLoad);
+           NotifyEnd?.Invoke();
+           //Console.WriteLine("Успешно скачал \"{0}\" из \"{1}\"", fileNameLoad, remoteUri);
+       }
+
+   }
+```
