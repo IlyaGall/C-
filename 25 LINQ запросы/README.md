@@ -295,3 +295,14 @@ var num5 = students.OrderByDescending(item => item.StudentId);
       }
   }
 ```
+
+## перебрать коллекцию c фильтром
+
+```C#
+List<string> strings = new List<string> { "A", "B", "C", null, "D", "A", "A" };
+
+var stringSet = from s in strings
+                where s != null
+                select s;
+;
+```
