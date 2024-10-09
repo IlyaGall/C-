@@ -296,6 +296,355 @@ var num5 = students.OrderByDescending(item => item.StudentId);
   }
 ```
 
+## примеры запросов
+
+```C#
+ internal class StudentGroup
+ {
+     public int GroupId { get; set; }
+     public string Name { get; set; }
+ }
+
+ internal class Student
+{
+    public int StudentId { get; set; }
+    public string Name { get; set; }
+    public int GroupId { get; set; }
+}
+
+internal class Department
+{
+    public int Id { get; set; }
+    public string DepartmentName { get; set; }
+}
+
+ internal class Employer
+ {
+     public int Id { get; set; }
+     public string Name { get; set; }
+     public Department Department { get; set; }
+ }
+
+ //Инициализация коллекции 
+List<Employer> source = new List<Employer>()
+{
+    new Employer{ Id = 1, Name = "Alice", Department = new Department{ Id = 1, DepartmentName = "Бухгалтерия" } }
+    , new Employer{ Id = 2, Name = "John", Department = new Department{ Id = 1, DepartmentName = "Бухгалтерия" } }
+    , new Employer{ Id = 3, Name = "Bob" , Department = new Department{ Id = 2, DepartmentName = "ИТ"} }
+    , new Employer{ Id = 4, Name = "James", Department = new Department{ Id = 2, DepartmentName = "ИТ"}  }
+};
+```
+### 1 Возвращает коллекцию как есть
+
+```C#
+IEnumerable<Employer> 
+    asIs = 
+            from item in source
+            select item;
+```
+### 2 демонстрацией фильтров
+```C#
+IEnumerable<Employer>
+    onlyIT =
+            from item in source
+            where item.Department.DepartmentName.Equals("ИТ")
+            select item;
+```
+### 3 сортировки order by
+
+```C#
+IEnumerable<Employer> 
+    orderBy =
+            from item in source
+            //where item.Department.DepartmentName.Equals("ИТ")
+            orderby item.Name /*ascending*/ /*descending*/
+            select item;
+```
+### 4 group by
+```C#
+IEnumerable<IGrouping<int,Employer>>
+    employee 
+    = 
+        from item in source
+        //where item.Department.DepartmentName.Equals("ИТ")
+        group item by item.Department.Id;
+```
+
+### 5 использования let
+```C#
+//IEnumerable<string> 
+    var
+    emplInDeprtms
+    =
+        from item in source
+        let description = ($"{item.Name} работает в отделе: {item.Department.DepartmentName}")
+        select description;
+        /*В linq-запросах допускается возвращать анонимный тип*/
+/*select new { id = item.Id, Name = item.Name, Department = item.Department,
+            Description = description};*/
+
+//var a = new { id = 1, name = "sdfsd" };
+
+foreach (var item in emplInDeprtms)
+{
+    Console.WriteLine(item);
+}
+```
+
+### 6 использования into вместе с group +Пример использования into вместе с select
+```C#
+//IEnumerable<string>
+var
+emplWithHashCode
+    = from item in source
+      group item by item.Department.Id into dprtId
+      //select dprtId; /*Тип dprtId - IGrouping<int,Employer> */
+      //select new dprtId;
+      select new { Id=dprtId.Key, Employee = string.Join(",", dprtId.Select(item => item.Name)) };
+```
+
+```C#
+///Пример использования into вместе с select
+int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+IEnumerable<int> 
+    _squares = from number in numbers
+            select number*number into squares
+            select squares;
+```
+### 7. Пример использования join 
+```C#
+List<Student> students = new List<Student> 
+{ 
+    new Student { StudentId = 1, Name = "Ivanov", GroupId = 1 },
+    new Student { StudentId = 2, Name = "Petrov", GroupId = 2 },
+    new Student { StudentId = 1, Name = "Sidorov", GroupId = 1 },
+};
+
+List<StudentGroup> groups = new List<StudentGroup>
+{
+    new StudentGroup { GroupId = 1, Name = "Отличники" },
+    new StudentGroup { GroupId = 2, Name = "Двоечники" }
+};
+
+
+//Вывод нового типа, который содержиь пары: имя студент и имя группы студента
+var studentsInGroups = 
+    from student in students
+    join eachgroup in groups on student.GroupId equals eachgroup.GroupId
+    select new { StudentName = student.Name, GroupName = eachgroup.Name };
+;
+```
+
+### 8. Вложенного запроса 
+```C#
+IEnumerable<string> groupNames =
+    from item in 
+
+    /*Вложенный запрос из п.7*/
+
+    from student in students
+    join eachgroup in groups on student.GroupId equals eachgroup.GroupId
+    select new { StudentName = student.Name, GroupName = eachgroup.Name }
+
+    /*-----------------------*/
+    
+    select item.GroupName;
+```
+### 9. Пример использования агрегатной функции (Count() - метод fluent api)
+```C#
+int groupNamesCount =
+    (from item in
+        /*Вложенный запрос из п.7*/
+        from student in students
+        join eachgroup in groups on student.GroupId equals eachgroup.GroupId
+        select new { StudentName = student.Name, GroupName = eachgroup.Name }
+        /*-----------------------*/
+    select item.GroupName).Count();
+```
+
+
+
+
+## let примеры
+
+### 1.Возвращает коллекцию как есть
+```C#
+IEnumerable<Employer> asIs = source.Select(item => item);
+
+//Func с передачей в select
+//Идентичен запросу выше.
+
+Func<Employer, Employer> funcOfEmployers = (item) => item;
+asIs = source.Select(funcOfEmployers);
+```
+
+### 2. Пример с демонстрацией фильтров
+```C#
+IEnumerable<Employer> onlyIT = source.Where(item => item.Department.DepartmentName.Equals("ИТ"));
+
+//2.' Пример с фильтрацией подходящей по определенному условию(отсуствует в декларативном синтаксисе)
+List<IPerson> peoples = new List<IPerson>()
+{
+    new Child {  }
+    , new Child {  }
+    , new Parent { }
+};
+
+var onlyChilds = peoples.OfType<Child>().ToList();
+```
+
+### 3 Пример сортировки order by
+```C#
+IEnumerable<Employer> orderBy = source.OrderBy(item => item.Name); 
+/*desc*/
+orderBy = source.OrderByDescending(item => item.Name);
+```
+
+### 4. Пример group by
+```C#
+IEnumerable<IGrouping<int, Employer>> employee = source.GroupBy(item => item.Department.Id);
+```
+//5. Использования let нет в метод-синтаксисе
+
+//6. Использования into нет в метод-синтаксисе
+
+### 7. Пример использования join 
+```C#
+List<Student> students = new List<Student> 
+{ 
+    new Student { StudentId = 1, Name = "Ivanov", GroupId = 1 },
+    new Student { StudentId = 2, Name = "Petrov", GroupId = 2 },
+    new Student { StudentId = 3, Name = "Sidorov", GroupId = 1 },
+};
+
+List<StudentGroup> groups = new List<StudentGroup>
+{
+    new StudentGroup { GroupId = 1, Name = "Отличники" },
+    new StudentGroup { GroupId = 2, Name = "Двоечники" }
+};
+
+//Вывод нового типа, который содержиь пары: имя студент и имя группы студента
+var studentsInGroups = students.Join(groups,
+                                    student => student.GroupId,
+                                    eachGroup => eachGroup.GroupId,
+                                    (student, eachGroup) => new { Name = student.Name, GroupName = eachGroup.Name });
+
+```
+### 8. Группировка с соединением
+
+```C#
+var personnel = groups.GroupJoin(students, // второй набор
+             eachGroup => eachGroup.GroupId, // свойство-селектор объекта из первого набора
+             student => student.GroupId, // свойство-селектор объекта из второго набора
+             (jgroup, jstudents) => new   // результат
+             {
+                 GroupName = jgroup.Name,
+                 Students = jstudents
+             });
+```
+### 9. Пример использования агрегатной функции (Count() - метод fluent api)
+```C# int groupNamesCount = students.Count();
+
+
+
+//Анонимные типы (показать, если нужно будет)
+/*decimal[] numbers = new decimal[] { 1.0M, 1.35M };
+var apple = new { Item = "apples", Price = 1.35M };
+var onSale = apple with { Price = 0.79M };
+
+var apples = from number in numbers
+             select apple with { Price = number };*/
+
+Action<Employer> action = (x) => Console.WriteLine(x.Id);
+
+action = null;
+
+source.ForEach(
+    action
+    );
+
+source.ForEach(
+    item => Console.WriteLine(item.Name) /*Action*/
+    );
+;
+```
+## xml
+
+```C#
+using System.Xml.Linq;
+
+XElement contacts = 
+new XElement("Contacts",
+    new XElement("Contact",
+        new XElement("Name", "Patrick Hines"),
+        new XElement("Phone", "206-555-0144",
+            new XAttribute("Type", "Home")),
+        new XElement("phone", "425-555-0145",
+            new XAttribute("Type", "Work")),
+        new XElement("Address",
+            new XElement("Street1", "123 Main St"),
+            new XElement("City", "Mercer Island"),
+            new XElement("State", "WA"),
+            new XElement("Postal", "68042")
+        )
+    )
+);
+
+IEnumerable<string> names = from item in contacts.Element("Contact").Elements()
+              select item.ToString();
+
+names = names.ToList();
+;
+
+```
+### Parallel
+```C#
+ ParallelLoopResult result = Parallel.ForEach<int>(
+       new List<int>() { 1, 3, 5, 8 },
+       Square
+);
+
+;
+// вычисляем квадрат числа
+void Square(int n)
+{
+    Console.WriteLine($"Выполняется задача {Task.CurrentId}");
+    Console.WriteLine($"Квадрат числа {n} равен {n * n}");
+    Thread.Sleep(2000);
+}
+```
+
+## разбор запроса
+
+```C#
+//Набор данных
+int[] numbers = { 1, 2, 3, 4, 5 };
+
+// Запрос создается, но не выполняется
+var query = from n in numbers
+            where n > Get1()
+            select n;
+;
+
+// Запрос выполнится только здесь, когда мы начнем итерировать результаты
+foreach (var number in query)
+{
+    Console.WriteLine(number);
+}
+
+//int a = 
+    numbers.Where(item => item > Get1()).Count();
+
+;
+
+int Get1()
+{
+    return 2;
+}
+```
+
+
+
 ## перебрать коллекцию c фильтром
 
 ```C#
@@ -305,4 +654,52 @@ var stringSet = from s in strings
                 where s != null
                 select s;
 ;
+```
+
+## запрос к бд
+```C#
+ public DbSet<User> Users => Set<User>();
+ public ApplicationContext() : base()
+ {
+     /*Database.EnsureDeleted();
+     Database.EnsureCreated();
+     this.SaveChanges();*/
+ }
+
+ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+ {
+     optionsBuilder.UseSqlServer("data source=localhost;initial catalog=Users;user=sa;password=********;App=EntityFramework;TrustServerCertificate=True");
+ } 
+```
+
+```C#
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+
+using (ApplicationContext db = new ApplicationContext())
+{
+    // Добавить пользователей, если их нет в Db
+    /*User tom = new User { Name = "Tom", Age = 33 };
+    User alice = new User { Name = "Alice", Age = 26 };
+    db.Add(tom);
+    db.Add<User>(alice);
+    db.SaveChanges();*/
+
+
+
+    IQueryable<User> query = db.Users;
+    query = query.Where(item => item.Age > 27);
+    query = query.Where(item => item.Age < 34);
+    List<User> users = query.ToList();
+    ;
+}
+
+```
+
+```C#
+public class User
+{
+    public int Id { get; set; }
+    public string? Name { get; set; }
+    public int Age { get; set; }
+}
 ```
