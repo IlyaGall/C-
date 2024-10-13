@@ -7,27 +7,19 @@ using System.Threading.Tasks;
 
 namespace HomeWork13_3.Parts
 {
-    internal class Part9 : Part
+    public class Part9
     {
-        /// <summary>
-        /// Конструктор класса
-        /// </summary>
-        /// <param name="poem">Старая поэма</param>
-        public Part9(ImmutableList<string> poem) : base(poem)
+        private readonly string _poemPart = "\nВот два петуха,\r\nКоторые будят того пастуха,\r\nКоторый бранится с коровницей строгою,\r\nКоторая доит корову безрогую,\r\nЛягнувшую старого пса без хвоста,\r\nКоторый за шиворот треплет кота,\r\nКоторый пугает и ловит синицу,\r\nКоторая часто ворует пшеницу,\r\nКоторая в темном чулане хранится\r\nВ доме,\r\nКоторый построил Джек.";   
+        public ImmutableList<string> Poem { get; private set; }
+        public Part9(ImmutableList<string> poem)
         {
-            text = new[] {
-                "Вот два петуха,",
-                "Которые будят того пастуха,",
-                "Который бранится с коровницей строгою,",
-                "Которая доит корову безрогую,",
-                "Лягнувшую старого пса без хвоста,",
-                "Который за шиворот треплет кота,",
-                "Который пугает и ловит синицу,",
-                "Которая часто ворует пшеницу,",
-                "Которая в темном чулане хранится",
-                "В доме,",
-                "Который построил Джек."
-            };
+            Poem = AddPart(poem);
+
+        }
+        private ImmutableList<string> AddPart(ImmutableList<string> prevPoem)
+        {
+            Poem = prevPoem.Add(_poemPart);
+            return Poem;
         }
     }
 }
