@@ -1,0 +1,292 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{00A03491-7D29-4D31-9B78-6AA77F27E061}|Questions\\Questions.csproj|c:\\github\\c-\\26 linq \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\lessonslinqoperators-496333-820f16\\questions\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00A03491-7D29-4D31-9B78-6AA77F27E061}|Questions\\Questions.csproj|solutionrelative:questions\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D466B6A9-B19E-4257-B932-DEDF65CB5913}|SingleResult\\SingleResult.csproj|c:\\github\\c-\\26 linq \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\lessonslinqoperators-496333-820f16\\singleresult\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D466B6A9-B19E-4257-B932-DEDF65CB5913}|SingleResult\\SingleResult.csproj|solutionrelative:singleresult\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF95CE2-554A-4417-B1DF-899CB9C2D403}|Grouping\\Grouping.csproj|c:\\github\\c-\\26 linq \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\lessonslinqoperators-496333-820f16\\grouping\\package.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF95CE2-554A-4417-B1DF-899CB9C2D403}|Grouping\\Grouping.csproj|solutionrelative:grouping\\package.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF95CE2-554A-4417-B1DF-899CB9C2D403}|Grouping\\Grouping.csproj|c:\\github\\c-\\26 linq \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\lessonslinqoperators-496333-820f16\\grouping\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF95CE2-554A-4417-B1DF-899CB9C2D403}|Grouping\\Grouping.csproj|solutionrelative:grouping\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F516170-F20B-4380-A2EF-5F3C8D80D9E8}|Joins\\Joins.csproj|c:\\github\\c-\\26 linq \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\lessonslinqoperators-496333-820f16\\joins\\studentgroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F516170-F20B-4380-A2EF-5F3C8D80D9E8}|Joins\\Joins.csproj|solutionrelative:joins\\studentgroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F516170-F20B-4380-A2EF-5F3C8D80D9E8}|Joins\\Joins.csproj|c:\\github\\c-\\26 linq \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\lessonslinqoperators-496333-820f16\\joins\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F516170-F20B-4380-A2EF-5F3C8D80D9E8}|Joins\\Joins.csproj|solutionrelative:joins\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F516170-F20B-4380-A2EF-5F3C8D80D9E8}|Joins\\Joins.csproj|c:\\github\\c-\\26 linq \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\lessonslinqoperators-496333-820f16\\joins\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F516170-F20B-4380-A2EF-5F3C8D80D9E8}|Joins\\Joins.csproj|solutionrelative:joins\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F28E9C1D-CD38-499B-9AB0-227BA85597AC}|Partitioning\\Partitioning.csproj|c:\\github\\c-\\26 linq \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\lessonslinqoperators-496333-820f16\\partitioning\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F28E9C1D-CD38-499B-9AB0-227BA85597AC}|Partitioning\\Partitioning.csproj|solutionrelative:partitioning\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3545A4FB-ACA4-4836-BE3B-13DAF4A192B9}|Quantifier\\Quantifier.csproj|c:\\github\\c-\\26 linq \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\lessonslinqoperators-496333-820f16\\quantifier\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3545A4FB-ACA4-4836-BE3B-13DAF4A192B9}|Quantifier\\Quantifier.csproj|solutionrelative:quantifier\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08863E46-DEBF-469E-AC60-5AC6CA3ECB18}|Sorting\\Sorting.csproj|c:\\github\\c-\\26 linq \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\lessonslinqoperators-496333-820f16\\sorting\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08863E46-DEBF-469E-AC60-5AC6CA3ECB18}|Sorting\\Sorting.csproj|solutionrelative:sorting\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08863E46-DEBF-469E-AC60-5AC6CA3ECB18}|Sorting\\Sorting.csproj|c:\\github\\c-\\26 linq \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\lessonslinqoperators-496333-820f16\\sorting\\studcomparer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08863E46-DEBF-469E-AC60-5AC6CA3ECB18}|Sorting\\Sorting.csproj|solutionrelative:sorting\\studcomparer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08863E46-DEBF-469E-AC60-5AC6CA3ECB18}|Sorting\\Sorting.csproj|c:\\github\\c-\\26 linq \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\lessonslinqoperators-496333-820f16\\sorting\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08863E46-DEBF-469E-AC60-5AC6CA3ECB18}|Sorting\\Sorting.csproj|solutionrelative:sorting\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{75CAFDC7-77A4-47C5-9B18-370668EA1DAA}|SetOperations\\SetOperations.csproj|c:\\github\\c-\\26 linq \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\lessonslinqoperators-496333-820f16\\setoperations\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{75CAFDC7-77A4-47C5-9B18-370668EA1DAA}|SetOperations\\SetOperations.csproj|solutionrelative:setoperations\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F32053C3-5C25-4835-9C31-D1AE173890B2}|Projection\\Projection.csproj|c:\\github\\c-\\26 linq \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\lessonslinqoperators-496333-820f16\\projection\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F32053C3-5C25-4835-9C31-D1AE173890B2}|Projection\\Projection.csproj|solutionrelative:projection\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{015344A5-C49A-4487-8AC1-3846F93CC450}|Filters\\Filters.csproj|c:\\github\\c-\\26 linq \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\lessonslinqoperators-496333-820f16\\filters\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{015344A5-C49A-4487-8AC1-3846F93CC450}|Filters\\Filters.csproj|solutionrelative:filters\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{015344A5-C49A-4487-8AC1-3846F93CC450}|Filters\\Filters.csproj|c:\\github\\c-\\26 linq \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\lessonslinqoperators-496333-820f16\\filters\\filters.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{015344A5-C49A-4487-8AC1-3846F93CC450}|Filters\\Filters.csproj|solutionrelative:filters\\filters.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Questions\\Program.cs",
+              "RelativeDocumentMoniker": "Questions\\Program.cs",
+              "ToolTip": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Questions\\Program.cs",
+              "RelativeToolTip": "Questions\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACsAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T16:47:26.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\SingleResult\\Program.cs",
+              "RelativeDocumentMoniker": "SingleResult\\Program.cs",
+              "ToolTip": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\SingleResult\\Program.cs",
+              "RelativeToolTip": "SingleResult\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T16:44:53.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Package.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Grouping\\Package.cs",
+              "RelativeDocumentMoniker": "Grouping\\Package.cs",
+              "ToolTip": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Grouping\\Package.cs",
+              "RelativeToolTip": "Grouping\\Package.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T16:44:12.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Grouping\\Program.cs",
+              "RelativeDocumentMoniker": "Grouping\\Program.cs",
+              "ToolTip": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Grouping\\Program.cs",
+              "RelativeToolTip": "Grouping\\Program.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAwCAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T16:44:11.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StudentGroup.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Joins\\StudentGroup.cs",
+              "RelativeDocumentMoniker": "Joins\\StudentGroup.cs",
+              "ToolTip": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Joins\\StudentGroup.cs",
+              "RelativeToolTip": "Joins\\StudentGroup.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T16:42:24.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Joins\\Student.cs",
+              "RelativeDocumentMoniker": "Joins\\Student.cs",
+              "ToolTip": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Joins\\Student.cs",
+              "RelativeToolTip": "Joins\\Student.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T16:42:16.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Joins\\Program.cs",
+              "RelativeDocumentMoniker": "Joins\\Program.cs",
+              "ToolTip": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Joins\\Program.cs",
+              "RelativeToolTip": "Joins\\Program.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAAwDcAAABXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T16:41:49.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Partitioning\\Program.cs",
+              "RelativeDocumentMoniker": "Partitioning\\Program.cs",
+              "ToolTip": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Partitioning\\Program.cs",
+              "RelativeToolTip": "Partitioning\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T16:38:22.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Quantifier\\Program.cs",
+              "RelativeDocumentMoniker": "Quantifier\\Program.cs",
+              "ToolTip": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Quantifier\\Program.cs",
+              "RelativeToolTip": "Quantifier\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T16:35:39.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Sorting\\Student.cs",
+              "RelativeDocumentMoniker": "Sorting\\Student.cs",
+              "ToolTip": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Sorting\\Student.cs",
+              "RelativeToolTip": "Sorting\\Student.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T16:28:59.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StudComparer.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Sorting\\StudComparer.cs",
+              "RelativeDocumentMoniker": "Sorting\\StudComparer.cs",
+              "ToolTip": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Sorting\\StudComparer.cs",
+              "RelativeToolTip": "Sorting\\StudComparer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T16:28:43.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Sorting\\Program.cs",
+              "RelativeDocumentMoniker": "Sorting\\Program.cs",
+              "ToolTip": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Sorting\\Program.cs",
+              "RelativeToolTip": "Sorting\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T16:28:06.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\SetOperations\\Program.cs",
+              "RelativeDocumentMoniker": "SetOperations\\Program.cs",
+              "ToolTip": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\SetOperations\\Program.cs",
+              "RelativeToolTip": "SetOperations\\Program.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAB4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T16:24:45.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Projection\\Program.cs",
+              "RelativeDocumentMoniker": "Projection\\Program.cs",
+              "ToolTip": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Projection\\Program.cs",
+              "RelativeToolTip": "Projection\\Program.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T16:09:22.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Filters\\Program.cs",
+              "RelativeDocumentMoniker": "Filters\\Program.cs",
+              "ToolTip": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Filters\\Program.cs",
+              "RelativeToolTip": "Filters\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T15:58:08.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Filters",
+              "DocumentMoniker": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Filters\\Filters.csproj",
+              "RelativeDocumentMoniker": "Filters\\Filters.csproj",
+              "ToolTip": "C:\\gitHub\\C-\\26 LINQ \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u044B\\LessonsLinqOperators-496333-820f16\\Filters\\Filters.csproj",
+              "RelativeToolTip": "Filters\\Filters.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-14T15:58:06.548Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
