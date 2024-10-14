@@ -533,3 +533,102 @@ last = people.LastOrDefault(item => item.Equals("Kate"));
 
 ```
 
+
+### дополнительный пример
+
+```C#
+namespace linksDayTwo
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // 1 задание
+            //string[] words = ["the", "quick", "brown", "fox", "jumps"];
+
+            //var link = words.Where(item => item.Length > 4).ToList();
+            //foreach (var word in link) 
+            //{
+            //    Console.WriteLine(word);
+            //}
+            //Console.ReadKey();
+
+            // 3 задание
+            /*   List<Student> students = new List<Student>
+               {
+                   new Student{ StudentId = 5, GroupId = 2, Name = "Tom"},
+                   new Student{ StudentId = 1, GroupId = 1, Name = "Alice"},
+                   new Student{ StudentId = 2, GroupId = 2, Name = "Bob"},
+                   new Student{ StudentId = 3, GroupId = 1, Name = "John"},
+                   new Student{ StudentId = 4, GroupId = 2, Name = "Jerry"},
+               };
+
+               Action<Student> myAction = item => Console.WriteLine(item.Name);
+               Func<Student, int > selector = student => student.StudentId; // последний возвращает
+
+               var studentsNew = students.OrderByDescending(selector).ToList();
+               studentsNew.ForEach(myAction);
+               Console.ReadKey();
+            */
+            List<Student> students = new List<Student> 
+            { 
+                new Student { StudentId = 1, Name = "Ivanov", GroupId = 1 },
+                new Student { StudentId = 2, Name = "Petrov", GroupId = 2 },
+                new Student { StudentId = 3, Name = "Sidorov", GroupId = 1 },
+            };
+
+            List<StudentGroup> groups = new List<StudentGroup>
+            {
+                new StudentGroup { GroupId = 1, Name = "Отличники", StudentId = 1 },
+                new StudentGroup { GroupId = 2, Name = "Двоечники", StudentId = 2 }
+            };
+
+            Func<Student,int> myKey = student => student.GroupId;
+            Func<StudentGroup, int> myKey2 = student => student.GroupId;
+
+            Func<Student, StudentGroup, GroupOfStudents> returnNewStudents = (item, item2) =>
+            new GroupOfStudents { StudentId = item.StudentId, GroupId = item2.GroupId};
+
+            var studentGroup = students.Join(groups,
+                myKey, //item => item.GroupId,
+                myKey2,//item2 => item2.GroupId,
+                returnNewStudents // (item, item2) => new { name = item.Name, groupsID = item2.GroupId }
+                );
+        }
+    }
+}
+```
+
+```C#
+ internal class StudentGroup
+ {
+     public int GroupId { get; set; }
+     public string Name { get; set; }
+     public int StudentId { get; set; }
+ }
+```
+
+```C#
+    internal class Student //: IComparable<Student>
+    {
+        public int StudentId { get; set; }
+        public string Name { get; set; }
+        public int GroupId { get; set; }
+
+
+        //int IComparable<Student>.CompareTo(Student? other)
+        //{
+        //    return this.StudentId.CompareTo(other.StudentId);
+        //}
+    }
+```
+
+```C#
+    internal class GroupOfStudents
+    {
+        public int StudentId { get; set; }
+        public int GroupId { get; set; }
+
+    }
+```
+
