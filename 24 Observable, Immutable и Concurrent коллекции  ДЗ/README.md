@@ -1,14 +1,13 @@
 # Observable, Immutable и Concurrent коллекции
 
 Что такое
-➔ List + Observable паттерн
-➔ Позволяет организовать подписку на события
-изменения коллекция
+* ➔ List + Observable паттерн
+* ➔ Позволяет организовать подписку на события изменения коллекция
 
 ## Что такое ObservableCollection
-➔ List + Observable паттерн
-➔ Позволяет организовать подписку на события изменения коллекция
-➔ Содержит NotifyCollectionChangedEventHandler? CollectionChanged для реагирования на изменение коллекций
+* ➔ List + Observable паттерн
+* ➔ Позволяет организовать подписку на события изменения коллекция
+* ➔ Содержит NotifyCollectionChangedEventHandler? CollectionChanged для реагирования на изменение коллекций
 
 [ПРИМЕР ДЗ](https://github.com/IlyaGall/c_Sharp__Developer_Basic/tree/main/12%20HomeWork/HomeWork13)
 ```c#
@@ -105,20 +104,20 @@ internal class Program
 ## Concurrent collections
 
 Проблема:
-➔ Простая коллекция – какой поток создал коллекцию, тот ею и управляет
-➔ Можно ускорить работу с коллекцией – несколько потоков
-➔ Нужно организовать синхронизацию доступа к коллекции
-➔ Простая коллекция – не подходит, непредсказуемое поведение
+* ➔ Простая коллекция – какой поток создал коллекцию, тот ею и управляет
+* ➔ Можно ускорить работу с коллекцией – несколько потоков
+* ➔ Нужно организовать синхронизацию доступа к коллекции
+* ➔ Простая коллекция – не подходит, непредсказуемое поведение
 
 Решение
 Concurrent collections
 
 ### Варианты
-➔ ConcurrentDictionary
-➔ ConcurrentBag
-➔ ConcurrentStack
-➔ ConcurrentQueue
-➔ BlockingCollection
+* ➔ ConcurrentDictionary
+* ➔ ConcurrentBag
+* ➔ ConcurrentStack
+* ➔ ConcurrentQueue
+* ➔ BlockingCollection
 
 ### Свойства
 ➔ В общем случае – медленнее не-concurrent
@@ -129,14 +128,14 @@ Concurrent collections
 
 ## Immutable collections
 Синопсис
-➔ «Классические» коллекции (например, List) могут меняться в одном потоке
-➔ В общем случае – удобно и безопасно
-➔ Но иногда коллекция несет и семантический смысл (например, состояние базы данных)
-➔ Тогда использование изменяемых коллекций может повредить читаемости кода
-➔ Для этого существуют Immutable (неизменяемый) интерфейс
+* ➔ «Классические» коллекции (например, List) могут меняться в одном потоке
+* ➔ В общем случае – удобно и безопасно
+* ➔ Но иногда коллекция несет и семантический смысл (например, состояние базы данных)
+* ➔ Тогда использование изменяемых коллекций может повредить читаемости кода
+* ➔ Для этого существуют Immutable (неизменяемый) интерфейс
 
 ### Варианты
-➔ ImmutableStack
-➔ ImmutableList
-➔ ImmutableArray
-➔ ImmutableDictionary
+* ➔ ImmutableStack
+* ➔ ImmutableList
+* ➔ ImmutableArray
+* ➔ ImmutableDictionary
