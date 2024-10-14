@@ -14,7 +14,7 @@
 
 Фильтрация – это операция, результатом которой будет набор значений, подходящий под определенное условие.
 
-[!img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/1.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/1.JPG)
 
 Фильтрация данных в linq представлена следующими методами:
 [OfType](https://learn.microsoft.com/ru-ru/dotnet/api/system.linq.enumerable.oftype?view=net-8.0) – фильтрует данные по типу;
@@ -41,7 +41,7 @@ foreach (string str in query)
 ## Проекция
 Проекция – это операция преобразования объекта в новую форму, которая часто состоит только из этих свойств, которые впоследствии используются.
 
-[!img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/2.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/2.JPG)
 
 
 Проекция данных в linq представлена следующими методами:
@@ -110,20 +110,20 @@ class ZipType
 Под операции над множествами в данном случае понимаются операции запросов, которые создают результирующий набор присутствия или отсутствия эквивалентных элементов в одной или отдельной коллекциях.
 [Distinct](https://learn.microsoft.com/ru-ru/dotnet/api/system.linq.enumerable.distinct?view=net-8.0) или [DistinctBy](https://learn.microsoft.com/ru-ru/dotnet/api/system.linq.enumerable.distinctby?view=net-8.0) – возвращает уникальные элементы последовательности. Можно также сказать, что удаляет дубликаты.
 
-[!img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/3.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/3.JPG)
 
 [Except](https://learn.microsoft.com/ru-ru/dotnet/api/system.linq.enumerable.except?view=net-8.0) или [ExceptBy](https://learn.microsoft.com/ru-ru/dotnet/api/system.linq.enumerable.exceptby?view=net-8.0) – возвращает набор значений, которые присутствуют в одной коллекции и отсутствуют в другой.
 
-[!img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/4.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/4.JPG)
 
 [Intersect](https://learn.microsoft.com/ru-ru/dotnet/api/system.linq.enumerable.intersect?view=net-8.0) или [IntersectBy](https://learn.microsoft.com/ru-ru/dotnet/api/system.linq.enumerable.exceptby?view=net-8.0) – возвращает набор значений, которые встречаются в обоих коллекциях.
 
-[!img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/5.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/5.JPG)
 
 
 [Union](https://learn.microsoft.com/ru-ru/dotnet/api/system.linq.enumerable.union?view=net-8.0) или [UnionBy](https://learn.microsoft.com/ru-ru/dotnet/api/system.linq.enumerable.unionby?view=net-8.0) – возвращает набор уникальных значений, присутствующий в обоих коллекциях.
 
-[!img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/6.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/6.JPG)
 
 
 ```C#
@@ -163,7 +163,7 @@ query4.ForEach(item => Console.WriteLine(item));
 
 Операция сортировки упорядочивает элементы последовательности на основе одного или нескольких атрибутов.
 
-[!img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/7.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/7.JPG)
 
 * [OrderBy](https://learn.microsoft.com/ru-ru/dotnet/api/system.linq.enumerable.orderby?view=net-8.0) – сортировка значений в возрастающем порядке. В декларативном синтаксисе – оператор orderby или orderby ascending.
 * [OrderByDescending](https://learn.microsoft.com/ru-ru/dotnet/api/system.linq.enumerable.orderbydescending?view=net-8.0) – сортировка значений в убывающем порядке. В декларативном синтаксисе – оператор orderby descending.
@@ -262,7 +262,7 @@ internal class Student : IComparable<Student>
 * [Any](https://learn.microsoft.com/ru-ru/dotnet/api/system.linq.enumerable.any?view=net-8.0) - определяет, удовлетворяют ли условию какие-либо элементы последовательности.
 * [Contains](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.contains?view=net-8.0) - определяет, содержит ли последовательность указанный элемент.
 
-[!img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/8.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/8.JPG)
 
 ```C#
 using System.Linq;
@@ -285,7 +285,7 @@ bool wordExsist = words.Contains("quick");  /*Есть перегрузка с �
 ## Секционирование данных
 Секционирование – это операция разделения входной последовательности на два раздела без изменения порядка элементов, а затем возвращения одного из разделов.
 
-[!img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/9.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/9.JPG)
 
 [Skip](https://learn.microsoft.com/ru-ru/dotnet/api/system.linq.enumerable.skip?view=net-8.0) - пропускает элементы до указанной позиции в последовательности.
 [SkipWhile](https://learn.microsoft.com/ru-ru/dotnet/api/system.linq.enumerable.skipwhile?view=net-8.0) - пропускает элементы на основе функции предиката, пока элемент не удовлетворяет условию.
@@ -329,7 +329,7 @@ join y in set2 on y.Prop2 equals x.Prop1
 ```
 где, свойства y.Prop2 и x.Prop1 являются одной и той же сущностью, скажем идентификатором группы студента.
 
-[!img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/10.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/10.JPG)
 
 ```C#
 using LinqExamples;
@@ -423,9 +423,9 @@ namespace LinqExamples
 Группировка – это операция объединения данных в группы таким образом, чтобы у элементов в каждой группе был общий атрибут. На следующем рисунке показаны результаты операции группирования последовательности символов. Ключ для каждой группы — это символ.
 
 
-[!img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/11.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/11.JPG)
 
-[!img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/12.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/12.JPG)
 
 
 * [GroupBy](https://learn.microsoft.com/ru-ru/dotnet/api/system.linq.enumerable.groupby?view=net-8.0) – группирует элементы с общим атрибутом. Объект представляет каждую IGrouping<TKey,TElement> группу. В декларативном синтаксисе group … by или group … by …
