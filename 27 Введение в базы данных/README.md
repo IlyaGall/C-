@@ -91,14 +91,14 @@ SQL — простыми словами, это язык программиро�
 ## практика
 
 ```sql
-``` 
+
 select @@version;
-```
+
 | (No column name) |
 | :----------------|
 | Microsoft SQL Server 2022 (RTM) - 16.0.1000.6 (X64) <br>	Oct  8 2022 05:58:25 <br>	Copyright (C) 2022 Microsoft Corporation<br>	Express Edition (64-bit) on Windows Server 2019 Standard 10.0 \<X64> (Build 17763: ) (Hypervisor)<br> |
 
-``` 
+``` ```
 --Напишите скрипт создания таблицы, которую раньше никто не создавал. В таблице должно быть не менее 5 полей
 Create Table Persons
   (
@@ -110,24 +110,24 @@ Create Table Persons
   DepartmantId int 
   )
 
-```
-``` 
+
+``` ```
 select * from Persons
-```
+
 | Id | Name | LastName | Email | Phone | DepartmantId |
 | --:|:----|:--------|:-----|:-----|------------:|
 
-``` 
+``` ```
 --Напишите скрипт удаления столбца.
 alter table Persons drop column LastName
   --Напишите скрипт добавления нового столбца.
 alter table Persons add Age int
 select * from Persons
-```
+
 | Id | Name | Email | Phone | DepartmantId | Age |
 | --:|:----|:-----|:-----|------------:|---:|
 
-``` 
+`````` 
 -- Напишите скрипт добавления 5 строк в таблицу.
 insert into Persons(id, Name,Email,Phone,Age,DepartmantId) values
 (0,'Ivan','Nope','1231231231', 100,0),
@@ -137,7 +137,7 @@ insert into Persons(id, Name,Email,Phone,Age,DepartmantId) values
 (4,'Ilya','fox@com.com','8888-', 50,1)
 -- Напишите скрипт вывода всех 5 строк.
 select * from Persons 
-```
+
 | Id | Name | Email | Phone | DepartmantId | Age |
 | --:|:----|:-----|:-----|------------:|---:|
 | 0 | Ivan | Nope | 1231231231 | 0 | 100 |
@@ -146,10 +146,10 @@ select * from Persons
 | 3 | Dima | 111@ss.com | 999-1 | 2 | 3 |
 | 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
 
-``` 
+``` ```
 -- Напишите скрипт вывода части строк по условию(лёгкий)
 select * from Persons where age>3
-```
+
 | Id | Name | Email | Phone | DepartmantId | Age |
 | --:|:----|:-----|:-----|------------:|---:|
 | 0 | Ivan | Nope | 1231231231 | 0 | 100 |
@@ -157,21 +157,20 @@ select * from Persons where age>3
 | 2 | Artur | N@gmail.com | 555123 | 1 | 5 |
 | 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
 
-``` 
+``` ```
 -- Напишите скрипт вывода части строк по условию(тяжелый)
 select AVG(Age) from Persons Where Name Like '%a%'   
-```
+
 | (No column name) |
 | ----------------:|
 | 39 |
 
-``` 
+``` ```
 --Напишите скрипт удаления части данных по условию.
 delete Persons where Phone like '%5%'
 select * from Persons
 
 
-```
 | Id | Name | Email | Phone | DepartmantId | Age |
 | --:|:----|:-----|:-----|------------:|---:|
 | 0 | Ivan | Nope | 1231231231 | 0 | 100 |
@@ -179,19 +178,19 @@ select * from Persons
 | 3 | Dima | 111@ss.com | 999-1 | 2 | 3 |
 | 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
 
-``` 
+``` ```
 Create Table Departmant
   (
   Id int,
   Name varchar(100)
   )
-```
-``` 
+
+``` ```
 insert into Departmant(Id, Name) values (0,'Shool'), (1, 'test'), (2,'HotDog')
 select * from Departmant
 select * from Persons
 
-```
+
 | Id | Name |
 | --:|:----|
 | 0 | Shool |
@@ -205,18 +204,16 @@ select * from Persons
 | 3 | Dima | 111@ss.com | 999-1 | 2 | 3 |
 | 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
 
-``` 
+``` ```
 select p.Name, p.Age from Persons as p
 join Departmant as d on d.Id = p.DepartmantId
 where d.Name ='Shool' 
   Order by age
 -- выбрать школьников (имя и возраст) в порядке возрастания
-```
+
 | Name | Age |
 | :----|---:|
 | Petr | 10 |
 | Ivan | 100 |
 
 [fiddle](https://dbfiddle.uk/ztcTsirk)
-
-```
