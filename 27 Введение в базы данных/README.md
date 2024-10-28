@@ -200,7 +200,7 @@ Create Table Departmant
 insert into Departmant(Id, Name) values (0,'Shool'), (1, 'test'), (2,'HotDog')
 select * from Departmant
 select * from Persons
-
+```
 
 | Id | Name |
 | --:|:----|
@@ -215,7 +215,7 @@ select * from Persons
 | 3 | Dima | 111@ss.com | 999-1 | 2 | 3 |
 | 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
 
-```
+
 ```sql
 select p.Name, p.Age from Persons as p
 join Departmant as d on d.Id = p.DepartmantId
