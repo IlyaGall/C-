@@ -98,7 +98,7 @@ select @@version;
 | :----------------|
 | Microsoft SQL Server 2022 (RTM) - 16.0.1000.6 (X64) <br>	Oct  8 2022 05:58:25 <br>	Copyright (C) 2022 Microsoft Corporation<br>	Express Edition (64-bit) on Windows Server 2019 Standard 10.0 \<X64> (Build 17763: ) (Hypervisor)<br> |
 
-``` ```
+``````
 --Напишите скрипт создания таблицы, которую раньше никто не создавал. В таблице должно быть не менее 5 полей
 Create Table Persons
   (
@@ -111,13 +111,13 @@ Create Table Persons
   )
 
 
-``` ```
+``````
 select * from Persons
 
 | Id | Name | LastName | Email | Phone | DepartmantId |
 | --:|:----|:--------|:-----|:-----|------------:|
 
-``` ```
+``````
 --Напишите скрипт удаления столбца.
 alter table Persons drop column LastName
   --Напишите скрипт добавления нового столбца.
