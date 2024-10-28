@@ -91,14 +91,14 @@ SQL — простыми словами, это язык программиро�
 ## практика
 
 ```sql
-
 select @@version;
 
 | (No column name) |
 | :----------------|
 | Microsoft SQL Server 2022 (RTM) - 16.0.1000.6 (X64) <br>	Oct  8 2022 05:58:25 <br>	Copyright (C) 2022 Microsoft Corporation<br>	Express Edition (64-bit) on Windows Server 2019 Standard 10.0 \<X64> (Build 17763: ) (Hypervisor)<br> |
 
-``````
+```
+```sql
 --Напишите скрипт создания таблицы, которую раньше никто не создавал. В таблице должно быть не менее 5 полей
 Create Table Persons
   (
@@ -109,15 +109,16 @@ Create Table Persons
   Phone varchar(10),
   DepartmantId int 
   )
+```
 
-
-``````
+```sql
 select * from Persons
 
 | Id | Name | LastName | Email | Phone | DepartmantId |
 | --:|:----|:--------|:-----|:-----|------------:|
 
-``````
+```
+```sql
 --Напишите скрипт удаления столбца.
 alter table Persons drop column LastName
   --Напишите скрипт добавления нового столбца.
@@ -127,7 +128,9 @@ select * from Persons
 | Id | Name | Email | Phone | DepartmantId | Age |
 | --:|:----|:-----|:-----|------------:|---:|
 
-`````` 
+```
+
+```sql
 -- Напишите скрипт добавления 5 строк в таблицу.
 insert into Persons(id, Name,Email,Phone,Age,DepartmantId) values
 (0,'Ivan','Nope','1231231231', 100,0),
@@ -146,7 +149,7 @@ select * from Persons
 | 3 | Dima | 111@ss.com | 999-1 | 2 | 3 |
 | 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
 
-``` ```
+```
 -- Напишите скрипт вывода части строк по условию(лёгкий)
 select * from Persons where age>3
 
