@@ -34,9 +34,6 @@ namespace FinalProject
                 "/обновить бд\n" +
                 "/получение свечи\n" +
                 "/индекс мосбиржи";
-
-
-
             return returnS;
         }
 

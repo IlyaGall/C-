@@ -14,59 +14,6 @@ using ScottPlot;
 
 namespace FinalProject
 {
-
-    //class LinePoint
-    //{
-    //    public int Id { get; set; }
-    //    public DateTime Date { get; set; }
-
-    //    public double Point { get; set; }
-
-    //    public int TypeLine { get; set; }
-
-    //    public LinePoint(DateTime date, double point, int typeLine)
-    //    {
-    //        Date = date;
-    //        Point = point;
-    //        TypeLine = typeLine;
-    //    }
-    //    public void print()
-    //    {
-    //        Console.WriteLine($"{Date} {Point} {TypeLine}");
-    //    }
-    //}
-
-    /// <summary>
-    /// коллекция линий поддержки акций
-    /// </summary>
-    //class LinePoints
-    //{
-    //    List<LinePoint> points { get; set; }
-
-    //    public LinePoints() { points = new List<LinePoint>(); }
-
-    //    public void Add(double coordinateY, DateTime coordinateXTime, int idPoint, int typeLine)
-    //    {
-    //        points.Add(new LinePoint(coordinateY, coordinateXTime, idPoint, typeLine));
-    //    }
-    //    public void Add(double coordinateY, double coordinateX, int idPoint, int typeLine)
-    //    {
-    //        points.Add(new LinePoint(coordinateY, coordinateX, idPoint, typeLine));
-    //    }
-
-
-
-    /// <summary>
-    /// проучить линии поддержки акции
-    /// </summary>
-    /// <param name="idPoint">id точки</param>
-    /// <param name="countLineSuppots">количество линий поддержки, которые нужно вернуть</param>
-    /// <returns>коллекция точек</returns>
-    //public List<LinePoint> getLines(int idPoint, int countLineSuppots) 
-    //{
-    //    return null;
-    //}
-
     /// <summary>
     /// линия поддержки
     /// </summary>
@@ -112,7 +59,7 @@ namespace FinalProject
         }
 
     }
-    //}
+    
 
     public class MethodLineSupport
     {

@@ -15,7 +15,6 @@ using Telegram.Bot.Types.Enums;
 
 //https://telegrambots.github.io/book/index.html документация по telegram
 
-
 namespace FinalProject
 {
     /// <summary>
@@ -65,7 +64,9 @@ namespace FinalProject
             );
         }
 
-
+        /// <summary>
+        /// Запустить TelegramBot
+        /// </summary>
         public static void startTelegram()
         {
             var botClient = new TelegramBotClient(Settings.GlobalParameters.Token);
@@ -74,17 +75,14 @@ namespace FinalProject
             Console.ReadLine();
         }
 
-
-
-
         /// <summary>
-        /// запуск клиента телеграмма
+        /// Запуск клиента телеграмма 
         /// </summary>
         /// <param name="botClient">(ITelegramBotClient) экземпляр интерфейса </param>
         /// <param name="update">обновление записи</param>
         /// <param name="token">отмена операции</param>
         /// <returns></returns>
-        async static Task clientUpdate(ITelegramBotClient botClient, Update update, CancellationToken token)
+        private async static Task clientUpdate(ITelegramBotClient botClient, Update update, CancellationToken token)
         {
             var button = update.CallbackQuery;
             if (update.CallbackQuery != null)
@@ -107,7 +105,6 @@ namespace FinalProject
                         break;
                     case "/indexMB30Day":
                     case "/indexMBYear":
-
                     case "test":
                         getAnswer = Server.ServerCommand(buttonCommand);
                         await botClient.SendTextMessageAsync(userId, $"command: {buttonCommand}\n {getAnswer.Item1}");
@@ -170,76 +167,22 @@ namespace FinalProject
                         DataBase.addUser(userId);
                         DataBase.AddFavoritesStock(userId, messageTelegram[1]);
                         break;
+                    case "/info":
+                        var text = "Список команд:";
+                        var getAnswer = Server.ServerCommand("/info");
+                        await botClient.SendTextMessageAsync(userId, $"command: {"/info"}\n {getAnswer.Item1}");
+                        await botClient.SendTextMessageAsync(userId, text, replyMarkup: ArrayButton());
+                        break;
                     default:
                         await botClient.SendTextMessageAsync(userId, @"Не известная команда! Вызовите \info, чтобы открыть список доступных команд.");
                         break;
                 }
-
-
-
-
-
-                //long IDChats = update.Message.Chat.Id;
-
-
-
-
-
-
-                //if (!string.IsNullOrEmpty(message?.Text))
-                //{
-                //    var s = Server.ServerCommand(message.Text);
-                //    Console.WriteLine($"{message.Chat.Username ?? "этот пользователь без имени"} пишет: {message.Text}");
-                //    await botClient.SendTextMessageAsync(message.Chat.Id, $"command: {message.Text}\n {s.Item1}");
-
-                //    #region пример с кнопками
-                //    /*
-                //    var keyboard = new ReplyKeyboardMarkup(new[]
-                //     {
-                //        new []
-                //        {
-                //            new KeyboardButton("Хостел"),
-                //            new KeyboardButton("Хостел"),
-                //            new KeyboardButton("Хостел"),
-                //            new KeyboardButton("Контакты"),
-                //        },
-                //        new []
-                //        {
-                //            new KeyboardButton("Геолокация"),
-                //            new KeyboardButton("Оборудование"),
-                //            new KeyboardButton("Оборудование"),
-                //            new KeyboardButton("Оборудование"),
-                //        }
-                //    });
-                //    await botClient.SendTextMessageAsync(message.Chat.Id, "О нашем хостеле мы расскажем тут", replyMarkup: keyboard);
-                //    await botClient.SendTextMessageAsync(message.Chat.Id, "Removing keyboard", replyMarkup: new ReplyKeyboardRemove());
-                //    */
-                //    #endregion
-
-
-                //    var text = "Список команд:";
-
-                //    await botClient.SendTextMessageAsync(message.Chat.Id, text, replyMarkup: ArrayButton());
-                //    return;
-
-
-                //}
-
-                //if (message?.Photo != null)
-                //{
-                //    await loadFile(botClient, IDChats, "C:\\Users\\Ilya\\Desktop\\falen world\\pero.jpg");
-                //    return;
-                //}
-
                 if (message.Document != null)
                 {
                     await botClient.SendTextMessageAsync(message.Chat.Id, $"Ща отправим");
-                    // var fileId = update.Message.Photo.Last().FileId;
                     var fileId = update.Message.Document.FileId;
-
                     var fileInfo = await botClient.GetFileAsync(fileId);
                     var filePath = fileInfo.FilePath;
-
                     string destinationFilePath = $@"C:\\Users\\Ilya\\Desktop\\Новая папка\\" + $"{message.Document.FileName}";
 
                     await using Stream fileStream = System.IO.File.Create(destinationFilePath);
@@ -265,7 +208,7 @@ namespace FinalProject
         }
 
         /// <summary>
-        /// ф-ция отправки документа клиенту
+        /// Отправка файла виде документа клиенту
         /// </summary>
         /// <param name="botClient">(ITelegramBotClient) экземпляр интерфейса </param>
         /// <param name="IDChats">(long) id чата пользователя</param>
@@ -284,7 +227,7 @@ namespace FinalProject
         }
 
         /// <summary>
-        /// ф-ция отправки фотографии клиенту
+        /// Отправка 1-го файла виде картинки клиенту
         /// </summary>
         /// <param name="botClient">(ITelegramBotClient) экземпляр интерфейса </param>
         /// <param name="IDChats">(long) id чата пользователя</param>
@@ -306,12 +249,12 @@ namespace FinalProject
 
 
         /// <summary>
-        /// тестовая ф-я отправки сообщения с n количеством картинок
+        /// Функция отправки сообщения с n количеством картинок
         /// </summary>
-        /// <param name="botClient"></param>
-        /// <param name="IDChats"></param>
-        /// <param name="pathFile"></param>
-        /// <param name="text"></param>
+        /// <param name="botClient">(ITelegramBotClient) экземпляр интерфейса </param>
+        /// <param name="IDChats">(long) id чата пользователя</param>
+        /// <param name="pathFile">(string) путь до файла</param>
+        /// <param name="text">(string) Текст если требуется</param>
         /// <returns></returns>
         private static async Task LoadArrayPhoto(ITelegramBotClient botClient, long IDChats, List <string> pathFile, List<string> text )
         {
@@ -351,8 +294,15 @@ namespace FinalProject
                 phots.Clear();
             }
         }
-
-
+        
+        /// <summary>
+        /// Функция ошибки 
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="exception"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         private static async Task Error(ITelegramBotClient client, Exception exception, CancellationToken token)
         {
             Console.WriteLine(exception.Message);
@@ -360,13 +310,8 @@ namespace FinalProject
         }
 
 
-
-
-
-      
-
         /// <summary>
-        /// отправка пользователю сообщения
+        /// Отправка пользователю сообщения
         /// </summary>
         /// <param name="message"></param>
         static public void SendMessage(string message)

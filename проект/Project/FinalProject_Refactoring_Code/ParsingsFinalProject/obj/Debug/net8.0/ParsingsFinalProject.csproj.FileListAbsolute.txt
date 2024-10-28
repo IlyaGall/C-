@@ -1,0 +1,12 @@
+C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\ParsingsFinalProject\bin\Debug\net8.0\ParsingsFinalProject.deps.json
+C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\ParsingsFinalProject\bin\Debug\net8.0\ParsingsFinalProject.dll
+C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\ParsingsFinalProject\bin\Debug\net8.0\ParsingsFinalProject.pdb
+C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\ParsingsFinalProject\obj\Debug\net8.0\ParsingsFinalProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\ParsingsFinalProject\obj\Debug\net8.0\ParsingsFinalProject.AssemblyInfoInputs.cache
+C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\ParsingsFinalProject\obj\Debug\net8.0\ParsingsFinalProject.AssemblyInfo.cs
+C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\ParsingsFinalProject\obj\Debug\net8.0\ParsingsFinalProject.csproj.CoreCompileInputs.cache
+C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\ParsingsFinalProject\obj\Debug\net8.0\ParsingsFinalProject.sourcelink.json
+C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\ParsingsFinalProject\obj\Debug\net8.0\ParsingsFinalProject.dll
+C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\ParsingsFinalProject\obj\Debug\net8.0\refint\ParsingsFinalProject.dll
+C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\ParsingsFinalProject\obj\Debug\net8.0\ParsingsFinalProject.pdb
+C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\ParsingsFinalProject\obj\Debug\net8.0\ref\ParsingsFinalProject.dll

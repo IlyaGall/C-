@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 using ScottPlot;
+using System.Resources;
+
 
 namespace FinalProject
 {
@@ -19,9 +21,9 @@ namespace FinalProject
     public static class Settings
     {
         /// <summary>
-        /// проверка пути, который хочет указать пользователь
+        /// Проверка пути, который хочет указать пользователь
         /// </summary>
-        /// <param name="s"></param>
+        /// <param name="NewPath">Путь который нужно проверить</param>
         /// <returns></returns>
         public static bool CorrectPathDirectory(string NewPath)
         {
@@ -36,12 +38,11 @@ namespace FinalProject
                 GlobalParameters.Error = "не получилось создать/найти папку";
                 return false;
             }
-            else 
+            else
             {
-                return true; 
+                return true;
             }
         }
-
 
         /// <summary>
         /// проверить на существование директории в случае её отсутствия создать папку
@@ -53,7 +54,7 @@ namespace FinalProject
                 if (!Directory.Exists(path))
                 {
                     if (path.Split('\\').Length <= 1) { return false; }
-                    if ( !Directory.Exists(path))
+                    if (!Directory.Exists(path))
                     {
                         Directory.CreateDirectory(path);
                     }
@@ -92,41 +93,68 @@ namespace FinalProject
             }
         }
 
-
-       private class SettingJson
+        /// <summary>
+        /// Класс хранящий настройки
+        /// </summary>
+        private class SettingJson
         {
+            /// <summary>
+            /// Версия ПО
+            /// </summary>
             public string Version { get; }
+            /// <summary>
+            /// Путь до файла настроек
+            /// </summary>
             public string Path { get; set; }
-            public string With { get; set; }    
-            public string Height {  get; set; }
+            /// <summary>
+            /// Размер картинки (ширина) при формировании графиков
+            /// </summary>
+            public string With { get; set; }
+            /// <summary>
+            /// Размер картинки (высота) при формировании графиков
+            /// </summary>
+            public string Height { get; set; }
+            /// <summary>
+            /// Токен TelegramBot, храниться в файле настроек
+            /// </summary>
             public string Token { get; set; }
-
+            /// <summary>
+            /// Отображаемый интервал между свечками(дни, часы)
+            /// </summary>
             public string CandleInterval { get; set; }
-
-            public SettingJson(string version, string path, string with, string height ,string token, string candleInterval)
+            /// <summary>
+            /// Конструктор настроек 
+            /// </summary>
+            /// <param name="version">Версия ПО</param>
+            /// <param name="path">Путь до файла настроек</param>
+            /// <param name="with">Размер картинки (ширина) при формировании графиков</param>
+            /// <param name="height">Размер картинки (высота) при формировании графиков</param>
+            /// <param name="token">Токен TelegramBot, храниться в файле настроек</param>
+            /// <param name="candleInterval">Отображаемый интервал между свечками(дни, часы)</param>
+            public SettingJson(string version, string path, string with, string height, string token, string candleInterval)
             {
                 Version = version;
                 Path = path;
-                With = with; 
+                With = with;
                 Height = height;
                 Token = token;
                 CandleInterval = candleInterval;
             }
-            
+
         }
 
         /// <summary>
-        /// сохранение файла настроек
+        /// Сохранение файла настроек
         /// </summary>
-        /// <param name="path"></param>
-        static private void saveSetting(string path) 
+        /// <param name="path">Путь к файлу</param>
+        static private void saveSetting(string path)
         {
             using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
             {
                 SettingJson setting = new SettingJson(
-                    GlobalParameters.VersionProgram, 
+                    GlobalParameters.VersionProgram,
                     GlobalParameters.PathSave,
-                    GlobalParameters.WithIMG.ToString(), 
+                    GlobalParameters.WithIMG.ToString(),
                     GlobalParameters.HeightIMG.ToString(),
                     GlobalParameters.Token,
                     GlobalParameters.CandleInterval
@@ -136,26 +164,26 @@ namespace FinalProject
         }
 
         /// <summary>
-        /// загрузка файла настроек
+        /// Загрузка файла настроек
         /// </summary>
-        /// <param name="path"></param>
-        static private void loadSetting(string path) 
+        /// <param name="path">Путь к файлу</param>
+        static private void loadSetting(string path)
         {
             using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
             {
-                var settingJson =  JsonSerializer.Deserialize<SettingJson>(fs);
+                var settingJson = JsonSerializer.Deserialize<SettingJson>(fs);
                 GlobalParameters.PathSave = settingJson.Path;
                 GlobalParameters.VersionProgram = settingJson.Version;
-                GlobalParameters.WithIMG = int.Parse( settingJson.With);
+                GlobalParameters.WithIMG = int.Parse(settingJson.With);
                 GlobalParameters.HeightIMG = int.Parse(settingJson.Height);
-                GlobalParameters.Token=settingJson.Token;
+                GlobalParameters.Token = settingJson.Token;
                 GlobalParameters.CandleInterval = settingJson.CandleInterval;
             }
         }
 
-
-  
-
+        /// <summary>
+        /// Настройки по умолчанию
+        /// </summary>
         public static class GlobalParameters
         {
             public static string VersionProgram = "1.0.0.0";
@@ -177,12 +205,7 @@ namespace FinalProject
              */
             public static void Images()
             {
-
-                // Путь до изображения
-                string imagePath = @"C:\\Users\\Ilya\\Desktop\\kak_vygliadit_cherepakha_risunok_54.png";
-
-                // Загружаем изображение
-                Bitmap bitmap = new Bitmap(imagePath);
+                Bitmap bitmap = Resource1.Logo50;
 
                 // Вычисляем ширину и высоту консоли
                 int consoleWidth = Console.WindowWidth - 1;
@@ -299,7 +322,6 @@ namespace FinalProject
                 }
             }
         }
-
     }
 }
 

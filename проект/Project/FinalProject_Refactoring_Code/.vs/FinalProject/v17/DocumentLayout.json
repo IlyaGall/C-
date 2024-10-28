@@ -1,0 +1,292 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject_refactoring_code\\finalproject\\analytic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|solutionrelative:finalproject\\analytic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject_refactoring_code\\finalproject\\requestcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|solutionrelative:finalproject\\requestcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject_refactoring_code\\finalproject\\graphiccreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|solutionrelative:finalproject\\graphiccreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject_refactoring_code\\finalproject\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|solutionrelative:finalproject\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject_refactoring_code\\finalproject\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|solutionrelative:finalproject\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject_refactoring_code\\finalproject\\request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|solutionrelative:finalproject\\request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject_refactoring_code\\finalproject\\parserxml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|solutionrelative:finalproject\\parserxml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\FinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject_refactoring_code\\finalproject\\telegram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\telegram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject_refactoring_code\\finalproject\\errorprocessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|solutionrelative:finalproject\\errorprocessing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject_refactoring_code\\finalproject\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4419B93F-E632-476F-B3F8-685AFC08EF19}|FinalProject\\!FinalProject.csproj|solutionrelative:finalproject\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E873E7A-69E2-4203-BF81-D3D4F03522FB}|SettingsFinalProject\\SettingsFinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject_refactoring_code\\settingsfinalproject\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E873E7A-69E2-4203-BF81-D3D4F03522FB}|SettingsFinalProject\\SettingsFinalProject.csproj|solutionrelative:settingsfinalproject\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E873E7A-69E2-4203-BF81-D3D4F03522FB}|SettingsFinalProject\\SettingsFinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject_refactoring_code\\settingsfinalproject\\settingsfinalproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3E873E7A-69E2-4203-BF81-D3D4F03522FB}|SettingsFinalProject\\SettingsFinalProject.csproj|solutionrelative:settingsfinalproject\\settingsfinalproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38E5AF40-356A-4B24-8009-95030ADC8FB5}|RequestFinalProject\\RequestFinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject_refactoring_code\\requestfinalproject\\request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38E5AF40-356A-4B24-8009-95030ADC8FB5}|RequestFinalProject\\RequestFinalProject.csproj|solutionrelative:requestfinalproject\\request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAE7D989-8F84-4908-8BA3-05484A6E93DC}|ParsingsFinalProject\\ParsingsFinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject_refactoring_code\\parsingsfinalproject\\parsing\\parserxml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAE7D989-8F84-4908-8BA3-05484A6E93DC}|ParsingsFinalProject\\ParsingsFinalProject.csproj|solutionrelative:parsingsfinalproject\\parsing\\parserxml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A75A3FD-08C3-408A-ADC5-513198474DDE}|DataBase\\DataBase.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject_refactoring_code\\database\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A75A3FD-08C3-408A-ADC5-513198474DDE}|DataBase\\DataBase.csproj|solutionrelative:database\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2049D096-523C-4531-AC2C-89A976D83D96}|AnaliticsFinalProject\\AnaliticsFinalProject.csproj|c:\\github\\c-\\\u043F\u0440\u043E\u0435\u043A\u0442\\project\\finalproject_refactoring_code\\analiticsfinalproject\\linesupot\\methodlinesupport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2049D096-523C-4531-AC2C-89A976D83D96}|AnaliticsFinalProject\\AnaliticsFinalProject.csproj|solutionrelative:analiticsfinalproject\\linesupot\\methodlinesupport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GraphicCreator.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\GraphicCreator.cs",
+              "RelativeDocumentMoniker": "FinalProject\\GraphicCreator.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\GraphicCreator.cs",
+              "RelativeToolTip": "FinalProject\\GraphicCreator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-27T07:11:48.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DataBase.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\DataBase.cs",
+              "RelativeDocumentMoniker": "FinalProject\\DataBase.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\DataBase.cs*",
+              "RelativeToolTip": "FinalProject\\DataBase.cs*",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAwwEYAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T13:52:42.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Analytic.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\Analytic.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Analytic.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\Analytic.cs*",
+              "RelativeToolTip": "FinalProject\\Analytic.cs*",
+              "ViewState": "AQIAAIoBAAAAAAAAAAAwwIUBAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T13:44:04.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Server.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\Server.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Server.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\Server.cs",
+              "RelativeToolTip": "FinalProject\\Server.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAQwDAAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T13:04:33.477Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RequestCommand.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\RequestCommand.cs",
+              "RelativeDocumentMoniker": "FinalProject\\RequestCommand.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\RequestCommand.cs",
+              "RelativeToolTip": "FinalProject\\RequestCommand.cs",
+              "ViewState": "AQIAAKgAAAAAAAAAAAAAAA0AAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T10:11:26.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\Menu.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Menu.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\Menu.cs",
+              "RelativeToolTip": "FinalProject\\Menu.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAJkBAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T08:54:10.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Request.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\Request.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Request.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\Request.cs",
+              "RelativeToolTip": "FinalProject\\Request.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAqwFgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T08:48:24.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Settings.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\SettingsFinalProject\\Settings.cs",
+              "RelativeDocumentMoniker": "SettingsFinalProject\\Settings.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\SettingsFinalProject\\Settings.cs",
+              "RelativeToolTip": "SettingsFinalProject\\Settings.cs",
+              "ViewState": "AQIAAKwAAAAAAAAAAAAAwMYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T07:54:42.763Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SettingsFinalProject",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\SettingsFinalProject\\SettingsFinalProject.csproj",
+              "RelativeDocumentMoniker": "SettingsFinalProject\\SettingsFinalProject.csproj",
+              "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\SettingsFinalProject\\SettingsFinalProject.csproj",
+              "RelativeToolTip": "SettingsFinalProject\\SettingsFinalProject.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-26T07:54:39.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Request.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\RequestFinalProject\\Request.cs",
+              "RelativeDocumentMoniker": "RequestFinalProject\\Request.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\RequestFinalProject\\Request.cs",
+              "RelativeToolTip": "RequestFinalProject\\Request.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T15:10:15.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ErrorProcessing.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\ErrorProcessing.cs",
+              "RelativeDocumentMoniker": "FinalProject\\ErrorProcessing.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\ErrorProcessing.cs",
+              "RelativeToolTip": "FinalProject\\ErrorProcessing.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABwAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T15:05:11.298Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DataBase.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\DataBase\\DataBase.cs",
+              "RelativeDocumentMoniker": "DataBase\\DataBase.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\DataBase\\DataBase.cs",
+              "RelativeToolTip": "DataBase\\DataBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T15:04:28.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Telegram.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\Telegram.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Telegram.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\Telegram.cs",
+              "RelativeToolTip": "FinalProject\\Telegram.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T15:51:17.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ParserXML.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\ParserXML.cs",
+              "RelativeDocumentMoniker": "FinalProject\\ParserXML.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\FinalProject\\ParserXML.cs",
+              "RelativeToolTip": "FinalProject\\ParserXML.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T15:02:45.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MethodLineSupport.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\AnaliticsFinalProject\\LineSupot\\MethodLineSupport.cs",
+              "RelativeDocumentMoniker": "AnaliticsFinalProject\\LineSupot\\MethodLineSupport.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\AnaliticsFinalProject\\LineSupot\\MethodLineSupport.cs",
+              "RelativeToolTip": "AnaliticsFinalProject\\LineSupot\\MethodLineSupport.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T15:01:44.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ParserXML.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\ParsingsFinalProject\\Parsing\\ParserXML.cs",
+              "RelativeDocumentMoniker": "ParsingsFinalProject\\Parsing\\ParserXML.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u043F\u0440\u043E\u0435\u043A\u0442\\Project\\FinalProject_Refactoring_Code\\ParsingsFinalProject\\Parsing\\ParserXML.cs",
+              "RelativeToolTip": "ParsingsFinalProject\\Parsing\\ParserXML.cs",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAowMoAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T14:58:27.379Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
