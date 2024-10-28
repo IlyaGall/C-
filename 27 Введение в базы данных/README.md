@@ -150,6 +150,7 @@ select * from Persons
 | 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
 
 ```
+```sql
 -- Напишите скрипт вывода части строк по условию(лёгкий)
 select * from Persons where age>3
 
@@ -160,7 +161,9 @@ select * from Persons where age>3
 | 2 | Artur | N@gmail.com | 555123 | 1 | 5 |
 | 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
 
-``` ```
+```
+
+```sql
 -- Напишите скрипт вывода части строк по условию(тяжелый)
 select AVG(Age) from Persons Where Name Like '%a%'   
 
@@ -168,7 +171,9 @@ select AVG(Age) from Persons Where Name Like '%a%'
 | ----------------:|
 | 39 |
 
-``` ```
+```
+
+```sql
 --Напишите скрипт удаления части данных по условию.
 delete Persons where Phone like '%5%'
 select * from Persons
@@ -181,14 +186,17 @@ select * from Persons
 | 3 | Dima | 111@ss.com | 999-1 | 2 | 3 |
 | 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
 
-``` ```
+```
+```sql
 Create Table Departmant
   (
   Id int,
   Name varchar(100)
   )
 
-``` ```
+```
+
+```sql
 insert into Departmant(Id, Name) values (0,'Shool'), (1, 'test'), (2,'HotDog')
 select * from Departmant
 select * from Persons
@@ -207,7 +215,8 @@ select * from Persons
 | 3 | Dima | 111@ss.com | 999-1 | 2 | 3 |
 | 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
 
-``` ```
+```
+```sql
 select p.Name, p.Age from Persons as p
 join Departmant as d on d.Id = p.DepartmantId
 where d.Name ='Shool' 
@@ -220,3 +229,4 @@ where d.Name ='Shool'
 | Ivan | 100 |
 
 [fiddle](https://dbfiddle.uk/ztcTsirk)
+```
