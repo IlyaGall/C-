@@ -66,7 +66,157 @@ SQL — простыми словами, это язык программиро�
 
 ## Типы данных
 
+![img](https://github.com/IlyaGall/C-/blob/main/27%20%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B2%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/img/1.JPG)
+
+[Ссылка на типы данных](https://learn.microsoft.com/ru-ru/sql/t-sql/data-types/data-types-transact-sql?view=sql-server-ver15)
+
+### CRUD операции
+
+![img](https://github.com/IlyaGall/C-/blob/main/27%20%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B2%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/img/2.JPG)
 
 
-![img](https://github.com/IlyaGall/C-/blob/main/26%20LINQ%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B/img/1.JPG)
+#### Список материалов для изучения
+* https://www.zeluslugi.ru/info-czentr/it-glossary/term-sql
+* http://sqlfiddle.com/#!18
+* https://dbfiddle.uk/?rdbms=sqlserver_2019&fiddle=40ab0943ccf98937ca28227d17cce023
+* https://tproger.ru/translations/sql-recap/
+* http://www.sql-tutorial.ru/ru/content.html
+* https://metanit.com/sql/sqlserver/1.1.php
+* https://docs.microsoft.com/ru-ru/sql/t-sql/language-reference?view=sql-server-ver15
+* https://db-engines.com/en/system/Microsoft+SQL+Server%3BOracle%3BPostgreSQL
+* https://habr.com/ru/post/564390/
+* https://proglib.io/p/sql-cheat-sheet
 
+
+## практика
+
+```sql
+``` 
+select @@version;
+```
+| (No column name) |
+| :----------------|
+| Microsoft SQL Server 2022 (RTM) - 16.0.1000.6 (X64) <br>	Oct  8 2022 05:58:25 <br>	Copyright (C) 2022 Microsoft Corporation<br>	Express Edition (64-bit) on Windows Server 2019 Standard 10.0 \<X64> (Build 17763: ) (Hypervisor)<br> |
+
+``` 
+--Напишите скрипт создания таблицы, которую раньше никто не создавал. В таблице должно быть не менее 5 полей
+Create Table Persons
+  (
+  Id int,
+  Name varchar(100),
+  LastName varchar(255),
+  Email varchar(50),
+  Phone varchar(10),
+  DepartmantId int 
+  )
+
+```
+``` 
+select * from Persons
+```
+| Id | Name | LastName | Email | Phone | DepartmantId |
+| --:|:----|:--------|:-----|:-----|------------:|
+
+``` 
+--Напишите скрипт удаления столбца.
+alter table Persons drop column LastName
+  --Напишите скрипт добавления нового столбца.
+alter table Persons add Age int
+select * from Persons
+```
+| Id | Name | Email | Phone | DepartmantId | Age |
+| --:|:----|:-----|:-----|------------:|---:|
+
+``` 
+-- Напишите скрипт добавления 5 строк в таблицу.
+insert into Persons(id, Name,Email,Phone,Age,DepartmantId) values
+(0,'Ivan','Nope','1231231231', 100,0),
+(1,'Petr','123@mail.ru','1221231231', 10,0),
+(2,'Artur','N@gmail.com','555123', 5,1),
+(3,'Dima','111@ss.com','999-1', 3,2),
+(4,'Ilya','fox@com.com','8888-', 50,1)
+-- Напишите скрипт вывода всех 5 строк.
+select * from Persons 
+```
+| Id | Name | Email | Phone | DepartmantId | Age |
+| --:|:----|:-----|:-----|------------:|---:|
+| 0 | Ivan | Nope | 1231231231 | 0 | 100 |
+| 1 | Petr | 123@mail.ru | 1221231231 | 0 | 10 |
+| 2 | Artur | N@gmail.com | 555123 | 1 | 5 |
+| 3 | Dima | 111@ss.com | 999-1 | 2 | 3 |
+| 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
+
+``` 
+-- Напишите скрипт вывода части строк по условию(лёгкий)
+select * from Persons where age>3
+```
+| Id | Name | Email | Phone | DepartmantId | Age |
+| --:|:----|:-----|:-----|------------:|---:|
+| 0 | Ivan | Nope | 1231231231 | 0 | 100 |
+| 1 | Petr | 123@mail.ru | 1221231231 | 0 | 10 |
+| 2 | Artur | N@gmail.com | 555123 | 1 | 5 |
+| 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
+
+``` 
+-- Напишите скрипт вывода части строк по условию(тяжелый)
+select AVG(Age) from Persons Where Name Like '%a%'   
+```
+| (No column name) |
+| ----------------:|
+| 39 |
+
+``` 
+--Напишите скрипт удаления части данных по условию.
+delete Persons where Phone like '%5%'
+select * from Persons
+
+
+```
+| Id | Name | Email | Phone | DepartmantId | Age |
+| --:|:----|:-----|:-----|------------:|---:|
+| 0 | Ivan | Nope | 1231231231 | 0 | 100 |
+| 1 | Petr | 123@mail.ru | 1221231231 | 0 | 10 |
+| 3 | Dima | 111@ss.com | 999-1 | 2 | 3 |
+| 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
+
+``` 
+Create Table Departmant
+  (
+  Id int,
+  Name varchar(100)
+  )
+```
+``` 
+insert into Departmant(Id, Name) values (0,'Shool'), (1, 'test'), (2,'HotDog')
+select * from Departmant
+select * from Persons
+
+```
+| Id | Name |
+| --:|:----|
+| 0 | Shool |
+| 1 | test |
+| 2 | HotDog |
+
+| Id | Name | Email | Phone | DepartmantId | Age |
+| --:|:----|:-----|:-----|------------:|---:|
+| 0 | Ivan | Nope | 1231231231 | 0 | 100 |
+| 1 | Petr | 123@mail.ru | 1221231231 | 0 | 10 |
+| 3 | Dima | 111@ss.com | 999-1 | 2 | 3 |
+| 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
+
+``` 
+select p.Name, p.Age from Persons as p
+join Departmant as d on d.Id = p.DepartmantId
+where d.Name ='Shool' 
+  Order by age
+-- выбрать школьников (имя и возраст) в порядке возрастания
+```
+| Name | Age |
+| :----|---:|
+| Petr | 10 |
+| Ivan | 100 |
+
+[fiddle](https://dbfiddle.uk/ztcTsirk)
+
+```
