@@ -92,12 +92,12 @@ SQL — простыми словами, это язык программиро�
 
 ```sql
 select @@version;
+```
 
 | (No column name) |
 | :----------------|
 | Microsoft SQL Server 2022 (RTM) - 16.0.1000.6 (X64) <br>	Oct  8 2022 05:58:25 <br>	Copyright (C) 2022 Microsoft Corporation<br>	Express Edition (64-bit) on Windows Server 2019 Standard 10.0 \<X64> (Build 17763: ) (Hypervisor)<br> |
 
-```
 ```sql
 --Напишите скрипт создания таблицы, которую раньше никто не создавал. В таблице должно быть не менее 5 полей
 Create Table Persons
@@ -113,22 +113,21 @@ Create Table Persons
 
 ```sql
 select * from Persons
+```
 
 | Id | Name | LastName | Email | Phone | DepartmantId |
 | --:|:----|:--------|:-----|:-----|------------:|
-
-```
 ```sql
 --Напишите скрипт удаления столбца.
 alter table Persons drop column LastName
   --Напишите скрипт добавления нового столбца.
 alter table Persons add Age int
 select * from Persons
+```
 
 | Id | Name | Email | Phone | DepartmantId | Age |
 | --:|:----|:-----|:-----|------------:|---:|
 
-```
 
 ```sql
 -- Напишите скрипт добавления 5 строк в таблицу.
@@ -140,6 +139,7 @@ insert into Persons(id, Name,Email,Phone,Age,DepartmantId) values
 (4,'Ilya','fox@com.com','8888-', 50,1)
 -- Напишите скрипт вывода всех 5 строк.
 select * from Persons 
+```
 
 | Id | Name | Email | Phone | DepartmantId | Age |
 | --:|:----|:-----|:-----|------------:|---:|
@@ -149,11 +149,10 @@ select * from Persons
 | 3 | Dima | 111@ss.com | 999-1 | 2 | 3 |
 | 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
 
-```
 ```sql
 -- Напишите скрипт вывода части строк по условию(лёгкий)
 select * from Persons where age>3
-
+```
 | Id | Name | Email | Phone | DepartmantId | Age |
 | --:|:----|:-----|:-----|------------:|---:|
 | 0 | Ivan | Nope | 1231231231 | 0 | 100 |
@@ -161,23 +160,21 @@ select * from Persons where age>3
 | 2 | Artur | N@gmail.com | 555123 | 1 | 5 |
 | 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
 
-```
 
 ```sql
 -- Напишите скрипт вывода части строк по условию(тяжелый)
 select AVG(Age) from Persons Where Name Like '%a%'   
+```
 
 | (No column name) |
 | ----------------:|
 | 39 |
 
-```
-
 ```sql
 --Напишите скрипт удаления части данных по условию.
 delete Persons where Phone like '%5%'
 select * from Persons
-
+```
 
 | Id | Name | Email | Phone | DepartmantId | Age |
 | --:|:----|:-----|:-----|------------:|---:|
@@ -186,7 +183,7 @@ select * from Persons
 | 3 | Dima | 111@ss.com | 999-1 | 2 | 3 |
 | 4 | Ilya | fox@com.com | 8888- | 1 | 50 |
 
-```
+
 ```sql
 Create Table Departmant
   (
@@ -222,11 +219,10 @@ join Departmant as d on d.Id = p.DepartmantId
 where d.Name ='Shool' 
   Order by age
 -- выбрать школьников (имя и возраст) в порядке возрастания
-
+```
 | Name | Age |
 | :----|---:|
 | Petr | 10 |
 | Ivan | 100 |
 
 [fiddle](https://dbfiddle.uk/ztcTsirk)
-```
