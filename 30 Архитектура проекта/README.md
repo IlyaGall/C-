@@ -395,11 +395,10 @@ API со временем развиваются. Управление верс�
 
 
 ### Список материалов для изучения
-1.Мартин Фаулер Архитектура корпоративных программных приложений;
-2. Мартин Фаулер Рефакторинг. Улучшение существующего кода;
-3. Роберт Мартин Чистая архитектура. Искусство разработки программного обеспечения;
-4. https://web.archive.org/web/20180822100852/ http://alistair.cockburn.us/Hexagonal+architecture
-5. https://jeffreypalermo.com/2008/07/the-onion-architecture-part-1/
-6. https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
-7. https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/commonweb-applicati
-on-architectures
+* 1. Мартин Фаулер Архитектура корпоративных программных приложений;
+* 2. Мартин Фаулер Рефакторинг. Улучшение существующего кода;
+* 3. Роберт Мартин Чистая архитектура. Искусство разработки программного обеспечения;
+* 4. https://web.archive.org/web/20180822100852/ http://alistair.cockburn.us/Hexagonal+architecture
+* 5. https://jeffreypalermo.com/2008/07/the-onion-architecture-part-1/
+* 6. https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
+* 7. https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/commonweb-application-architectures
