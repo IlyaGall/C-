@@ -32,14 +32,100 @@ ExecuteScalar — это метод в ADO.NET, который использу�
 * SqlCommand.ExecuteScalarAsync()
 * SqlDataReader.ReadAsync()
 
-## Преимущества и недостатки ADO.NET
+### пример
+
+```C#
+///ADO.NET
+
+    static void Main()
+    {
+        string connectionString = "Server=.;Database=UserDB;Integrated Security=True;";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+
+            string query = "INSERT INTO [User] (FirstName, LastName) VALUES (@FirstName, @LastName)";
+            using (SqlCommand command = new SqlCommand(query, connection)) //вставка данных
+            {
+                command.Parameters.AddWithValue("@FirstName", "John");
+                command.Parameters.AddWithValue("@LastName", "Doe");
+
+                int rowsAffected = command.ExecuteNonQuery(); //вставка данных возращает количество рядов на которые она повлияла
+                Console.WriteLine("Rows Affected: " + rowsAffected);
+            }
+
+
+            query = "SELECT Id, FirstName, LastName FROM [User]";
+            using (SqlCommand command = new SqlCommand(query, connection)) // чтение данных
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32(0);
+                        string name = reader.GetString(1);
+                        string lastName = reader.GetString(2);
+                        //int age = reader.GetInt32(2);
+
+                        Console.WriteLine($"ID: {id}, FirstName: {name}, LastName: {lastName}");
+                    }
+                }
+            }
+        }
+        
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+
+            string query = "SELECT Id, Name, Age FROM Students";
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet, "Students");
+
+            foreach (DataRow row in dataSet.Tables["Students"].Rows) // dateset можно по id обращаться
+            {
+                int id = (int)row["Id"];
+                string name = (string)row["Name"];
+                int age = (int)row["Age"];
+
+                Console.WriteLine($"ID: {id}, Name: {name}, Age: {age}");
+            }
+        }
+    }
+    /// пример асинхроного запроса
+    public static async Task<int> GetUserCountAsync(string connectionString)
+    {
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            await connection.OpenAsync();
+            string query = "SELECT COUNT(*) FROM Users";
+
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                // ExecuteScalar returns the first column of the first row in the result set
+                object result = await command.ExecuteScalarAsync();
+                if (result != null)
+                {
+                    return Convert.ToInt32(result);
+                }
+                return 0;
+            }
+        }
+    }
+```
+
+
+### Преимущества и недостатки ADO.NET
 * +- Использование чистого SQL
 * + Полный контроль за отправляемыми запросами
 * - Конвертация “C#-объект <-> SQL-представление” целиком на разработчике
 * - IDE не поможет с переименованиями
 * - Компилятор не поможет с контролем типов
 
-## Когда использовать ADO.NET
+### Когда использовать ADO.NET
 Сложные транзакции, требующие детального контроля над соединением, командами и транзакциями.
 Ситуации, когда разработчику необходимо использовать расширенные функции поставщика базы данных.
 Обширных пользовательских манипуляций с данными и тонкой настройки
