@@ -2,14 +2,14 @@
 - Архитектура проекта относится к фундаментальной структуре приложения, описывающей, как компоненты взаимодействуют друг с другом, и принципы, управляющие этими взаимодействиями. Она действует как план для разработки,
 развертывания и обслуживания приложения. 
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/1.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/1.JPG)
 
 ##  Цель четко определенной архитектуры 
 Ясность:
 
 Четко определенная архитектура помогает разработчикам и командам понять, как работает система, что упрощает прием новых членов команды или устранение неполадок.
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/2.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/2.JPG)
 
 ## Цель четко определенной архитектуры
 
@@ -38,7 +38,7 @@
 
 ## Тип архитектуры 
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/3.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/3.JPG)
 
 Типы системной архитектуры
 1. Монолитная архитектура:
@@ -54,14 +54,14 @@
 Масштабирование всего приложения по сравнению с отдельными службами.
 Неэффективность ресурсов.
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/4.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/4.JPG)
 
 
 ## Проблемы разработки в монолитах
 * Взаимозависимости, замедляющие разработку.
 * Длительные циклы тестирования и развертывания
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/5.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/5.JPG)
 
 
 ## Поддерживаемость и гибкость. Проблемы в монолитах
@@ -73,27 +73,27 @@
 
 Мелкозернистая масштабируемость
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/6.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/6.JPG)
 
 ## Микросервисы: Независимая разработка
 * Независимая разработка и развертывание.
 * Разнообразие технологий и простота обновлений.
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/7.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/7.JPG)
 
 ## Как общаются микросервисы
 ### Синхронное общение
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/8.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/8.JPG)
 
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/9.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/9.JPG)
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/10.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/10.JPG)
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/11.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/11.JPG)
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/12.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/12.JPG)
 
 
 ## Типы системной архитектуры
@@ -106,7 +106,7 @@ Modulith по сути является монолитом с:
 * Модульные границы и инкапсуляция.
 * Постепенный переход к микросервисам.
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/13.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/13.JPG)
 
 ## Микросервисы: ускоренная разработка
 * Параллельная разработка и более быстрая доставка.
@@ -130,7 +130,7 @@ Serverless (Бессерверная архитектура):
 
 ## Начало
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/14.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/14.JPG)
 
 ## 2002 год: n-слойная
 В своей книге Patterns of Enterprise Application Architecture («Шаблоны корпоративных приложений») он описал n-слойную архитектуру.
@@ -155,15 +155,15 @@ Serverless (Бессерверная архитектура):
 
 В 2003 Эрик Эванс опубликовал книгу Domain-Driven Design: Tackling Complexity in the Heart of Software («Предметно-ориентированное проектирование. Структуризация сложных программных систем»)
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/15.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/15.JPG)
 
 ## Принцип инверсии зависимостей (DIP)
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/16.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/16.JPG)
 
 ## Принцип инверсии зависимостей (DIP)
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/17.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/17.JPG)
 
 ## 2005 год: шестиугольная, порты и адаптеры Алистер Кокберн
 
@@ -188,15 +188,15 @@ f. Внешние системы взаимодействуют с ядром ч
 
 ### Гексагональная
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/18.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/18.JPG)
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/19.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/19.JPG)
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/20.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/20.JPG)
 
 ### 2008 год: луковая 
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/21.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/21.JPG)
 
 2008 год: луковая
 Основные характеристики:
@@ -217,7 +217,7 @@ f. Зависимости текут внутрь — внешние слои з
 
 ### 2012 год: чистая архитектура 
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/22.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/22.JPG)
 
 ### 2012 год: чистая архитектура
 Аналогично архитектуре лука, но с более четкими указаниями:
@@ -342,7 +342,7 @@ REST — это архитектурный стиль, используемый 
 
 ### Http vs gRPC 
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/23.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/23.JPG)
 
 
 Определения конечных точек
@@ -387,11 +387,11 @@ API со временем развиваются. Управление верс�
 
 Пример частой реализации
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/24.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/24.JPG)
 
 ### Пример частой реализации
 
-![img](https://github.com/IlyaGall/C-/blob/main/29%20Linq2DB%2C%20Dapper/IMG/25.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/30%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/IMG/25.JPG)
 
 
 ### Список материалов для изучения
