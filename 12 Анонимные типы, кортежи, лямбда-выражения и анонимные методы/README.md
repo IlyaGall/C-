@@ -270,7 +270,8 @@ static List<int> Filter(List<int> collection, Func<int, bool> criteriaDelegate)
 ```
 
 
-## [дз] (https://github.com/IlyaGall/C-/tree/main/%D0%94%D0%97/06%20HomeWork)
+## дз
+* [дз] (https://github.com/IlyaGall/C-/tree/main/%D0%94%D0%97/06%20HomeWork)
 # Программа 1.
 Создать четыре объекта анонимного типа для описания планет Солнечной системы со свойствами "Название", "Порядковый номер от Солнца", "Длина экватора", "Предыдущая планета" (ссылка на объект - предыдущую планету):
 
