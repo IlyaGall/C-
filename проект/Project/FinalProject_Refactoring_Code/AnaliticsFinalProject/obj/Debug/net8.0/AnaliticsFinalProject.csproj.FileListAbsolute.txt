@@ -1,6 +1,0 @@
-C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\AnaliticsFinalProject\obj\Debug\net8.0\AnaliticsFinalProject.csproj.AssemblyReference.cache
-C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\AnaliticsFinalProject\obj\Debug\net8.0\AnaliticsFinalProject.GeneratedMSBuildEditorConfig.editorconfig
-C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\AnaliticsFinalProject\obj\Debug\net8.0\AnaliticsFinalProject.AssemblyInfoInputs.cache
-C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\AnaliticsFinalProject\obj\Debug\net8.0\AnaliticsFinalProject.AssemblyInfo.cs
-C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\AnaliticsFinalProject\obj\Debug\net8.0\AnaliticsFinalProject.csproj.CoreCompileInputs.cache
-C:\gitHub\C-\проект\Project\FinalProject_Refactoring_Code\AnaliticsFinalProject\obj\Debug\net8.0\AnaliticsFinalProject.sourcelink.json
