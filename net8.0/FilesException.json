@@ -1,0 +1,11 @@
+
+[
+    {
+        "nameFile": "PACKAGE.md",
+        "Exception": "md"
+    },
+    {
+        "nameFile": "LICENSE.md",
+        "Exception": "md"
+    }
+]
