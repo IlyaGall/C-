@@ -94,13 +94,13 @@ Queryable<T> — это интерфейс, который использует�
 
 ## Ключевые слова
 При использовании декларативного синтаксиса используются следующие ключевые слова:
-● [let](https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/query-keywords) – определяет переменную и присваивает ей значение, рассчитанное на основе значений данных;
-● [into](https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/into) – служит для создания временного идентификатора для хранения результата из group;
-● [join](https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/join-clause) – объединяет различные последовательности, имеющих отношения в объектной модели; Используется с on;
-● [on](https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/on) – задает ключи, по которым необходимо сопоставить коллекции в join;
-● [equals](https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/equals) – сравнивает значения в выражениях запроса; используется с join on;
-● [orderby](https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/orderby-clause) – сортирует последовательность значений, используя компаратор по умолчанию;
-● [ascending/descending](https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/ascending)–  сортирует последовательность значений, используя компаратор по умолчанию.
+* [let](https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/query-keywords) – определяет переменную и присваивает ей значение, рассчитанное на основе значений данных;
+* [into](https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/into) – служит для создания временного идентификатора для хранения результата из group;
+* [join](https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/join-clause) – объединяет различные последовательности, имеющих отношения в объектной модели; Используется с on;
+* [on](https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/on) – задает ключи, по которым необходимо сопоставить коллекции в join;
+* [equals](https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/equals) – сравнивает значения в выражениях запроса; используется с join on;
+* [orderby](https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/orderby-clause) – сортирует последовательность значений, используя компаратор по умолчанию;
+* [ascending/descending](https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/ascending)–  сортирует последовательность значений, используя компаратор по умолчанию.
 
 ## Правила описания запроса
 1. Выражение должно начинаться с ключевого слова from и должно заканчиваться select или group.

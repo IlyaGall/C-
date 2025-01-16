@@ -1,4 +1,4 @@
-﻿# Задание 1
+# Задание 1
 Релизовать Console.ReadLine через Console.ReadKey
 
 Тело функции - string CustomReadLine()
