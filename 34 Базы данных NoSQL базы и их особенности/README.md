@@ -82,186 +82,263 @@
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/11.JPG)
 
-### Репликаøии
-* репликаøиā основной копии или ведуûийведомýй
+### Репликации
+* репликация основной копии или ведущийведомый
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/12.JPG)
 
-* одноранговаā или симметриùнаā репликаøиā
+* одноранговая или симметричная репликация
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/13.JPG)
 
-### CRUD операøии на SQL и NoSQL СУБД
+### CRUD операции на SQL и NoSQL СУБД
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/14.JPG)
 
-### Типý NoSQL СУБД
-● КлĀù - знаùение
-● Документо-ориентированнýе
-● Графовýе
-● Колоноùнýе
+### Типы NoSQL СУБД
+* Ключ - значение
+* Документо-ориентированные
+* Графовые
+* Колоночные
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/15.JPG)
 
 
-### Типý NoSQL СУБД : КлĀù - знаùение
+### Типы NoSQL СУБД : Ключ - значение
 
-КлĀù-знаùение – под каждýм клĀùом ùто-то лежит, пока не запросим – не узнаем ùто именно 
+Ключ-значение – под каждым ключом что-то лежит, пока не запросим – не узнаем что именно 
 
-● Redis
-● DynamoDB
-● Memcached
+* Redis
+* DynamoDB
+* Memcached
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/16.JPG)
 
 
-### Типý NoSQL СУБД : Документно-ориентированнаā
+### Типы NoSQL СУБД : Документно-ориентированная
 
-Документно-ориентированнаā БД - аналог клĀù-знаùение, но в каùестве знаùений исполþзуетсā обüектý в определенном формате (JSON, XML):
-● Одиноùнýе операøии в CRUD вýполнāĀтсā гораздо бýстрее
-● Можно делатþ запросý к содержимому записи, не извлекаā даннýх øеликом
+Документно-ориентированная БД - аналог ключ-значение, но в качестве значений используется объекты в определенном формате (JSON, XML):
+* Одиночные операции в CRUD выполняются гораздо быстрее
+* Можно делать запросы к содержимому записи, не извлекая данных целиком
 (сходство с RDBMS)
 
 
-● MongoDB
-● LiteDB
-● CouchDB
-● Elasticsearch
+* MongoDB
+* LiteDB
+* CouchDB
+* Elasticsearch
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/17.JPG)
 
-### Типý NoSQL СУБД : Графовýе БД
+### Типы NoSQL СУБД : Графовые БД
 
-Графовýе БД – единиøý хранениā: Узлý и ребра(свāзи). Запрос – обход даннýх от узла к узлу по ребрам на заданнуĀ глубину. ИсполþзуĀтсā длā хранениā, управлениā, составлениā запросов к сложнýм тесно взаимосвāзаннýм группам даннýх (соøиалþнýе сети, сервисý рекомендаøий, графý знаùений, логистика, геоинформаøионнýе системý).
+Графовые БД – единицы хранения: Узлы и ребра(связи). Запрос – обход данных от узла к узлу по ребрам на заданную глубину. Используются для хранения, управления, составления запросов к сложным тесно взаимосвязанным группам данных (социальные сети, сервисы рекомендаций, графы значений, логистика, геоинформационные системы).
 
-● Neo4j
-● OrientDb
-● Titan
+* Neo4j
+* OrientDb
+* Titan
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/18.JPG)
 
-### Типý NoSQL СУБД : Колоноùнýе БД
+### Типы NoSQL СУБД : Колоночные БД
 
-Колоноùнýе базý даннýх – даннýе хранāтсā в āùейках, сгруппированнýх в колонки ПрименāĀтсā в веб-индексировании, рекламе, телекоммуникаøиāх, аналитиùеских система и т.п.
+Колоночные базы данных – данные хранятся в ячейках, сгруппированных в колонки Применяются в веб-индексировании, рекламе, телекоммуникациях, аналитических система и т.п.
 
-● Cassandra
-● Hbase
-● Google BigTable
+* Cassandra
+* Hbase
+* Google BigTable
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/19.JPG)
 
-### NoSQL СУБД : дополнителþнаā информаøиā
+### NoSQL СУБД : дополнительная информация
 
 [NoSQL Database](https://hostingdata.co.uk/nosql-database/)
 
 [популярность бд](https://db-engines.com/en/ranking)
 
-### NoSQL СУБД : как наùатþ исполþзоватþ
+### NoSQL СУБД : как начать использовать
 
-● Установитþ локалþно
-● Поднāтþ локалþно в контейнере (Docker)
-● Исполþзоватþ облаùнýй сервис 
+* Установить локально
+* Поднять локально в контейнере (Docker)
+* Использовать облачный сервис 
 
 ## Redis
 
 
 Redis
-● КлĀù-знаùение
-● Хранит даннýе в оперативной памāти, при необходимости может сохранāтþ даннýе на диске
-● Доступ по обûему паролĀ или без него
-● Без клĀùа даннýе не полуùитþ
-● https://hub.docker.com/u/redis - офиøалþнýй образ Docker
-● https://hub.docker.com/r/redis/redis-stack
-● Хранилиûе структурированнýх даннýх
-● Работа с разлиùнýми типами даннýх
-● Обýùно исполþзуетсā как кÿú но может исполþзоватþсā как полноøенное хранилиûе длā неболþúих проектов или брокер оùередей
-● Отлиùно документированнаā СУБД
-● Поддерживает úирокий спектр āзýков программированиā
+* Ключ-значение
+* Хранит данные в оперативной памяти, при необходимости может сохранять данные на диске
+* Доступ по общему паролю или без него
+* Без ключа данные не получить
+* https://hub.docker.com/u/redis - офицальный образ Docker
+* https://hub.docker.com/r/redis/redis-stack
+* Хранилище структурированных данных
+* Работа с различными типами данных
+* Обычно используется как кэш но может использоваться как полноценное хранилище для небольших проектов или брокер очередей
+* Отлично документированная СУБД
+* Поддерживает широкий спектр языков программирования
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/20.JPG)
 
-### Redis -кÿúирование
+### Redis -кэширование
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/21.JPG)
 
 
-### Redis - брокер оùередей
+### Redis - брокер очередей
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/22.JPG)
 
 ### MongoDB
 
-● Популāрнаā документо-ориентированнаā БД
-● Хранение даннýе в формате BSON
-● Исполþзование JavaScript длā написаниā функøий и запросов
-● Возможностþ вýполнениā операøий, аналогиùнýх операøиāм в релāøионнýх СУБД
-● Поддержка хранимýх проøедур на JavaScript
-● Валидаøиā полей документов
-● Возможностþ репликаøии
-● Встроеннаā работа с гео-координатами
-● Хороúо документированнаā СУБД
-● Поддерживает úирокий спектр āзýков программированиā
-● https://hub.docker.com/_/mongo
-● https://www.mongodb.com/docs/drivers/csharp/current/
+* Популярная документо-ориентированная БД
+* Хранение данные в формате BSON
+* Использование JavaScript для написания функций и запросов
+* Возможность выполнения операций, аналогичных операциям в реляционных СУБД
+* Поддержка хранимых процедур на JavaScript
+* Валидация полей документов
+* Возможность репликации
+* Встроенная работа с гео-координатами
+* Хорошо документированная СУБД
+* Поддерживает широкий спектр языков программирования
+* https://hub.docker.com/_/mongo
+* https://www.mongodb.com/docs/drivers/csharp/current/
 
-### MongoDB схема даннýх
+### MongoDB схема данных
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/23.JPG)
 
-### MongoDB - операøиā вýборка
+### MongoDB - операция выборка
 
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/24.JPG)
 
-### MongoDB - паттерн Map Reduce - пайплайнý аггрегаøии
+### MongoDB - паттерн Map Reduce - пайплайны аггрегации
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/25.JPG)
 
 ### MongoDB код С#
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/26.JPG)
 
-### MongoDB - úардирование
+### MongoDB - шардирование
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/27.JPG)
 
-### MongoDB - репликаøиā
+### MongoDB - репликация
 
+![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/28.JPG)
 
-
-http://thesecretlivesofdata.com/raft/ - наглāднаā иллĀстраøиā алгоритма репликаøии даннýх между нодами в распределенной системе(исполþзуетсā в MongoDB) https://www.mongodb.com/docs/manual/replication/
+http://thesecretlivesofdata.com/raft/ - наглядная иллюстрация алгоритма репликации данных между нодами в распределенной системе(используется в MongoDB) https://www.mongodb.com/docs/manual/replication/
 
 ### LiteDB
 
-● Документо-ориентированнаā
-● Standalone СУБД, не требует установки и конфигурированиā
-● Легковеснаā
-● Позволāет бýстро наùатþ работатþ с документо-ориентированнýм хранилиûем
-● https://www.litedb.org/
+* Документо-ориентированная
+* Standalone СУБД, не требует установки и конфигурирования
+* Легковесная
+* Позволяет быстро начать работать с документо-ориентированным хранилищем
+* https://www.litedb.org/
 
 ### Cassandra
 
-● Колонко-ориентированное хранилиûе
-● Не релāøионнаā отказоустойùиваā распределеннаā СУБД
-● Гибридное NoSQL реúение , соùетает моделþ хранениā на основе столбøов с моделþĀ key-value
-● Рассùитана на создание крупномасúтабнýх надежнýх хранилиû, представленнýх в виде хеú
-● Разработана на Java в 2008 году
-● Наиболее удобнаā база даннýх длā кластеризаøии
-● Единственнаā база даннýх, где скоростþ записи вýúе скорости ùтениā (около 80-360 МБ/с на узел)
+* Колонко-ориентированное хранилище
+* Не реляционная отказоустойчивая распределенная СУБД
+* Гибридное NoSQL решение , сочетает модель хранения на основе столбцов с моделью key-value
+* Рассчитана на создание крупномасштабных надежных хранилищ, представленных в виде хеш
+* Разработана на Java в 2008 году
+* Наиболее удобная база данных для кластеризации
+* Единственная база данных, где скорость записи выше скорости чтения (около 80-360 МБ/с на узел)
 
-### Cassandra - моделþ даннýх
-● Столбеø или колонка (column) – āùейка с даннýми, вклĀùаĀûаā 3 ùасти: имā (column name)
-в виде массива байтов, метку времени (timestamp) и само знаùение (value) также в виде байтового массива;
-● Строка или записþ (row) – именованнаā коллекøиā столбøов;
-● Семейство столбøов (column family) – именованнаā коллекøиā строк;
-● Пространство клĀùей (keyspace) – группа из несколþких семейств столбøов, собраннýх вместе.
+### Cassandra - модель данных
+* Столбец или колонка (column) – ячейка с данными, включающая 3 части: имя (column name)
+в виде массива байтов, метку времени (timestamp) и само значение (value) также в виде байтового массива;
+* Строка или запись (row) – именованная коллекция столбцов;
+* Семейство столбцов (column family) – именованная коллекция строк;
+* Пространство ключей (keyspace) – группа из нескольких семейств столбцов, собранных вместе.
 
 
 
 ![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/29.JPG)
 
 
+![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/30.JPG)
+
+* Столбец или колонка (column) – ячейка с данными, включающая 3 части: имя (column name) в виде массива байтов, метку времени (timestamp) и само значение (value) также в виде байтового массива;
+* Строка или запись (row) – именованная коллекция столбцов;
+* Семейство столбцов (column family) – именованная коллекция строк;
+* Пространство ключей (keyspace) – группа из нескольких семейств столбцов, собранных вместе.
+
+### Cassandra - создание пространства ключей
+
+![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/31.JPG)
+
+![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/32.JPG)
+
+![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/33.JPG)
 
 
+![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/34.JPG)
+
+### Neo4j
+* Графовая база данных
+* Свободное поле объектов
+* Объекты соединяются определенными типами связей
+
+
+![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/35.JPG)
+
+![img](https://github.com/IlyaGall/C-/blob/main/34%20%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85%20NoSQL%20%D0%B1%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8/IMG/36.JPG)
+
+
+Список материалов для изучения
+1. https://en.wikipedia.org/wiki/Database
+2. https://en.wikipedia.org/wiki/Internet
+3. https://en.wikipedia.org/wiki/Strozzi_NoSQL
+4. https://www.geeksforgeeks.org/difference-between-sql-and-nosql/?ref=ml_lbp
+5. https://phoenixnap.com/kb/acid-vs-base
+6. https://ru.wikipedia.org/wiki/ACID
+7. https://habr.com/ru/articles/555920/
+8. https://www.yuji.page/acid/
+9. https://cloud.yandex.ru/blog/posts/2022/10/nosql
+10. https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BE%D1%80%D0%B5%D0%BC%D0%B0_CAP
+11. https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed/
+12. https://habr.com/ru/articles/328792/
+13. https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BE%D1%80%D0%B5%D0%BC%D0%B0_PACELC
+14. https://bigdataschool.ru/blog/cap-and-pacelc-in-kafka.html
+15. https://web-creator.ru/articles/partitioning_replication_sharding
+16. https://dzen.ru/a/ZElAFXc8MhP8ZU5K
+17. https://martinfowler.com/books/nosql.html
+18. https://www.diva-portal.org/smash/get/diva2:1681550/FULLTEXT01.pdf
+19. https://learn.microsoft.com/ru-ru/dotnet/architecture/cloud-native/relational-vs-nosql-data
+20. https://highload.guide/blog/NoSQL-quick-facts.html
+21. https://hostingdata.co.uk/nosql-database/
+22. https://db-engines.com/en/ranking
+23. https://coderlessons.com/articles/java/osnovnye-kliuchi-mongodb-vash-drug
+24. https://www.mongodb.com/docs/manual/tutorial/getting-started/
+25. https://www.mongodb.com/docs/manual/sharding/
+26. https://www.mongodb.com/docs/manual/replication/
+27. http://thesecretlivesofdata.com/raft
+28. https://www.postgresql.eu/events/pgconfeu2017/sessions/session/1596/slides/29/Distributed%20Computing%20on%20PostgreSQL.pdf
+29. https://habr.com/ru/companies/piter/articles/275633/
+30. https://xebia.com/blog/microservices-coupling-vs-autonomy/
+ https://redis.io/
+32. https://hub.docker.com/u/redis
+33. https://habr.com/ru/companies/wunderfund/articles/685894/
+34. https://www.mongodb.com/
+35. https://www.litedb.org/
+36. https://cassandra.apache.org/_/quickstart.html
+37. https://www.cockroachlabs.com/
+38. https://habr.com/ru/companies/flant/articles/327640/
+39. https://devathon.com/blog/cockroachdb-vs-mysql-vs-postgresql-vs-mongodb-vs-cassandra/
+40. https://blog.yakunin.dev/cockroachdb-postgresql/
+41. https://www.digitalocean.com/community/tutorials/understanding-database-sharding
+42. https://www.cockroachlabs.com/blog/limits-of-the-cap-theorem/
+43. https://jepsen.io/consistency
+44. http://www.cs.umd.edu/~abadi/papers/abadi-pacelc.pdf
+45. https://redis.io/docs/latest/develop/data-types/streams/
+46. https://github.com/neelabalan/mongodb-sample-dataset/tree/main
+47. https://www.geeksforgeeks.org/datatypes-in-mongodb/
+48. https://www.mongodb.com/docs/manual/reference/bson-types/
+49. https://www.mongodb.com/docs/manual/core/views/create-view/
 
 
 
