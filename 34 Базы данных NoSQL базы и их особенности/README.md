@@ -319,8 +319,7 @@ http://thesecretlivesofdata.com/raft/ - наглядная иллюстраци�
 27. http://thesecretlivesofdata.com/raft
 28. https://www.postgresql.eu/events/pgconfeu2017/sessions/session/1596/slides/29/Distributed%20Computing%20on%20PostgreSQL.pdf
 29. https://habr.com/ru/companies/piter/articles/275633/
-30. https://xebia.com/blog/microservices-coupling-vs-autonomy/
- https://redis.io/
+30. https://xebia.com/blog/microservices-coupling-vs-autonomy/https://redis.io/
 32. https://hub.docker.com/u/redis
 33. https://habr.com/ru/companies/wunderfund/articles/685894/
 34. https://www.mongodb.com/
