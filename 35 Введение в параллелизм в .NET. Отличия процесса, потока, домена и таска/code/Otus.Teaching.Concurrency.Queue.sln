@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otus.Teaching.Concurrency.Queue.Scheduler", "Otus.Teaching.Concurrency.Queue.Scheduler\Otus.Teaching.Concurrency.Queue.Scheduler.csproj", "{FB35FE31-CBE7-455E-A965-ABF0E9957110}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otus.Teaching.Concurrency.Queue.DataAccess", "Otus.Teaching.Concurrency.Queue.DataAccess\Otus.Teaching.Concurrency.Queue.DataAccess.csproj", "{F355A3DF-6760-403E-BB2E-889FD6957F3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otus.Teaching.Concurrency.Queue.Handler", "Otus.Teaching.Concurrency.Queue.Handler\Otus.Teaching.Concurrency.Queue.Handler.csproj", "{C7A060E6-C607-40A6-A099-107BB53085B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otus.Teaching.Concurrency.Queue.Handler.Process", "Otus.Teaching.Concurrency.Queue.Handler.Process\Otus.Teaching.Concurrency.Queue.Handler.Process.csproj", "{DEBA5D1A-BCF5-4D05-9200-0CE611B31CD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB35FE31-CBE7-455E-A965-ABF0E9957110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB35FE31-CBE7-455E-A965-ABF0E9957110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB35FE31-CBE7-455E-A965-ABF0E9957110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB35FE31-CBE7-455E-A965-ABF0E9957110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F355A3DF-6760-403E-BB2E-889FD6957F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F355A3DF-6760-403E-BB2E-889FD6957F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F355A3DF-6760-403E-BB2E-889FD6957F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F355A3DF-6760-403E-BB2E-889FD6957F3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7A060E6-C607-40A6-A099-107BB53085B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7A060E6-C607-40A6-A099-107BB53085B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7A060E6-C607-40A6-A099-107BB53085B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7A060E6-C607-40A6-A099-107BB53085B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEBA5D1A-BCF5-4D05-9200-0CE611B31CD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEBA5D1A-BCF5-4D05-9200-0CE611B31CD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEBA5D1A-BCF5-4D05-9200-0CE611B31CD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEBA5D1A-BCF5-4D05-9200-0CE611B31CD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
