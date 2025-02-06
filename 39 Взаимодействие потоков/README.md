@@ -276,3 +276,37 @@ void Log(string msg)
 ### Volatile example
 
 ![img](https://github.com/IlyaGall/C-/blob/main/39%20%D0%92%D0%B7%D0%B0%D0%B8%D0%BC%D0%BE%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D0%B5%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%B2/IMG/8.JPG)
+
+programm
+
+```c#
+var _now = DateTime.Now;
+
+ManualResetEvent manualResetEvent = new ManualResetEvent(true);
+
+var _ = Task.Run(async () =>
+{
+    await Task.Delay(600);
+    //manualResetEvent.Set();
+});
+
+Parallel.For(0, 10, DoWork);
+
+// Программа для запоминания 10 слов
+void DoWork(int id)
+{
+    Log($"Поток {id} генерируем звучание слова");
+    Thread.Sleep(new Random().Next(500, 1000)); // Генерируем звучание
+    manualResetEvent.WaitOne();
+    Log($"[{id}] Воспроизводим звук");
+    Thread.Sleep(new Random().Next(200, 500)); // Воспроизводим звук
+    manualResetEvent.Set();
+    Log("set");
+    manualResetEvent.Reset();
+}
+
+void Log(string msg)
+{
+    Console.WriteLine($"{(DateTime.Now - _now).TotalMilliseconds}\t[{Environment.CurrentManagedThreadId}] | {msg}");
+}
+```
