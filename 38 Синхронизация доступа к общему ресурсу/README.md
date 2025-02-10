@@ -904,3 +904,36 @@ namespace SyncObjects
 26. https://learn.microsoft.com/en-us/visualstudio/debugger/get-started-debugging-multithreaded-apps?view=vs-2022&tabs=csharp
 27. https://habr.com/ru/articles/447898/
 28. https://gitlab.com/otus-demo/multi-threading-synchronization
+
+### тест
+
+1. Какие из этих примитивов синхронизации вам знакомы?
+* lock (Monitor)
+* Semaphore
+* Mutex
+* ReaderWriterLock
+* SpinLock
+* SemaphoreSlim
+* ReaderWriterLockSlim
+
+2. Когда возникает необходимость синхронизации доступа к общему ресурсу?
+* В многопоточной среде
+* В многопользовательской среде
+* Когда необходимо менять общий ресурс из нескольких потоков
+
+3. Какой метод класса Monitor используется для входа в критическую секцию?
+* Monitor.Enter
+
+4. Какой из этих примитивов синхронизации позволяет работать в критической секции только одному потоку в один момент времени?
+* Mutex
+
+5. В чем отличие Mutex от Monitor?
+* Mutex реализован на уровне ОС
+* Mutex может быть использован для синхронизации между процессами
+
+6. В чем особенность SpinLock?
+* Он использует механизм цикличных и быстрых проверок на выход из блокировки
+
+7. Какой из этих примитивов синхронизации используется для одновременного доступа нескольких потоков к ресурсу?
+* Semaphore
+

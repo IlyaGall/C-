@@ -344,3 +344,60 @@ Asp.Net Core, консольные приложения нет ).
 * https://learn.microsoft.com/en-us/dotnet/api/system.threading.executioncontext?view=net-5.0
 * https://learn.microsoft.com/ru-ru/dotnet/api/system.threading.asynclocal-1?view=net-8.0
 * https://codeblog.jonskeet.uk/
+
+
+### Тестирование
+
+1. Какой из паттернов асинхронного программирования является рекомендуемым для современной разработки и лежит под капотом конструкции  async-await :
+* Task-based asynchronous pattern (TAP)
+
+2. Выберите известные вам статусы для объекта Task
+* Created
+* Waiting for Activation
+* Waiting to Run
+* Running
+* Waiting for Children to Complete
+* Ran to Completion
+* Cancelled
+* Faulted
+
+3. Как называется Task не имеющий делегата(кода) для выполнения
+* Promise Task
+
+4. Какие ограничения накладывает ключевое слово async  на возвращаемое значение метода
+* метод может возвращать тип Task
+* метод может возвращать тип Task<TResult>
+* метод может ничего не возвращать - void
+
+5. Выберите методы  запуска Task
+* Task.Run
+* Task.Factory.StartNew
+* (new Task()).Start()
+
+6. Выберите методы позволяющие запустить несколько объектов Task одновременно не блокируя поток выполненния
+* Task.WhenAny
+* Task.WhenAlll
+
+7. Если вызывающий и вызываемый код являются асинхронными методами и поддерживают отмену операции, то какие виды отмены существуют
+* По времени (scheduler)
+* По событию
+
+8. Выберите статусы объекта Task при котором его свойство IsCompleted будет True
+* Ran to Completion
+* Cancelled
+* Faulted
+
+9. Для того чтобы к экземпляру типа мог быть применен оператор await , тип должен иметь экземплярный метод T GetAwaiter(), возвращающий тип T, который еще называют awaiter.  Какими параметрами должен обладать awaiter?
+* Иметь экземплярный метод GetResult()
+* Реализовывать интерфейс INotifyCompletion
+* иметь экземплярное свойство bool IsCompleted
+
+10. Каким должно быть значение аргумента метода ConfigureAwait, для того чтобы продолжить выполнение метода после возвращения управления по выполнению await на захваченном контексте?
+* true
+
+11. В каких фреймворках присутствует контекст синхронизации  SynchronizationContext по умолчанию:
+* .Net Framework (WPF, winforms)
+* ASP.NET Framework (Windows only)
+
+12. В каком статусе заканчивает свою работу асинхронная стейтмашина в которую разворачивается async метод?
+* -2
