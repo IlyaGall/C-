@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>StructuralPatterns</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Adapter\Solution\Solution.csproj" />
+      <ProjectReference Include="..\Bridge\Solution\Solution.csproj" />
+      <ProjectReference Include="..\Composite\Solution\Solution.csproj" />
+      <ProjectReference Include="..\Decorator\Problem\Problem.csproj" />
+      <ProjectReference Include="..\Decorator\Solution\Solution.csproj" />
+      <ProjectReference Include="..\Facade\Solution\Solution.csproj" />
+      <ProjectReference Include="..\Flyweight\Solution\Solution.csproj" />
+      <ProjectReference Include="..\Proxy\Solution\Solution.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
+    </ItemGroup>
+
+</Project>

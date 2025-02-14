@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <AssemblyName>Composite.Problem</AssemblyName>
+        <RootNamespace>Composite.Problem</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Common\CardLibrary\CardLibrary.csproj" />
+    </ItemGroup>
+
+</Project>

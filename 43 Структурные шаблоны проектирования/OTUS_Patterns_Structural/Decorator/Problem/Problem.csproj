@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <AssemblyName>Decorator.Problem</AssemblyName>
+        <RootNamespace>Decorator.Problem</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Common\CardLibrary\CardLibrary.csproj" />
+    </ItemGroup>
+
+</Project>
