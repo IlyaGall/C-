@@ -64,7 +64,7 @@ public class UserService
 
 => у нас правилþнаā иерархиā типов
 
-[img](https://github.com/IlyaGall/C-/blob/main/46%20%D0%9F%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF%D1%8B%20SOLID/Img/1.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/46%20%D0%9F%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF%D1%8B%20SOLID/Img/1.JPG)
 
 ## Interface Segregation Principle (ISP)
 
@@ -80,7 +80,7 @@ public class UserService
 Вýсокоуровневýе компонентý не должнý зависетþ от низкоуровневýх компонент. И те, и те должнý зависетþ от абстракøий.
 Абстракøии не должнý зависетþ от деталей. Детали должнý зависетþ от абстракøий.
 
-[img](https://github.com/IlyaGall/C-/blob/main/46%20%D0%9F%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF%D1%8B%20SOLID/Img/2.JPG)
+![img](https://github.com/IlyaGall/C-/blob/main/46%20%D0%9F%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF%D1%8B%20SOLID/Img/2.JPG)
 
 
 ### Вопросы
@@ -110,6 +110,6 @@ public class UserService
 
 *  Какой принцип гласит: «Клиенты не должны зависеть от интерфейсов, которые они не используют»?
     - Принцип разделения интерфейсов (ISP).
-    
+
 * Как можно провести рефакторинг класса, чтобы он соответствовал принципу единой ответственности (SRP)? 
     - Обеспечивая, чтобы у каждого класса была только одна причина для изменения.
