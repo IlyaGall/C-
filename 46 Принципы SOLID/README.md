@@ -16,3 +16,55 @@
 
 
 ## Single responsibility
+
+
+Принцип единственной ответственности
+
+«Каждýй программнýй модулþ должен иметþ толþко одну приùину длā изменениā».
+
+```C#
+public class UserService
+{
+    public void Register(string email, string password) 
+    {
+        if (!ValidateEmail(email))
+            throw new ValidationException("Email is not an email");
+            var user = new User(email, password);
+            SendEmail(new MailMessage(" mysite@nowhere.com ", email) { Subject="HEllo foo" });
+
+        public virtual bool ValidateEmail(string email)
+        {
+            return email.Contains("@");
+        }
+        public bool SendEmail(MailMessage message)
+        {
+            _smtpClient.Send(message);
+        }
+    }
+}
+```
+
+## Open/Closed Principle
+
+Принцип открытости / закрытости
+«Модули должнý бýтþ открýтý длā расúирениā, но закрýтý длā модификаøий».
+
+
+## The Liskov Substitution Principle
+
+Принцип подстановки Барбары Лисков Производнýе классý должнý бýтþ доступнý ùерез интерфейс базового класса, при ÿтом полþзователĀ не обāзателþно знатþ разниøу.
+
+### Принцип подстановки Барбары Лисков
+Функøии, которýе исполþзуĀт ссýлки на базовýе классý, должнý иметþ возможностþ исполþзоватþ обüектý производнýх классов, не знаā об ÿтом.
+
+Предусловиā в подклассе не могут бýтþ усиленý.  Постусловиā в подклассе не могут бýтþ ослабленý.
+
+
+Это критерий, которýй описýвает правилþное исполþзование полиморфизма и, в ùастности, наследованиā.
+
+=> у нас правилþнаā иерархиā типов
+
+
+
+
+
