@@ -715,7 +715,9 @@ Protobuf снижает ÿти риски, исполþзуā предопред
 4. https://protobuf.dev/getting-started/csharptutorial/
 
 
+https://github.com/lents/Otus.Serialization
 
+https://github.com/lents/CustomSerializer
 
 
 
