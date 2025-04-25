@@ -10,4 +10,93 @@
 
 ## System.Reflection
 
-[img](https://github.com/IlyaGall/C-/blob/main/48%20CI_CD/img/1.JPG)
+[img](https://github.com/IlyaGall/C-/blob/main/49%20%D0%9E%D1%82%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20(Reflection)/img/1.JPG)
+
+
+## код
+
+``` C#
+Type type = typeof(MyClass);
+MyClass myClass = new MyClass();
+Type type = myClass.GetType();
+Type type = Type.GetType(typeName:
+"Namespace.MyClass,Library",throwOnError: false, ignoreCase: true);
+```
+
+## Описние методов и свойства System.Type
+System.Type
+Методы
+• FindMembers() возвращает массив объектов MemberInfo данного типа
+• GetConstructors() возвращает все конструкторы данного типа в виде набора объектовConstructorInfo• GetEvents() возвращает все события данного типа в виде массива объектов EventInfo• GetFields() возвращает все поля данного типа в виде массива объектов FieldInfo
+• GetInterfaces() получает все реализуемые данным типом интерфейсы в виде массиваобъектовType• GetMembers() возвращает все члены типа в виде массива объектов MemberInfo
+• GetMethods() получает все типы в виде массива объектов MethodInfo
+• GetProperties() получает все свойства в виде массива объектов PropertyInfo
+Свойства
+Name возвращает имя типа
+• Assembly возвращает название сборки, где определен тип
+• Namespace возвращает название пространства имен, где определен тип
+• IsArray возвращает true, если тип является массивом
+• IsClass возвращает true, если тип представляет класс
+• IsEnum возвращает true, если тип является перечислением
+• IsInterface возвращает true, если тип представляет интерфейс
+
+## Фильтры BindingFlags:
+
+• DeclaredOnly: получает только методы непосредственноданногокласса, унаследованные методы не извлекаются
+• Instance: получает только методы экземпляра
+• NonPublic: извлекает не публичные методы
+• Public: получает только публичные методы
+• Static: получает только статические методы
+
+## Динамическая загрузка сборок
+
+```C#
+Assembly.LoadFrom() и Assembly.Load(). static void Main(string[] args)
+{
+    Assembly asm = Assembly.LoadFrom("MyApp.dll");Console.WriteLine(asm.FullName);
+    // получаем все типы из сборки MyApp.dll
+    Type[] types = asm.GetTypes();
+    foreach(Type type in types)
+    {
+        Console.WriteLine(type.Name);
+    }
+    Console.ReadLine();
+}
+```
+
+## Позднее связывание
+
+```C#
+Assembly asm = Assembly.LoadFrom("MyApp.dll");
+Type type = asm.GetType("MyApp.Program", throwOnError: false, ignoreCase:true);// создаем экземпляр класса MyApp.Program
+object obj = Activator.CreateInstance(type);
+// получаем метод по имени
+MethodInfo methodInfo = type.GetMethod(“Sum");
+// вызываем метод и получаем результат
+object result = methodInfo.Invoke(obj, new object[] { 6, 100, 3 });Console.WriteLine(result);
+```
+
+## ссылка на дз
+
+
+Основное задание:
+1. Написать сериализацию свойств или полей класса в строку
+2. Проверить на классе: class F { int i1, i2, i3, i4, i5; Get() => new F(){ i1 = 1, i2 = 2, i3 = 3, i4 = 4, i5 = 5 }; }
+3. Замерить время до и после вызова функции (для большей точности можно сериализациюсделатьвцикле100-100000 раз)
+4. Вывести в консоль полученную строку и разницу времен
+5. Отправить в чат полученное время с указанием среды разработки и количества итераций
+6. Замерить время еще раз и вывести в консоль сколько потребовалось времени на вывод текста в консоль7. Провести сериализацию с помощью каких-нибудь стандартных механизмов (например в JSON)
+8. И тоже посчитать время и прислать результат сравнения
+9. Написать десериализацию/загрузку данных из строки (ini/csv-файла) в экземпляр любого класса
+10. Замерить время на десериализацию
+11. Общий результат прислать в чат с преподавателем в системе в таком виде:
+* Сериализуемый класс: class F { int i1, i2, i3, i4, i5;}
+* код сериализации-десериализации: ... количество замеров: 1000 итераций
+* мой рефлекшен:
+* Время на сериализацию = 100 мс
+* Время на десериализацию = 100 мс
+* стандартный механизм (NewtonsoftJson):
+* Время на сериализацию = 100 мс
+* Время на десериализацию = 100 мс
+
+(ссылка)[https://github.com/IlyaGall/c_Sharp__Developer_Professional/tree/main/ProfHomeWork6]
