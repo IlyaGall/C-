@@ -1,728 +1,464 @@
-# Сериализаøиā. Что ÿто?
-## определение
-
-Сериализаøиā
-
-Ƃ ÿто проøесс преобразованиā обüекта в формат, которýй можно легко сохранитþ
-или передатþ. Этот формат обýùно āвлāетсā двоиùнýм или текстовýм
-представлением, которое сохранāет состоāние и даннýе обüекта. Преобразовав
-обüект в serial формат, становитсā возможнýм сохранитþ его в файле, отправитþ по
-сети или сохранитþ в базе даннýх.
-
-[img](https://github.com/IlyaGall/C-/blob/main/50%20%D0%A1%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/img/1.JPG)
-
-## Назнаùение
-Основнаā øелþ сериализаøии Ƃ сохранение состоāниā обüекта на носителе или передаùа его по сети. Это важно длā разлиùнýх приложений, таких как:
-1. Сохранение даннýх: сохранение состоāниā обüекта в файле или базе даннýх длā последуĀûего извлеùениā.
-2. Свāзþ: отправка обüектов по сети между разлиùнýми системами или компонентами, вклĀùение удаленнýх вýзовов проøедур (RPC) и веб-служб.
-3. Резервное копирование и восстановление: создание резервнýх копий обüектов и их восстановление по мере необходимости длā обеспеùениā øелостности и непрерýвности даннýх.
-
-## Десериализаøиā
-Десериализаøиā Ƃ ÿто проøесс преобразованиā сериализованнýх даннýх обратно в обüект.
-
-Этот обратнýй проøесс берет сериализованнýй формат и реконструирует исходнýй обüект с его состоāнием и даннýми в øелости и сохранности.
-
-Десериализаøиā имеет реúаĀûее знаùение длā:
-
-● Чтениā сохраненнýх даннýх: загрузки ранее сохраненнýх обüектов из файла или базý даннýх длā восстановлениā их состоāниā.
-● Приема даннýх: полуùениā сериализованнýх обüектов по сети и их реконструкøии длā исполþзованиā в приложениāх.
-● Обмена даннýми: упроûениā обмена даннýми между разлиùнýми системами путем преобразованиā сериализованнýх даннýх в пригоднýе длā исполþзованиā обüектý.
-
-## Поùему актуалþно
-### 1. Сохранение даннýх
-
- Сохранение и загрузка состоāниā: сериализаøиā позволāет сохранāтþ состоāние обüекта в хранилиûе (например, файл или базу даннýх) и восстанавливатþ его позже, ùто важно длā приложений, которýм необходимо запоминатþ полþзователþские настройки, игровýе состоāниā или другие постоāннýе даннýе.
-
-Резервное копирование и восстановление: помогает создаватþ резервнýе копии состоāний обüектов и восстанавливатþ их по мере необходимости, обеспеùиваā øелостностþ и непрерýвностþ даннýх.
-
-[img](https://github.com/IlyaGall/C-/blob/main/50%20%D0%A1%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/img/2.JPG)
-
-### 2. Передаùа даннýх
-
-Сетеваā свāзþ: сериализаøиā исполþзуетсā длā отправки даннýх по сетāм. Например, в вебприложениāх даннýе ùасто сериализуĀтсā в JSON или XML перед отправкой клиенту или серверу.
-
-Веб-сервисý: многие веб-сервисý, такие как RESTful API, исполþзуĀт форматý сериализаøии, такие как JSON и XML, длā свāзи между клиентами и серверами.
-
-[img](https://github.com/IlyaGall/C-/blob/main/50%20%D0%A1%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/img/3.JPG)
-
-### 3. Взаимодействие
-
-Кроссплатформеннаā совместимостþ: сериализаøиā позволāет разлиùнýм системам (возможно, написаннýм на разнýх āзýках) обмениватþсā даннýми. Длā ÿтой øели úироко исполþзуĀтсā такие форматý, как JSON, XML и Protocol Buffers.
-
-Микросервисý: в архитектурах микросервисов сервисý ùасто взаимодействуĀт посредством сериализованнýх сообûений, ùто обеспеùивает бесперебойное взаимодействие между сервисами.
-
-[img](https://github.com/IlyaGall/C-/blob/main/50%20%D0%A1%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/img/4.JPG)
-
-### 4. Оптимизаøиā производителþности
-
-Эффективностþ: понимание разлиùнýх форматов сериализаøии помогает вýбратþ наиболее ÿффективнýй длā ваúего варианта исполþзованиā. Например, Protocol Buffers намного бýстрее и компактнее по сравнениĀ с JSON и XML.
-
-Управление ресурсами: правилþнаā сериализаøиā может сократитþ обüем передаваемýх или хранимýх даннýх, оптимизируā исполþзование ресурсов.
-
-[img](https://github.com/IlyaGall/C-/blob/main/50%20%D0%A1%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/img/5.JPG)
-
-### 5. Безопасностþ
-
-Безопаснаā обработка даннýх: знание недостатков определеннýх форматов сериализаøии (например, уāзвимостей в BinaryFormatter) помогает делатþ безопаснýй вýбор и избегатþ потенøиалþнýх рисков безопасности.
-
-Проверка даннýх: сериализаøиā ùасто вклĀùает проверку форматов даннýх, ùто может бýтþ дополнителþнýм уровнем безопасности от некорректнýх или вредоноснýх даннýх.
-
-[img](https://github.com/IlyaGall/C-/blob/main/50%20%D0%A1%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/img/6.JPG)
-
-### 6. Гибкостþ и контролþ
-
-Полþзователþскаā сериализаøиā: реализаøиā полþзователþской сериализаøии позволāет осуûествлāтþ деталþнýй контролþ над тем, как сериализуĀтсā и десериализуĀтсā обüектý, ùто может бýтþ критиùески важнýм длā сложнýх или конфиденøиалþнýх структур даннýх.
-
-Версионирование: Правилþнýе методý сериализаøии могут обрабатýватþ версии, позволāā приложениāм развиватþсā, не наруúаā совместимости со старýми версиāми сериализованнýх даннýх.
-
-[img](https://github.com/IlyaGall/C-/blob/main/50%20%D0%A1%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/img/7.JPG)
+# Атрибуты
+## Что такое атрибут?
 
 
-### 7. Реалþнýе приложениā
+- класс-наследник System.Attribute, добавляющий дополнительную информацию или функциональность к элементу перед которым находится.
+По соглашению, название атрибута заканчивается на Attribute (“ObsoleteAttribute”).
 
-Корпоративнýе системý: Многие корпоративнýе системý в знаùителþной степени полагаĀтсā на сериализаøиĀ длā обмена даннýми между разлиùнýми службами и системами. 
-
-Облаùнýе вýùислениā: Облаùнýе приложениā и службý ùасто исполþзуĀт сериализаøиĀ длā ÿффективного хранениā и извлеùениā даннýх.
-
-[img](https://github.com/IlyaGall/C-/blob/main/50%20%D0%A1%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/img/8.JPG)
-
-## Serialization Formats 
-
-### Binary Serialization
-
-ПлĀсý:
-* Бýстрота: Двоиùнаā сериализаøиā, как правило, бýстрее текстовýх форматов, посколþку она напрāмуĀ преобразует обüектý в двоиùнуĀ форму.
-* Эффективное хранение: Двоиùнýе даннýе занимаĀт менþúе места по сравнениĀ с текстовýми форматами, ùто делает их более ÿффективнýми длā хранениā.
-
-Минусý:
-* Зависимостþ от платформý: Двоиùнаā сериализаøиā ùасто зависит от платформý, то естþ даннýе, сериализованнýе на одной платформе, могут не поддаватþсā десериализаøии на другой.
-* Неудобоùитаемостþ длā ùеловека: Двоиùнýе даннýе нелегко ùитаĀтсā ùеловеком, ùто затруднāет отладку и руùное редактирование.
-* Риски безопасности: Двоиùнаā сериализаøиā может бýтþ подвержена уāзвимостāм безопасности, особенно если даннýе поступаĀт из ненадежнýх истоùников.
 
 ```C#
-public class BinarySerializationExample
+[Obsolete("This method is obsolete. Use M2 instead.")] public void M1(int x)
 {
-    public static void Main()
+    Console.WriteLine($"x = {x}");
+}
+```
+## Использование атрибутов
+
+• Аннотация метаданных. Атрибуты позволяют добавлять метаданные к элементам программы, таким как классы, методы, свойства, параметры и т. д. Эти метаданные могут передавать дополнительную информацию об этих элементах, помогая в документации кода, анализе и поведении во время выполнения.
+
+• Организация и ясность кода. Атрибуты помогают организовать и уточнить код, прикрепляя описательные метки или поведение к конкретным элементам. Например, такие атрибуты, как [Serializable] или [Obsolete], передают важную информацию о сериализации классов или устаревших методах соответственно, что делает код более понятным для разработчиков.
+
+• Использование платформы. Многие платформы и библиотеки .NET широко используют атрибуты для управления поведением или предоставления параметров конфигурации. Понимание того, как использовать и интерпретировать эти атрибуты, имеет решающее значение при работе с такими платформами, как ASP.NET, Entity Framework или ASP.NET Core.
+
+• Настройка и расширяемость. Атрибуты позволяют разработчикам расширять функциональность среды выполнения .NET, создавая собственные атрибуты, адаптированные к их конкретным требованиям. Пользовательские атрибуты можно использовать для реализации сквозных задач, таких как ведение журнала, кэширование, проверка, авторизация и многое другое.
+
+• Reflection и метапрограммирование. Reflection позволяет разработчикам проверять код и манипулировать им во время выполнения, а атрибуты играют центральную роль в Reflection. Понимание того, как эффективно использовать атрибуты, позволяет разработчикам использовать Reflection для таких задач, как динамический вызов методов, запросы метаданных и обработка на основе атрибутов.
+
+• Аспектно-ориентированное программирование (АОП). Атрибуты являются ключевым компонентом АОП, парадигмы программирования, которая позволяет разработчикам  модулизировать сквозные задачи. Применяя атрибуты к элементам программы, разработчики могут добавлять в приложение дополнительное поведение или функциональность, не изменяя его основную логику. 
+
+• Тестирование и отладка. Атрибуты могут помочь в тестировании и отладке, предоставляя метаданные, которые влияют на выполнение теста или поведение отладки.
+
+```C#
+[Serializable][Flags] public void Method() { }
+
+[FlagsAttribute, SerializableAttribute] public void Method() { }
+
+[Serializable, Flags] public void Method() { }
+
+[FlagsAttribute()][Serializable()] public void Method() { }
+```
+
+```C#
+[RemarkAttribute("This class uses an attribute.")] 
+[RemarkAttribute("This class uses an attribute #2.")]
+ class UseAttribute { }
+```
+
+## Применение атрибутов
+
+```C#
+[AttributeUsage(AttributeTargets.All, AllowMultiple = true)] 
+public class RemarkAttribute : Attribute
+{
+    string _remark;
+
+    public RemarkAttribute(string comment)
     {
-        Person person = new Person { Name = "Alice", Age = 30 };
-        BinaryFormatter formatter = new BinaryFormatter();
-        using (Filestream stream = new Filestream("person.bin", FileMode.Create))
-        {
-             formatter.Serialize(stream, person);
-        }
-        using (FileStream stream = new FileStream("person.bin", FileMode.Open))
-        {
-           Person deserializedPerson = (Person)formatter. Deserialize(stream);
-           Console.WriteLine($"{deserializedPerson.Name}, {deserializedPerson.Age}");
-        }
+        _remark = comment;
+    }
+    public string Remark
+    {
+        get { return _remark; }
     }
 }
 ```
 
+2 пример
+
 ```C#
-[Serializable]
-public class Person
-{
-    public string Name { get; set; } public int Age { get; set; }
+///
+<summary>
+/// Ремонт и строительство
+/// </summary>
+[Cities(Cities.Moscow, Cities.Piter)]
+[Order(1), Description("TaskCategories_Clerical", true, "Tasks")]
+[TaskPrice(1100, 1350, 2500, 1200, 1500, 500)]
+[TaskPrice(900, 1200, 2500, 1000, 1500, 500, "Piter")]
+Clerical = 32768,
+```
+
+3 пример
+
+```C#
+
+/// <summary>
+/// Получение слиске Mастерое
+/// </summary>
+[HttpPost]
+[Route("masters")]
+[ProducesResponseType(typeof(MastersModel), (int)HttpStatusCode.OK)]
+[ProducesResponseType((int)HttpStatusCode.NotFound)]
+public async Task<ActionResult> GetMasters([FromBody] MastersRequest request)
+```
+
+### К чему применяются атрибуты?
+
+```C#
+using System;
+[assembly: SomeAttr] // Применяется к сборке
+[module: SomeAttr] // Применяется к модулю
+
+[type: SomeAttr] // Применяется к типу
+internal sealed class SomeType<[typevar: SomeAttr] T> { // Применяется
+// к переменной обобщенного типа
+
+[field: SomeAttr] // Применяется к полю 
+public Int32 SomeField = 0;
+
+[return: SomeAttr] // Применяется к возвращаемому значению
+[method: SomeAttr] // Применяется к методу
+public Int32 SomeMethod(
+[param: SomeAttr] // Применяется к параметру Int32 SomeParam
+Int32 SomeParam) { return SomeParam; }
+
+
+[property: SomeAttr] // Применяется к свойству
+public String SomeProp {
+[method: SomeAttr] // Применяется к механизму доступа get
+get { return null; } }
+
+
+[event: SomeAttr] // Применяется к событиям
+[field: SomeAttr] // Применяется к полям, созданным компилятором
+[method: SomeAttr] // Применяется к созданным
+// компилятором методам add и remove
+public event EventHandler SomeEvent;
 }
 ```
 
-Уāзвимости:
-* Удаленное вýполнение кода (RCE): BinaryFormatter может бýтþ исполþзован длā удаленного  вýполнениā кода, если ненадежнýе даннýе десериализуĀтсā. Злонамереннýе субüектý могут создатþ сериализованнуĀ полезнуĀ нагрузку, котораā при десериализаøии вýполнāет произволþнýй код в øелевой системе. Это особенно опасно в сøенариāх, где сериализованнýе даннýе полуùенý из ненадежнýх истоùников по сети.
+### Вопросы для проверки
 
-* Небезопаснаā десериализаøиā: Десериализаøиā даннýх без надлежаûей проверки или безопасности может привести к разлиùнýм проблемам безопасности, вклĀùаā подделку даннýх, утеùку даннýх и повýúение привилегий. Злоумýúленники могут манипулироватþ сериализованнýми даннýми, ùтобý внедритþ вредоноснýй контент или изменитþ состоāние десериализованного обüекта.
+* Что такое атрибут в C#?
+
+Атрибут в C# — это декларативный тег, который предоставляет метаданные об элементах программы, таких как классы, методы, свойства, параметры и т. д. Он позволяет разработчикам добавлять к этим элементам дополнительную информацию или поведение без изменения их основных функций.
+
+* Как атрибуты используются при разработке на C#?
+
+Атрибуты используются для передачи метаданных об элементах программы, которые могут использоваться компиляторами, средами выполнения, платформами и инструментами. Они облегчают выполнение различных таких как генерация кода, сериализация, проверка, документирование и многое другое.
+
+* Можете ли вы привести примеры сценариев, в которых обычно используются атрибуты?
+
+Общие сценарии использования атрибутов включают пометку методов как устаревших ([Obsolete]), указание поведения сериализации ([Serializable]), определение шаблонов маршрутов в ASP.NET MVC ([Route]), настройку внедрения зависимостей ([Inject]) и указание требования авторизации ([Authorize]).
 
 
-Рекомендаøии:
 
-* Избегайте исполþзованиā BinaryFormatter: уùитýваā присуûие ему риски безопасности, рекомендуетсā избегатþ исполþзованиā BinaryFormatter в новýх приложениāх. Microsoft обüāвила BinaryFormatter устаревúим и исклĀùила из .NET 8.0, рекомендует исполþзоватþ более безопаснýе алþтернативý.
+## .NET Core
 
-* Исполþзование алþтернатив: рассмотрите возможностþ исполþзованиā современнýх и безопаснýх библиотек сериализаøии, таких как System.Text.Json, Newtonsoft.Json или Protocol Buffers (protobuf). Эти библиотеки обеспеùиваĀт луùúуĀ безопасностþ и производителþностþ.
 
-* Проверка даннýх: если необходима десериализаøиā, убедитесþ, ùто даннýе проверенý и оùиûенý перед десериализаøией. Реализуйте проверки безопасности и исполþзуйте безопаснýе методý кодированиā длā снижениā рисков.
+• [Serializable]: помечает класс как сериализуемый, позволяя сериализовать и  десериализовать экземпляры класса.
+• [DataContract] , [DataMember]: используются для определения контрактов данных в  службах WCF (Windows Communication Foundation) для сериализации и десериализации данных
+• [JsonProperty] (Newtonsoft.Json or System.Text.Json.Serialization): позволяет указывать имена свойств JSON во время сериализации и десериализации объектов.
+• [Required] ( [ValidationAttribute] )(System.ComponentModel.DataAnnotations): указывает, что свойство должно иметь значение во время проверки модели.
+• [Obsolete]: помечает элемент (например, свойство, метод) как устаревший или устаревший, указывая, что его больше не следует использовать.
+• [Conditional]: позволяет условно компилировать методы на основе указанных символов предварительной обработки. Это позволяет разработчикам включать или исключать определенные методы из скомпилированного вывода в зависимости от определенных символов, что может быть полезно для управления кодом, специфичным для отладки, или реализации переключения функций.
+• [Flags]: указывает, что перечисление представляет собой набор битовых полей или флагов. Это позволяет разработчикам определять перечислимые типы, в которых каждое значение перечисления представляет одну битовую позицию, что позволяет объединять несколько значений перечисления в одно значение с помощью побитовых операций.
 
-### XML Serialization
-ПлĀсý:
+## AspNetCore.Mvc
 
-* Человекоùитаемýй: XML основан на тексте и понāтен ùеловеку, ùто упроûает отладку и редактирование вруùнуĀ.
-* Независимостþ от платформý: XML Ƃ ÿто стандартнýй формат, которýй можно исполþзоватþ на разнýх платформах и āзýках программированиā.
-* Широкое исполþзование: XML úироко применāетсā во многих отраслāх длā обмена даннýми.
+• [Route] : определяет шаблон маршрута для действия контроллера MVC или обработчика Razor Pages.
+• [HttpGet], [HttpPost], [HttpPut], [HttpDelete]: HTTP-глаголы маршрутизации на основе атрибутов, используемые для указания метода HTTP для методов действия контроллера.
+• [ApiController] : помечает контроллер как контроллер API, обеспечивая такие функции, как автоматическая проверка модели и автоматические ответы HTTP 400.
+• [FromQuery], [FromRoute], [FromBody], [FromHeader]: используется для привязки модели в ASP.NET Core MVC для привязки данных из разных источников (строка запроса, данные маршрута, тело запроса, заголовки) для параметров метода действия.
+• [Produces] [Consumes] : используются для указания типов мультимедиа, которые действие контроллера может создавать или потреблять.
+• [BindProperty]: используется в Razor Pages для указания того, что свойство должно быть привязано к данным входящего запроса.
+• [Authorize] (Microsoft.AspNetCore.Authorization): указывает, что для доступа к контроллеру или методу действия требуется проверка подлинности.
 
-Минусý:
-* Многословнýй: XML, как правило, более многословен, ùем другие форматý, ùто приводит к увелиùениĀ размера файлов.
-* Медленнее: синтаксиùеский анализ и сериализаøиā XML обýùно медленнее по сравнениĀ с двоиùнýми форматами.
+### Сколько у этого класса атрибутов?
+
+```class A {}```
+
+• AutoLayout - автоматическое размещение содержимого класса в памяти. Другие варианты - ExplicitLayout и SequentialLayout.
+
+• AnsiClass - означает, что при маршаллинге класса строки в нём необходимо интерпретировать как ANSI. Другие варианты - UnicodeClass, AutoClass и CustomFormatClass.
+• Class - обозначение, что этот объект является классом.
+• NestedPrivate - вложенный и приватный.
+• BeforeFieldInit - означает, что объект класса может быть создан заранее, т.е. до того, как к нему обратились.
+
+### Сколько у этого метода атрибутов?
 
 ```C#
-public class XMLSerializationExample
+public void M1(int x)
 {
-    public static void Main()
+    Console.WriteLine($"x = {x}");
+}
+```
+• PrivateScope - указывает, что невозможно создать ссылку на этот член
+• Public - метод находится в публичном доступе.
+• HideBySig - указывает, что метод скрывается на основе оценки имени и сигнатуры; в обратном случае метод скрывается только по имени.
+
+
+### Размещение в памяти
+
+```C#
+public struct NotAlignedStruct
+{
+    public byte m_byte1;
+    public int m_int;
+    public byte m_byte2;
+    public short m_short;
+}
+```
+
+[img](https://github.com/IlyaGall/C-/blob/main/51%20%D0%90%D1%82%D1%80%D0%B8%D0%B1%D1%83%D1%82%D1%8B/img/1.JPG)
+
+```C#
+[StructLayout(LayoutKind.Auto)]
+public struct NotAlignedStructWithAutoLayout
+{
+    public byte m_byte1;
+    public int m_int;
+    public byte m_byte2;
+    public short m_short;
+}
+```
+
+[img](https://github.com/IlyaGall/C-/blob/main/51%20%D0%90%D1%82%D1%80%D0%B8%D0%B1%D1%83%D1%82%D1%8B/img/2.JPG)
+
+### Атрибут [Flags]
+
+```C#
+[Flags]
+internal enum Weekdays
+{
+    None = 0x0000, // Зачем None?
+    Monday = 0x0001,
+    Tuesday = 0x0002,
+    Wednesday = 0x0004,
+    Thursday = 0x0008,
+    Friday = 0x0010, // Почему 10, ведь должны быть степени двойки?
+    Saturday = 0x0020,
+    Sunday = 0x0030,
+    Workdays = Monday |Tuesday | Wednesday| Thursday | Friday,
+    Holidays = Saturday |  Sunday,
+    All = Workdays |  Holidays
+}
+```
+
+### Где используются атрибуты?
+
+• Тестирование (xUnit, nUnit)
+• Валидация
+• Сериализация
+• ASP.NET Controllers
+• etc.
+
+### Вопросы для проверки
+
+
+* Объясните назначение атрибута [Obsolete]. Как и почему вы будете использовать его в своем коде?
+
+Атрибут [Obsolete] помечает программный элемент (обычно метод или свойство) как устаревший, указывая, что он устарел или больше не должен использоваться. При его применении компилятор генерирует предупреждение или ошибку, чтобы предупредить разработчиков об устаревшем элементе, побуждая их соответствующим образом обновить свой код.
+
+* Что делает атрибут [Serializable] и когда его можно использовать?
+
+Атрибут [Serializable] помечает класс как сериализуемый, позволяя конвертировать экземпляры класса в поток байтов для хранения или передачи. Этот атрибут обычно используется в распределенных системах, операциях файлового ввода-вывода и сценариях сохранения объектов.
+
+* Обсудите значение атрибута [Conditional] в C#.
+
+Атрибут [Conditional] позволяет условно компилировать методы на основе указанных символов предварительной обработки. Это позволяет разработчикам включать или исключать определенные методы из скомпилированного вывода в зависимости от определенных символов, что может быть полезно для управления кодом, специфичным для отладки, или реализации переключения функций.
+
+### Типы которые можно использовать
+
+В C# атрибуты могут иметь свойства, также называемые параметрами. Однако существуют ограничения на типы, которые можно использовать для этих свойств.
+
+Возможные типы, которые можно использовать в качестве свойств атрибутов:
+
+• Примитивные типы: bool, byte, char, short, int, long, float, double
+• string:string
+• Enum (Перечисления):Любой тип перечисления
+• Тип: System.Type
+• Массивы объектов:
+
+Одномерные массивы любого из вышеперечисленных типов, включая массивы этих типов
+(int[], string[], bool[], Type[] и т. д.)
+
+#### Почему только такие
+
+Атрибуты предназначены для хранения метаданных о коде, и эти метаданные должны быть доступны во время компиляции, чтобы их можно было внедрить в сборку и впоследствии использовать инструментами и платформами, которые читают эти метаданные во время выполнения.
+
+Типы, разрешенные в качестве параметров атрибута (примитивные типы, строки, перечисления, Type и статические массивы), — это все типы, которые могут быть представлены как константы во время компиляции.
+
+В C# экземпляр класса атрибута создается средой выполнения .NET, когда это необходимо, обычно когда отражение используется для проверки атрибутов, примененных к элементам кода (таким как классы, методы, свойства и т. д.). (Такие методы, как GetCustomAttributes, IsDefined и GetCustomAttribute, запускают создание экземпляров классов атрибутов.)
+
+#### Пример Кастомного Атрибута
+
+```C#
+[RemarkAttribute("This class uses an attribute.")] 
+class UseAttribute { }
+```
+
+```C#
+[AttributeUsage(AttributeTargets. All)]
+public class RemarkAttribute : Attribute
+{
+    string remark;
+
+    public RemarkAttribute(string comment)
     {
-        Person person = new Person { Name = "Alice", Age = 30 };
-        XmlSerializer serializer = new XmlSerializer(typeof(Person));
-
-        using (Streamwriter writer = new Streamwriter("person.xml"))
-        {
-            serializer.Serialize(writer, person);
-        }
-        using (StreamReader reader = new StreamReader("person.xml"))
-        {
-           Person deserializedPerson = (Person)serializer.Deserialize(reader);
-           Console.WriteLine($"{deserializedPerson.Name}, {deserializedPerson.Age}");
-        }
-
+        remark = comment;
+    }
+    public string Remark
+    {
+         get { return _remark; }
     }
 }
-```
-
-```C#
-[Serializable]
-public class Person
-{
-    public string Name { get; set; }
-    public int Age { get; set; }
-}
-```
-
-### JSON Serialization
-ПлĀсý:
-* Человекоùитаемýй: JSON основан на тексте и удобен длā ùтениā ùеловеком, ùто упроûает понимание и отладку.
-* Независимостþ от платформý: JSON Ƃ úироко распространеннýй стандарт, совместимýй со многими платформами и āзýками программированиā.
-* Широкое исполþзование: JSON āвлāетсā фактиùеским стандартом обмена даннýми в вебсервисах и API.
-Минусý:
-* Менее ÿффективнýй: JSON менее ÿффективен с тоùки зрениā размера и скорости по сравнениĀ с двоиùнýми форматами.
-
-```C#
-public class JSONSerializationExample
-{
-public static void Main()
-{
-    Person person = new Person { Name = "Alice", Age = 30 }; 
-    string jsonString = JsonSerializer.Serialize(person);
-    Console.WriteLine(jsonString);
-
-    Person deserializedPerson = JsonSerializer. Deserialize<Person>(jsonString); 
-    Console.WriteLine($"{deserializedPerson.Name}, {deserializedPerson.Age}");
-}
-}
-```
-
-```C#
-[Serializable]
-public class Person
-{
-    public string Name { get; set; }
-    public int Age { get; set; }
-}
-```
-
-### SOAP Serialization
-ПлĀсý:
-* Расúирāемостþ: SOAP обладает вýсокой расúирāемостþĀ и поддерживает сложнýе типý даннýх и úаблонý свāзи.
-* Стандартизирован длā веб-сервисов: SOAP Ƃ ÿто стандартизированнýй протокол, úироко исполþзуемýй в веб-сервисах корпоративного уровнā.
-Минусý:
-* Многословностþ: сообûениā SOAP оùенþ многословнý, ùто приводит к увелиùениĀ размера сообûений.
-* Медленнее: анализ и обработка сообûений SOAP могут бýтþ медленнее по сравнениĀ с другими форматами.
-* Менее популāрен сегоднā: с ростом популāрности служб RESTful и JSON SOAP стал менее популāрнýм.
-
-```C#
-public class SOAPSerializationExample
-{
-    public static void Main()
-    {
-        Person person = new Person { Name = "Alice", Age = 30 }; 
-        SoapFormatter formatter = new SoapFormatter();
-
-        using (FileStream stream = new FileStream("person.soap", FileMode.Create))
-        {
-            formatter.Serialize(stream, person);
-        }
-        using (FileStream stream = new FileStream("person.soap", FileMode.Open))
-        {
-            Person deserializedPerson = (Person)formatter. Deserialize(stream);
-            Console. WriteLine($"{deserializedPerson.Name}, {deserializedPerson.Age}");
-        }
-    }
-}
-```
-
-```C#
-[Serializable]
-public class Person
-{
-    public string Name { get; set; }
-    public int Age { get; set; }
-}
-```
-### Custom Serialization
-ПлĀсý:
-* Полнýй контролþ: Полþзователþскаā сериализаøиā обеспеùивает полнýй контролþ над тем, как сериализуĀтсā и десериализуĀтсā обüектý.
-* Гибкостþ: Вý можете оптимизироватþ сериализаøиĀ длā конкретнýх слуùаев исполþзованиā и требований.
-Минусý:
-* Требуемýе усилиā: Реализаøиā полþзователþской сериализаøии требует болþúе усилий и
-* пониманиā проøесса сериализаøии.
-
-#### Поùему актуалþно
-Гибкостþ и контролþ
-
-Полþзователþскаā сериализаøиā: реализаøиā полþзователþской сериализаøии позволāет осуûествлāтþ деталþнýй контролþ над тем, как сериализуĀтсā и десериализуĀтсā обüектý, ùто может бýтþ критиùески важнýм длā сложнýх или конфиденøиалþнýх структур даннýх.
-
-Версионирование: Правилþнýе методý сериализаøии могут обрабатýватþ версии, позволāā приложениāм развиватþсā, не наруúаā совместимости со старýми версиāми сериализованнýх даннýх.
-
-[img](https://github.com/IlyaGall/C-/blob/main/50%20%D0%A1%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F/img/9.JPG)
-
-
-
-```C#
-public class CustomSerializationExample
-{
-    public static void Main()
-    {
-        Person person = new Person { Name = "Alice", Age = 30 };
-
-        IFormatter formatter = new BinaryFormatter();
-        using (FileStream stream = new FileStream("person.custom", FileMode.Create))
-        {
-          formatter.Serialize(stream, person);
-        }
-        using (FileStream stream = new FileStream("person.custom", FileMode.Open))
-        {
-            Person deserializedPerson = (Person)formatter. Deserialize(stream);
-            Console.WriteLine($"{deserializedPerson.Name}, {deserializedPerson.Age}");
-        }
-    }
-  
-}
-```
-
-```C#
-[Serializable]
-public class Person : ISerializable
-{
-    public string Name { get; set; }
-    public int Age { get; set; }
-    
-    public Person() { }
-
-    protected Person(SerializationInfo info, StreamingContext context)
-    {
-        Name = info.GetString("Name");
-        Age = info.GetInt32("Age");
-    }
-    public void GetObjectData(SerializationInfo info, StreamingContext context)
-    {
-        info.Addvalue("Name", Name);
-        info.Addvalue("Age", Age);
-    }
-}
 
 ```
-
-## Serializable атрибут
-
-* [Serializable]: помеùает класс как сериализуемýй, позволāā сериализоватþ и десериализоватþ ÿкземплāрý класса.
-* [DataContract] , [DataMember]: исполþзуĀтсā длā определениā контрактов даннýх в службах WCF (Windows Communication Foundation) длā сериализаøии и десериализаøии даннýх
-* [JsonProperty] (Newtonsoft.Json or System.Text.Json.Serialization): позволāет указýватþ имена свойств JSON во времā сериализаøии и десериализаøии обüектов.
-
-### Поùему некоторýе форматý требуĀт атрибута Serializable
-
-* Двоиùнаā сериализаøиā (например, с исполþзованием BinaryFormatter) требует атрибута Serializable. Это свāзано с тем, ùто среде вýполнениā .NET требуетсā āвное разреúение на сериализаøиĀ внутреннего состоāниā обüектов, вклĀùаā закрýтýе полā. Без атрибута Serializable среда вýполнениā не может гарантироватþ безопасностþ и øелостностþ сериализованнýх даннýх, ùто может привести к непредсказуемому поведениĀ или уāзвимостāм безопасности.
-Полþзователþскаā сериализаøиā:
-
-* Полþзователþскаā сериализаøиā (например, реализаøиā ISerializable) также требует атрибута Serializable. Это позволāет разработùикам контролироватþ проøесс сериализаøии, настраиваā способ записи и ùтениā даннýх обüекта.
-DataContractSerializer:
-
-* DataContractSerializer, которýй ùасто исполþзуетсā длā сериализаøии XML и JSON более контролируемýм и гибким образом, требует атрибутов Serializable или DataContract, ùтобý пометитþ типý длā сериализаøии. Это помогает указатþ, какие ÿлементý сериализуĀтсā, и обеспеùивает поддержку управлениā версиāми.
-
-* XmlSerializer не требует атрибута Serializable, посколþку он исполþзует обûедоступнýе свойства и полā длā сериализаøии. Ему не нужен доступ к закрýтýм ùленам, и он полагаетсā на более простой подход на основе отражениā. Это обеспеùивает болþúуĀ гибкостþ, но ознаùает, ùто закрýтýе даннýе не сериализуĀтсā по умолùаниĀ, и разработùикам необходимо āвно контролироватþ, ùто сериализуетсā ùерез открýтýе ùленý.
-
-* JsonSerializer (System.Text.Json и Newtonsoft.Json):
-
-* Сериализаторам JSON обýùно не требуетсā атрибут Serializable. Они полагаĀтсā на обûедоступнýе свойства и полā длā сериализаøии, подобно XmlSerializer. Эти сериализаторý исполþзуĀт отражение длā обнаружениā структурý обüектов и сериализаøии обûедоступнýх ùленов, ùто упроûает работу с классами POCO (Plain Old CLR Objects) без дополнителþнýх атрибутов.
-
-## Проверки во времā вýполнениā и во времā
-
-компилāøии Применение атрибута Serializable происходит во времā вýполнениā, а не во времā компилāøии.
-
-Поùему?
-
-● Гибкостþ
-● Динамиùеское поведение
-● Обратнаā совместимостþ
-● Обработка оúибок
+#### Области применения
 
 ```C#
-[Serializable]
-public class Person
+[assembly: SomeAttr] // Applied to assembly
+[module: SomeAttr] // Applied to module
+
+[type: SomeAttr] // Applied to type
+class SomeType<[typevar: SomeAttr] T> // Applied to generic type variable
 {
-    public string Name { get; set; }
-    public int Age { get; set; }
-    [NonSerialized]
-    private int secretCode; // This field will not be serialized
-}
+    [field: SomeAttr] // Applied to field
+    public int SomeField = 0;
 
-public Person(string name, int age, int secretCode)
-{
-    Name = name;
-    Age = age;
-    this.secretCode = secretCode;
-}
-```
-
-## Интерфейсý
-### ISerializable Interface
-Назнаùение:
-
-Интерфейс ISerializable позволāет обüекту управлāтþ собственнýми проøессами сериализаøии и десериализаøии. Это особенно полезно, когда вам нужно настраиваемое поведение во времā сериализаøии, например, управление закрýтýми полāми или управление версиāми.
-
-Реализаøиā:
-
-Чтобý реализоватþ интерфейс ISerializable, класс должен определитþ метод GetObjectData. Кроме того, класс должен предоставитþ спеøиалþнýй конструктор, которýй принимает параметрý SerializationInfo и StreamingContext длā десериализаøии.
-
-```C#
-// Special constructor for deserialization 
-protected Person(SerializationInfo info, StreamingContext context)
-{
-    Name = info.GetString("Name");
-    Age = info.GetInt32("Age");
-    SecretCode = info.GetInt32("SecretCode");
-}
-// Method to control serialization
-public void Get0bjectData(SerializationInfo info, StreamingContext context)
-{
-    info.AddValue("Name", Name);
-    info.AddValue("Age", Age);
-    info.AddValue("SecretCode", SecretCode);
-}
-```
-
-### IFormatter Interface
-Назнаùение:
-
-Интерфейс IFormatter предоставлāет функøионалþнýе возможности длā форматированиā сериализованнýх обüектов. Он определāет методý сериализаøии и десериализаøии обüектов, предоставлāā разработùикам контролþ над форматом сериализаøии.
-
-Реализаøиā:
-
-● Serialize(Stream, Object): сериализует обüект и записýвает его в предоставленнýй поток.
-● Deserialize(Stream): десериализует даннýе из предоставленного потока и восстанавливает исходнýй обüект.
-
-## IFormatter Interface
-
-```C#
-public class SimpleFormatter : IFormatter
-{
-public SerializationBinder Binder { get; set; }
-public StreamingContext kg2XWEHoEhQ { get; set; }
-public ISurrogateSelector SurrogateSelector { get; set; }
-public SimpleFormatter()
-{
-    kg2XWEHoEhQ = new StreamingContext(StreamingContextStates.All);
-}
-}
-```
-
-```C#
-[Serializable]
-public class Person
-{
-    public string Name { get; set; }
-    public int Age { get; set; }
-    public Person(string name, int age)
-    {
-        Name = name;
-        Age = age;
-    }
-    public override string Tostring()
-    {
-      return $"Name: {Name}, Age: {Age}";
-    }
-}
-```
-
-```C#
-public void Serialize(Stream stream, object obj)
-{
-    using (StreamWriter writer = new StreamWriter(stream))
-    {
-    if (obj is Person person)
-        {
-            writer.WriteLine(person.Name);
-            writer.WriteLine(person.Age);
-        }
-    }
-}
-public object Deserialize(Stream stream)
-{
-    using (StreamReader reader = new StreamReader(stream))
-    {
-      string name = reader.ReadLine();
-      int age = int.Parse(reader.ReadLine());
-      return new Person(name, age);
+    [return: SomeAttr] // Applied to return value
+    [method: SomeAttr] // Applied to method
+    public int SomeMethod([param: SomeAttr] int SomeParam)    //    Applied to parameter
+    { 
+        return SomeParam;
     }
 
+    [property: SomeAttr]     // Applied to property
+    public String SomeProp
+    {
+        [method: SomeAttr]
+        get { return null; } // Applied to get accessor method
+    }
+    [event: SomeAttr] // Applied to event
+    [field: SomeAttr] // Applied to compiler-generated field
+    [method: SomeAttr] // Applied to compiler-generated add & remove methods
+    public event EventHandler SomeEvent;
 }
 ```
 
-
-
-```C#
-public class CustomFormatterExample
+```c#
+[Flags, Serializable]
+public enum AttributeTargets
 {
-    public static void Main()
-    {
-        Person person = new Person("Alice", 30);
-        // Serialize the object   using custom formatter 
-        IFormatter formatter = new SimpleFormatter();
-        using (FileStream stream = new FileStream("person.txt", FileMode.Create))
-        {
-            formatter.Serialize(stream, person);
-        }
-        // Deserialize the object using custom formatter 
-        using (FileStream stream = new FileStream("person.txt", FileMode.Open))
-        {
-             Person deserializedPerson = (Person)formatter.Deserialize(stream); 
-             Console.WriteLine(deserializedPerson);
-        }
-    }
+    Assembly = 0x0001,
+    Module = 0x0002,
+    Class = 0x0004,
+    Struct = 0x0008,
+    Enum = 0x0010,
+    Constructor = 0x0020,
+    Method = 0x0040,
+    Property = 0x0080,
+    Field = 0x0100,
+    Event = 0x0200,
+    Interface = 0x0400,
+    Parameter = 0x0800,
+    Delegate = 0x1000,
+    ReturnValue = 0x2000,
+    GenericParameter = 0x4000,
+    All = Assembly | Module | Class | Struct | Enum | Constructor
+    | Method | Property | Field | Event | Interface | Parameter | Delegate | ReturnValue | GenericParameter
 }
 ```
+### Способы получения атрибутов
+• IsDefined*
+• GetCustomAttribute
+• GetCustomAttributes
+• GetCustomAttributesData
 
-### Итоги
-Интерфейс ISerializable
+[img](https://github.com/IlyaGall/C-/blob/main/51%20%D0%90%D1%82%D1%80%D0%B8%D0%B1%D1%83%D1%82%D1%8B/img/3.JPG)
 
-* Целþ: позволāет обüекту управлāтþ собственной сериализаøией и десериализаøией.
-* Реализаøиā: требует метод GetObjectData и спеøиалþнýй конструктор длā десериализаøии.
-* Вариант исполþзованиā: когда вам нужно настроитþ способ сериализаøии обüекта, например, вклĀùитþ закрýтýе полā или управлāтþ сложной логикой сериализаøии.
+### Где используются кастомные атрибуты?
+• Кастомная валидация
+• Аспектно-ориентированное программирование
+• Собственные мапперы
+• Любые места, где нужно работать с классами, а не их экземплярами.
 
-Интерфейс IFormatter
+### Вопросы для проверки
 
-* Целþ: предоставлāет функøионалþностþ длā форматированиā сериализованнýх обüектов. 
-* Методý: Serialize(Stream, Object) и Deserialize(Stream).
-* Вариант исполþзованиā: когда вам нужно определитþ полþзователþский формат сериализаøии, например, фирменнýй двоиùнýй формат или упроûеннýй текстовýй формат.
+* Что такое пользовательские атрибуты и зачем их создавать?
 
-## Стандартнýе средства
-
-### BinaryFormatter (Deprecated)
-
-BinaryFormatter исполþзуетсā длā двоиùной сериализаøии, преобразуā обüектý в двоиùнýй формат. Он сериализует все ÿлементý, вклĀùаā закрýтýе полā, обеспеùиваā полное и компактное представление обüектов. Удален по приùине уāзвимостей
-
-### XmlSerializer
-XmlSerializer исполþзуетсā длā сериализаøии XML, преобразуā обüектý в формат XML. Он сериализует обûедоступнýе свойства и полā, ùто делает его пригоднýм длā совместимого обмена даннýми.
-
-
-### DataContractSerializer
-DataContractSerializer исполþзуетсā длā сериализаøии XML и JSON. Он предоставлāет возможностþ сериализаøии и десериализаøии обüектов на основе контракта, ùто делает его пригоднýм длā сервис-ориентированнýх приложений.
-
-```C#
-[DataContract]
-public class Person
-{
-    [DataMember]
-    public string Name { get; set; }
-    [DataMember]
-    public int Age { get; set; }
-}
-```
-
-```C#
-public class DataContractSerializerExample
-{
-    public static void Main()
-    {
-        Person person = new Person { Name = "Alice", Age = 30 };
-        DataContractSerializer serializer = new DataContractSerializer(typeof(Person));
-        // Serialize the object to XML
-        using (FileStream stream = new FileStream("person.xml", FileMode.Create))
-        {
-            serializer.WriteObject(stream, person);
-        }
-        // Deserialize the object from XML 
-        using (FileStream stream = new FileStream("person.xml", FileMode.Open))
-        {
-            Person deserializedPerson = (Person)serializer.ReadObject(stream);
-            Console.WriteLine($"{deserializedPerson.Name}, {deserializedPerson.Age}");
-        }
-    }
-
-}
-```
-
-### JsonSerializer (System.Text.Json)
-System.Text.Json.JsonSerializer Ƃ ÿто современнаā и ÿффективнаā библиотека длā сериализаøии JSON. Он вклĀùен в .NET Core 3.0 и более поздних версий и обеспеùивает вýсокуĀ производителþностþ и безопасностþ.
-
-### Newtonsoft.Json
-
-```C#
-public class NewtonsoftJsonExample
-{
-    public static void Main()
-    {
-        Person person = new Person { Name = "Alice", Age = 30 };
-        // Serialize the object to JSON 
-        string jsonString = JsonConvert. Serialize0bject(person); Console.WriteLine(jsonString);
-    
-    
-        // Deserialize the object from JSON
-        Person deserializedPerson = JsonConvert.DeserializeObject<Person>(jsonString);
-        Console.WriteLine($"{deserializedPerson.Name}, {deserializedPerson.Age}");
-    }
-}
-```
-### System.Text.Json vs Newtonsoft.Json
-
-System.Text.Json
-● Представлено в .NET Core 3.0.
-● Встроеннаā библиотека в .NET Core и более поздних версиāх.
-● Разработан, ùтобý бýтþ легким и производителþнýм.
-
- Newtonsoft.Json
-● Стороннāā библиотека, также известнаā как Json.NET.
-● Оùенþ популāрен и úироко исполþзуетсā в сообûестве .NET.
-● Предоставлāет богатýй набор функøий и возможностей настройки.
-
-#### Производителþностþ
-
-System.Text.Json
-
-● Как правило, бýстрее с тоùки зрениā сериализаøии и десериализаøии благодарā облегùенной конструкøии.
-● Оптимизирован длā вýсокой производителþности, особенно в сøенариāх, где требуетсā минималþнаā настройка.
-● Сравнителþнýе тестý ùасто показýваĀт, ùто System.Text.Json работает бýстрее в простýх слуùаāх исполþзованиā.
-
-Newtonsoft.Json
-
-● Немного медленнее, ùем System.Text.Json, особенно в простýх сøенариāх.
-● Разниøа в производителþности может бýтþ незнаùителþной длā сложнýх задаù сериализаøии и десериализаøии, в которýх исполþзуĀтсā расúиреннýе функøии.
-
-#### Возможности
-
-System.Text.Json 
-
-● Ограниùеннýй набор функøий по сравнениĀ с Newtonsoft.Json.
-● Базовýе возможности сериализаøии и десериализаøии.
-● Поддерживает полþзователþские конвертерý, но с менее интуитивно понāтнýм API.
-● Отсутствие поддержки некоторýх сложнýх сøенариев, таких как полиморфнаā десериализаøиā, аннотаøии даннýх и более сложнаā настройка.
-
-Newtonsoft.Json
-
-● Богатýй набор функøий, вклĀùаā расúиреннýе параметрý сериализаøии и десериализаøии.
-● Поддерживает полþзователþские преобразователи, преобразователи контрактов и расúиреннуĀ настройку.
-● Предоставлāет такие функøии, как проверка схемý JSON, LINQ to JSON и надежнаā обработка оúибок.
-● Расúиреннаā поддержка атрибутов длā управлениā поведением сериализаøии (например, JsonProperty, JsonIgnore).
-
-
-## ProtoBuf
-
-Что такое Proto (буферý протоколов)?
-
-Protocol Buffers (Proto) Ƃ ÿто не зависāûий от āзýка и платформý, расúирāемýй механизм длā сериализаøии структурированнýх даннýх.
-
-Разработаннýй Google, Proto исполþзуетсā длā определениā структур даннýх и их ÿффективной сериализаøии.
-
-Основнýе характеристики:
-
-* Компактностþ: буферý протоколов генерируĀт менþúие двоиùнýе представлениā по сравнениĀ с JSON или XML.
-* Скоростþ: сериализаøиā и десериализаøиā вýполнāĀтсā бýстрее благодарā компактному двоиùному формату.
-* Поддержка āзýков: поддерживает несколþко āзýков программированиā, вклĀùаā C#, Java, Python и другие.
-
-```C#
-syntax = "proto3";
-message Person {
-string name = 1;
-int32 age = 2;
-string email = 3;
-}
-```
-
-```C#
-syntax = "proto3";
-service PersonService {
-rpc GetPerson(PersonRequest) returns (PersonResponse);
-}
-message PersonRequest {
-int32 id = 1;
-}
-message PersonResponse {
-string name = 1;
-int32 age = 2;
-string email = 3;
-}
-```
-
-
-```C#
-public class Person : IMessage Person>
-{
-    // Generated code for serialization and deserialization
-    // based on the .proto file definitions
-    // Properties
-    public string Name { get; set; }
-    public int Age { get; set; }
-    // Serialization and deserialization methods
-    public void WriteTo(CodedOutputStream output)
-    {
-        output.WriteString(Name);
-        output.WriteInt32(Age);
-    }
-   
-    public int CalculateSize()
-    {
-        // Calculate size based on fields
-        return CodedOutputStream.ComputeStringSize(Name) + CodedOutputStream.ComputeInt325
-    }
-    
-    public void MergeFrom(CodedInputStream input)
-    {
-        // Deserialize fields
-        Name = input.ReadString();
-        Age = input.ReadInt32();
-    }
-    // Additional required methods omitted for brevity
-}
-```
-
-```C#
-public class ProtobufExample
-{
-    public static void Main()
-    {
-         Person person = new Person { Name = "Alice", Age = 30 };
-        // Serialize the object
-        using (FileStream stream = new FileStream("person.bin", FileMode.Create))
-        {
-             person.WriteTo(CodedOutputStream.CreateInstance(stream));
-        }
-        // Deserialize the object
-        Person deserializedPerson = new Person();
-
-        using (FileStream stream = new FileStream("person.bin", FileMode.Open))
-        {
-            deserializedPerson.MergeFrom(CodedInputStream.CreateInstance(stream));
-        }
-        Console. WriteLine($"{deserializedPerson. Name}, {deserializedPerson.Age}");
-    }
+Пользовательские атрибуты — это определяемые пользователем теги метаданных, созданные на основе базового класса System.Attribute. Разработчики создают пользовательские атрибуты, чтобы аннотировать свой код метаданными, специфичными для предметной области.
  
+* Можете ли вы объяснить шаги, необходимые для создания настраиваемого атрибута?
+
+Чтобы создать настраиваемый атрибут, вы определяете новый класс, который наследуется от System.Attribute, и украшаете его атрибутом [AttributeUsage], чтобы указать его целевые элементы. При желании вы можете определить свойства, поля или методы в классе атрибутов для хранения дополнительной информации. 
+
+* Приведите пример сценария, в котором вы будете использовать настраиваемый атрибут в проекте C#.
+
+Распространенным сценарием использования настраиваемого атрибута является реализация правил декларативной авторизации в веб-приложении. Вы можете создать собственный атрибут [AuthorizeRole], который принимает параметр роли и применяет его к действиям или методам контроллера, упрощая логику управления доступом и повышая читаемость кода.
+
+### Полезные ссылки
+
+• https://learn.microsoft.com/en-us/dotnet/csharp/advancedtopics/reflection-and-attributes/
+• http://csharpindepth.com/Articles/General/Beforefieldinit.aspx - Статья, где Джон Скит рассуждает про поведение BeforeFieldInit.
+• https://github.com/SergeyTeplyakov/ObjectLayoutInspector - утилита для просмотра расположения объектов в памяти.
+• http://sergeyteplyakov.blogspot.com/ - блог Сергея Теплякова, где ещё много всего интересного.
+• https://referencesource.microsoft.com/#mscorlib/system/reflection/methodattributes.cs,22 - Исходный код с PrivateScope.
+• https://www.youtube.com/watch?v=zAhOxraBsi0 - Обсуждение изменений ватрибутах в Microsoft
+
+
+### практика
+
+/*
+ 3 примера получения данных из атрибута
+string remark;
+remark = (typeof(UseAttribute).GetCustomAttribute(typeof(RemarkAttribute)) as RemarkAttribute).Remark;
+remark = (typeof(UseAttribute).GetCustomAttributes(typeof(RemarkAttribute)).Single() as RemarkAttribute).Remark;
+remark = typeof(UseAttribute).GetCustomAttributesData().Single(x => x.AttributeType == typeof(RemarkAttribute)).ConstructorArguments.First().Value.ToString();
+ */
+
+
+```C#
+[CustomAttribyte("Mike", "2020-10-02", 11576)]
+public class Class1
+{
+
 }
 ```
 
-### Поùему безопасен?
-У BinaryFormatter естþ серþезнýе проблемý с безопасностþĀ из-за вклĀùениā информаøии о типе в сериализованнýе даннýе, способности реконструироватþ сложнýе графý обüектов и возможности удаленного вýполнениā кода посредством обратнýх вýзовов десериализаøии.
+```C#
+namespace CustomAttribyte
+{
 
-Protobuf снижает ÿти риски, исполþзуā предопределеннуĀ схему, избегаā информаøии о типах во времā вýполнениā, обеспеùиваā безопасностþ типов и ограниùиваā сложностþ десериализованнýх обüектов. Такаā конструкøиā делает Protobuf более безопаснýм вýбором длā двоиùной сериализаøии, особенно в сøенариāх, вклĀùаĀûих ненадежнýе даннýе.
+    /// [LastChange("Mike", "2020-10-02", 11576)]
 
-### Список материалов длā изуùениā
-1. https://learn.microsoft.com/ru-ru/dotnet/standard/serialization/
-2. https://learn.microsoft.com/ru-ru/dotnet/standard/serialization/controlling-xml-serialization-using-attributes
-3. https://www.newtonsoft.com/json/help/html/SerializingJSON.htm
-4. https://protobuf.dev/getting-started/csharptutorial/
+    [AttributeUsage(AttributeTargets.Class)] //только для классов
+    public class CustomAttribyte : Attribute
+    {
+        public string Name { get; }
+
+        public string DateTime { get;}
+
+        public int Number { get; }
+       
+        public CustomAttribyte(string name, string dateTime, int number)
+        {
+            Name = name;
+            DateTime = dateTime;
+            Number = number;
+        }
+    }
+}
+```
 
 
-https://github.com/lents/Otus.Serialization
+```C#
 
-https://github.com/lents/CustomSerializer
+using System.Reflection;
 
-
-
-
-
-
-
-
+namespace CustomAttribyte
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Class1 class1 = new Class1();
+            var collectionAt = typeof(Class1).GetCustomAttributes(typeof(CustomAttribyte)).First() as CustomAttribyte;
+            if (collectionAt != null)
+            {
+                Console.WriteLine($"{collectionAt.Name} {collectionAt.DateTime} {collectionAt.Number} ");
+            }
+        }
+    }
+}
+    ```
