@@ -111,32 +111,155 @@ private void SomeMethod()
 }
 ```
 
-### Как работатþ с исклĀùением
+## Как работатþ с исклĀùением
+### System.Exception
 
+System.Exception – базовýй класс исклĀùений Все исклĀùениā наследуĀтсā на определенном уровне от
+System.Exception
+Принāто все классý
+исклĀùений назýватþ с
+суффиксом Exception
+• InvalidOperationException
+• OutOfRangeException
+• ArgumentNullException
 
+[img](https://github.com/IlyaGall/C-/blob/main/52%20%D0%98%D1%81%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B8%20%D0%BD%D1%8E%D0%B0%D0%BD%D1%81%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%BD%D0%B8%D0%BC%D0%B8/img/3.JPG)
 
+### Иерархиā исклĀùений
 
+[img](https://github.com/IlyaGall/C-/blob/main/52%20%D0%98%D1%81%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B8%20%D0%BD%D1%8E%D0%B0%D0%BD%D1%81%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%BD%D0%B8%D0%BC%D0%B8/img/4.JPG)
+    
+### Генераøиā собственнýх исклĀùений
 
+```C#
+///<summary>
+///Мое собственное исключение
+///</summary>
+class MyCystomException:Exception
+{
 
+}
+```
 
+### Вариантý перехвата
+● try catch
+● try catch finally
+● AppDomain.CurrentDomain.UnhandledException
+● Application.ThreadException (WinForms, WPF)
 
+### Stacktrace
+● Содержит цепочку вызовов методов до места, где произошло исключение (с точностью номера строки)
+● Можно получить и Environment.StackTrace
+● Можно использовать System.Diagnostic.StackTrace
 
+## Операторý
 
+### Обûее, синтаксис
 
+```C#
+try
+{
+    if (b == 0)
+    {
+        throw new DivideByZeroException("Делим на ноль");
+    }
+    return a / b;
+}
+catch (Exception e)
+{
+     Console.WriteLine("Произошла ошибка");
+     return 0.0;
 
+}
+finally
+{
+    Console.WriteLine("Я блок finally ");
+}
+```
 
+### throw– оператор вýзова исклĀùениā
 
+```C#
+try
+{
+    if (b == 0)
+    {
+        throw new DivideByZeroException("Делим на ноль");
+    }
+    return a / b;
+}
+catch (Exception e)
+{
+    Console.WriteLine("Произошла ошибка"); 
+    return 0.0;
 
+}
+finally
+{
+    Console.WriteLine("Я блок finally ");
+}
+```
 
+Синтаксис
+```
+throw объект_класс_exception_или_производного
+```
 
+### throw , вариантý исполþзованиā
 
+Можно так:
 
+```throw new Exception("Я сообщение об ошибке");```
 
+А можно так:
+```C#
+var ex = new Exception("Я cообщение о6 ошибке"); 
+ex.Data.Add("a", "2");
+throw ex;
+```
 
+### try\catch
 
+```C#
+try
+{
+    if (b == 0)
+    {
+        throw new DivideByZeroException("Делим на ноль");
+    }
+    return a / b;
+    
+}
+catch (Exception e)
+{
+    Console.WriteLine("Произошла ошибка"); 
+    return 0.0;
+}
+finally
+{
+    Console.WriteLine("Я блок finally ");
+}
+```
 
+### try catch
 
+* try catch – операторý перехвата исклĀùений
+* try {} – обüāвлāет областþ кода, где потенøиалþно может вýбрасýватþсā исклĀùение
+* catch{} – «ловит» исклĀùение из блока try и обрабатýвает даннуĀ ситуаøиĀ
 
+Синтаксис:
+
+```C#
+try
+{
+    // Здесь может быть какой-то код
+}
+catch (Exception exc)
+{
+    // А здесь происходит обработка исключения ехс
+    // вызванного в каком-то коде
+}
+```
 
 
 
